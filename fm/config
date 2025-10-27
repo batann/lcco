@@ -1,0 +1,82 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+#lcfm configuration
+
+
+
+#key mappings internal
+#=
+
+#Set startup flags here options 0/1
+#let show display = 0
+#let lc-clipboard = 0 
+
+
+
+#{{{ >>>   Vars >#15
+DIR_BASE="/home/$USER/.config/lc-fm"
+DIR_CONF=("/home/$USER/lcbash" "/home/$USER/.config/lc-bashrc" "/home/$USER/.config/lc-clipboard" "/home/$USER/.config/lc-fm" "/home/$USER/.config/lc-gutenberg" "/home/$USER/.config/lc-mashpodder" "/home/$USER/.config/lc-ollama" "/home/$USER/.config/lc-ranger" "/home/$USER/.config/lc-startup")
+declare -a DIR_MUSIC=$(find /media/batan/100/Music -maxdepth 5 -type d |sed 's/\.\///g'|sed 's/^/"/g'|sed 's/$/"/g'); IFS=''
+declare -a DIR_VIDEOS=$(find /media/batan/100/Videos -maxdepth 5 -type d |sed 's/\.\///g'|sed 's/^/"/g'|sed 's/$/"/g'); IFS=''
+DIR_MEDIA=("/media/batan/100" "/media/batan/200" "/media/batan/300" "/media/batan/400" "/media/batan/500" "/media/batan/600" "/media/batan/700" "/media/batan/800" "/media/batan/900")
+DOT_FILES=("/home/$USER/.Xauthority" "/home/$USER/.xboardrc" "/home/$USER/.Xdefaults" "/home/$USER/.xinitrc" "/home/$USER/.Xresources" "/home/$USER/.vimrc" "/home/$USER/.tmux.conf" "/home/$USER/.taskrc" "/home/$USER/.tkremind" "/home/$USER/.reminder.md" "/home/$USER/.rss.opml" "/home/$USER/.rainbowoauth" "/home/$USER/.megarc" "/home/$USER/.music.kdl" "/home/$USER/.oolite-starter.conf" "/home/$USER/.profile" "/home/$USER/.inputrc" "/home/$USER/.lc-cd" "/home/$USER/.lc-sign" "/home/$USER/.fzf.bash" "/home/$USER/.bookmarks.055" "/home/$USER/.bash_logout" "/home/$USER/.bash_profile" "/home/$USER/.bashrc" "/home/$USER/.bashrc.aliases" "/home/$USER/.bashrc.batan" "/home/$USER/.bashrc.bbatan" "/home/$USER/.bashrc.DONT" "/home/$USER/.bashrc.finish" "/home/$USER/.BASHRC.FIRST.LC" "/home/$USER/.bashrc.navigation")
+DEPS_LC_FM_APT=("xclip" "pipx" "ddgr" "mpv" "buku" "pulseaudio" "pulsemixer")
+DEPS_LC_FM_PIPX=("edge-tts" "browser-history")
+#}}} <#24
+#{{{ >>>   Custom Key Mapping >#25
+map aa exec alacritty &
+map er exec xfce4-terminal -e "vim /home/$USER/.config/lc-fm/config"
+map xx exec echo "xxxxx"
+map dd exec killall firefox 2>/dev/null & killall firefox-bin 2>/dev/null & firefox && browser-history |sed 's!.*http!http!g'|sed 's![,].*$!!g' >> /home/$USER/.config/lists/firefox-history.md 
+map ff exec falkon
+map gg exec surf https://chatgpt.html
+map ll exec sudo -u batan bash /home/$USER/.config/i3/launcher/launcher.sh
+map pp exec pulsemixer
+map tt exec thunar
+map nn exec xfce4-terminal --geometry 160x40-200-200 -e "vim -O2 /home/$USER/.task/notes/note.'$(( $(ls /home/$USER/.task/notes/note*|wc -l) + 1 ))'.wiki /home/$USER/.task/notes/note.wiki -c ':terminal'"
+map a1 exec rm -f /home/$USER/.config/lc-clipboard/register1 >/dev/null 2>&1 && xclip -o >> /home/$USER/.config/lc-clipboard/register1 && tput cup 16 0  echo -e "    $C⟦$H register1 : $C⟧   $F❨$E$D $(cat /home/$USER/.config/lc-clipboard/register1|cut -c1-48) $N"; lcfmbottom1; lcfmbottom2
+#}}} <#37
+#{{{ >>>   Mapping to <Leader> Key >#38
+map o1 exec firefox $(cat /home/$USER/.config/lc-clipboard/register1) & 
+map o2 exec firefox $(cat /home/$USER/.config/lc-clipboard/register2) &
+map o3 exec firefox $(cat /home/$USER/.config/lc-clipboard/register3) &
+map o4 exec firefox $(cat /home/$USER/.config/lc-clipboard/register4) &
+map o5 exec firefox $(cat /home/$USER/.config/lc-clipboard/register5) &
+map o6 exec firefox $(cat /home/$USER/.config/lc-clipboard/register6) &
+map o7 exec firefox $(cat /home/$USER/.config/lc-clipboard/register7) &
+map o8 exec firefox $(cat /home/$USER/.config/lc-clipboard/register8) &
+map o9 exec firefox $(cat /home/$USER/.config/lc-clipboard/register9) &
+
+map a2 exec rm -f /home/$USER/.config/lc-clipboard/register2 >/dev/null 2>&1 && xclip -o >> /home/$USER/.config/lc-clipboard/register2
+map a3 exec rm -f /home/$USER/.config/lc-clipboard/register3 >/dev/null 2>&1 && xclip -o >> /home/$USER/.config/lc-clipboard/register3
+map a4 exec rm -f /home/$USER/.config/lc-clipboard/register4 >/dev/null 2>&1 && xclip -o >> /home/$USER/.config/lc-clipboard/register4
+map a5 exec rm -f /home/$USER/.config/lc-clipboard/register5 >/dev/null 2>&1 && xclip -o >> /home/$USER/.config/lc-clipboard/register5
+map a6 exec rm -f /home/$USER/.config/lc-clipboard/register6 >/dev/null 2>&1 && xclip -o >> /home/$USER/.config/lc-clipboard/register6
+map a7 exec rm -f /home/$USER/.config/lc-clipboard/register7 >/dev/null 2>&1 && xclip -o >> /home/$USER/.config/lc-clipboard/register7
+map a8 exec rm -f /home/$USER/.config/lc-clipboard/register8 >/dev/null 2>&1 && xclip -o >> /home/$USER/.config/lc-clipboard/register8
+map a9 exec rm -f /home/$USER/.config/lc-clipboard/register9 >/dev/null 2>&1 && xclip -o >> /home/$USER/.config/lc-clipboard/register9
+map .1 exec mpv $(cat /home/$USER/.config/lc-clipboard/register1)
+map .2 exec mpv $(cat /home/$USER/.config/lc-clipboard/register2)
+map .3 exec mpv $(cat /home/$USER/.config/lc-clipboard/register3)
+map .4 exec mpv $(cat /home/$USER/.config/lc-clipboard/register4)
+map .5 exec mpv $(cat /home/$USER/.config/lc-clipboard/register5)
+map .6 exec mpv $(cat /home/$USER/.config/lc-clipboard/register6)
+map .7 exec mpv $(cat /home/$USER/.config/lc-clipboard/register7)
+map .8 exec mpv $(cat /home/$USER/.config/lc-clipboard/register8)
+map .9 exec mpv $(cat /home/$USER/.config/lc-clipboard/register9)
+#}}} <#66
+
+LISTS=("""")
+
+#netrw project based configuration
+
+
+#Run any helper scripts here #Currently lc-clipboard function gets executed from the script itself as a background job
+
+#lcfm configuration
+#key mappings internal
+#=
+
+#Set startup flags here options 0/1
+#let show display = 0
+#let lc-clipboard = 0 
+

@@ -1,0 +1,48 @@
+#PROJECTS=(/home/$USER/LCCLIMENU /home/$USER/LCFM /home/$USER/lcbash)
+CONFIGDIR="/home/$USER/.lcco"
+CACHEDIR="/home/$USER/.lccache"
+PROJECTS=(
+$CONFIGDIR/clipboard
+$CONFIGDIR/gutenberg
+$CONFIGDIR/fm
+$CONFIGDIR/bash
+$CONFIGDIR/weather
+$CONFIGDIR/climenu
+$CONFIGDIR/functions
+$CONFIGDIR/dotfiles
+$CONFIGDIR/tools
+$CONFIGDIR/mashpodder
+$CONFIGDIR/lists
+$CONFIGDIR/controlfile
+$CONFIGDIR/daemon
+)
+
+
+
+
+###   system configuration (can hold additional parametars subsequent to true / false for egsample:
+###   LCCLIPBOARD : true : [ additional parametar ]
+LCCLIPBOARD : true
+LCGUTENBERG : false
+LCFM : false
+LCBASH : false
+LCWEATHER : false
+LCCLIMENU : false
+LCFUNCTIONS : false
+LCDOTFILES : false
+LCTOOLS : false
+LCMASHPODDER : false
+LCLISTS : false
+LCCONTROLFILE : false
+LCDAEMON : false
+
+###   Some of the neccessery config files (currently - loose or without permanent location
+remind.rmd
+rss.feed.list
+
+
+
+#OPTIONS
+
+OPTIONS=$(cat flatpaks.list |cut -d' ' -f1)
+i

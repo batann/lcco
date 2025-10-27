@@ -1,0 +1,1230 @@
+id,position,description,category_id
+0,0,adventure,29
+1,0,boggle,29
+2,0,backgammon,29
+3,0,atc,29
+4,0,battlestar,29
+5,0,worm,29
+6,0,nethack-console,29
+7,0,zangband,29
+8,0,ninvaders,29
+9,0,greed,29
+10,0,moon-buggy,29
+11,0,"Create file",37
+12,0,"Delete file",37
+13,0,"Display file content",37
+14,0,"Edit text file",37
+15,0,"Copy file or folder",37
+16,0,"Move/Rename file or folder",37
+17,0,"Create folder",37
+18,0,"Delete folder",37
+19,0,"List folder contents",37
+20,0,"Change folder",37
+21,0,"Change to users home directory",37
+22,0,"Change to parent directory",37
+23,0,"Change to previous directory",37
+24,0,"Show current folder",37
+25,0,"Create a physical link to file or folder",37
+26,0,"Find phrase within file",37
+27,0,"Get filesystem of partition",37
+28,0,"Mount filesystem",37
+29,0,"Unmount filesystem",37
+30,0,"Make file executable ",37
+31,0,"Show size of all sub directories",37
+32,0,"Display and update information of files(like top)",37
+33,0,"List trash files",37
+34,0,"Empty trash",37
+35,0,"Move file to trash",37
+36,0,"View file permission",37
+37,0,"Set file permission",37
+38,0,"View owner and group of file",37
+39,0,"Change owner of file",37
+40,0,"Change group owner ship of file",37
+41,0,"CPU usage in percentage",246
+42,0,"Laptop battery in percentage",246
+43,0,"Bluetooth MAC address",246
+44,0,"Bluetooth name",246
+45,0,"Network interfaces",246
+46,0,"Memory information",246
+47,0,"Info about the linux system",246
+48,0,"PCI devices",246
+49,0,"USB devices",246
+50,0,"Block devices (except RAM disks) in a tree-like format",246
+51,0,"External ip",243
+52,0,"Uptime of machine",246
+53,0,"Disk usage info",246
+54,0,"Bootlog info",246
+55,0,"Show a small months calender",246
+56,0,"Lock screen",21
+57,0,"Unlock screen",21
+58,0,"Reboot the system",21
+59,0,"Shutdown the system",21
+60,0,"Shutdown the system at specific time",21
+61,0,"Stop bluetooth service",21
+62,0,"Start bluetooth service",21
+63,0,"Stop wifi service",21
+64,0,"Start wifi service",21
+65,0,"Turn off monitor",21
+66,0,"Take screenshot of the desktop",43
+67,0,"Take webcam photo",43
+68,0,"Play text by computer voice",43
+69,0,"Play sound file in wav format",43
+70,0,"The classical way to play a beep sound through the PC speakers",43
+71,0,"Mute volume",43
+72,0,"Turn images to a video sequence",43
+73,0,"Turn a video to images",43
+74,0,"Convert sound from a video to mp3",43
+75,0,"Convert mpg to avi",43
+76,0,"Convert avi to mpg",43
+77,0,"Convert avi to flv",43
+78,0,"Convert avi to animated gif",43
+79,0,"Get wifi password",243
+80,0,"List network interfaces",243
+81,0,"Download file",243
+82,0,"Get information about domain",243
+83,0,"Ping to another device",243
+84,0,"Configure network interface",243
+85,0,"Show the hostname of your box",243
+86,0,"Trace the path that a packet takes to its destination",243
+87,0,"Telnet connection",243
+88,0,"DNS lookup and display server answer",243
+89,0,"Release ip and get a new one from DHCP",243
+90,0,"List open sockets",243
+91,0,"Find a file by name",179
+92,0,"Find all path names containing a phrase",179
+93,0,"Find the path of an executable",179
+94,0,"Find location of binary/source/man files for a command",179
+95,0,"Search for pattern in output of command",179
+96,0,"Find files whose content was modified less than 60 minutes ago",179
+97,0,"Find files whose status was changed less than 60 minutes ago",179
+98,0,"FInd all files which are accessed 7 days back",179
+99,0,"Search for pattern in file",179
+100,0,"Find all files which are greater than 10MB and less than 100MB",179
+101,12,"Create group",247
+102,11,"Delete group",247
+103,10,"Rename group",247
+104,9,"Create user",247
+105,8,"Delete user",247
+106,7,"Rename user",247
+107,6,"Set user password",247
+108,5,"Grant sudo privileges to an existing user",247
+109,4,"User information",247
+110,3,"Add existing user to group",247
+111,2,"Add new user to group",247
+112,1,"Remove user from group",247
+113,0,"List all groups",247
+114,0,"List all users",247
+115,0,"Exploitation tools",248
+116,0,"Password attacks",248
+117,0,Forensics,248
+118,0,Sniffing/Spoofing,248
+119,0,"Information gathering",248
+120,0,"Vulnerability analyses",248
+121,0,"Web application analysis",248
+122,0,Databases,248
+123,0,"Wireless attack",248
+124,0,"Reporting tools",248
+125,0,"Install from repository",249
+126,0,"Install from file",249
+127,0,Remove/Uninstall,249
+128,0,"Find a package",249
+129,0,"View package info",249
+130,0,"Update package lists",249
+131,0,"Upgrade installed packages",249
+132,0,"Add repository source",249
+1158,0,"End session",251
+1159,1,"SOCKS5 proxying",251
+1160,2,"TCP Port Forwarding",251
+1161,3,"X11 Session Forwarding",251
+1162,4,"Run a command and exit",251
+1163,5,"Generate SSH key",251
+1164,6,"Connect to host",251
+1165,0,"Clone an existing repository",252
+1166,0,"Initialize new version-controlled project",252
+1167,0,"Save changes to the repository",252
+1168,0,"Current state of the repository",252
+1169,0,"Create a new branch",252
+1170,0,"List all remote or local branches",252
+1171,0,"Delete a branch",252
+1172,0,"Merge changes into current branch",252
+1173,0,"Checkout an existing branch",252
+1174,0,"Checkout and create a new branch with that name",252
+1175,0,"Create a tag",252
+1176,0,"Delete the tag",252
+1177,0,"Push tags",252
+1178,0,"Get the latest version of a repository",252
+1179,0,"Add remote repository",252
+1180,0,"Define the author name to be used for all commits",252
+1181,0,"Define the author email to be used for all commits",252
+1182,0,"Helpful guides that come with Git",252
+1183,0,"Undo the previous commit",252
+1184,0,"Forget about files that were tracked but are now in .gitignore",252
+1185,0,"Send local commits to the remote repository",252
+1186,0,"Store current work with untracked files",252
+1187,0,"Bring stashed work back to the working directory",252
+1188,0,"Remove a file from the working index (cached)",252
+1189,0,"Delete a file (force)",252
+1190,0,"Remove an entire directory from the working index (cached)",252
+1191,0,"Delete an entire directory (force)",252
+1192,0,"Delete a remote branch",252
+1193,0,"Print a file",209
+1194,0,"View printing queue",209
+1195,0,"Cancel printing job",209
+1196,0,"Display printer status",209
+1197,0,"Enable printer",209
+1198,0,"Disable printer",209
+1199,0,"File management",253
+1200,0,Navigation,253
+1201,0,Insertion,253
+1202,0,Editing,253
+1203,0,"Search and replace",253
+1204,0,"Multiple windows",253
+1205,0,"Basic usage",254
+1206,0,Buffers,254
+1207,0,Navigation,254
+1208,0,"Other stuff",254
+1209,0,Info,255
+1210,0,Navigation,255
+1211,0,Input/Ouput,255
+1212,0,Editing,255
+1213,10,Navigation,256
+1214,0,"Basic usage",256
+1215,0,Input/Output,256
+1216,0,Miners,257
+1217,0,Wallets,257
+1218,0,"Trading bots",257
+1219,0,"Copy to clipboard",258
+1220,0,"Read clipboard",258
+1221,0,"Move mouse absolute",258
+1222,0,"Move mouse relative",258
+1223,0,"Click mouse",258
+1224,0,"Type text",258
+1225,0,"Type keystroke",258
+1226,0,"Pretty print",259
+1227,0,Select,259
+1228,0,Put,259
+1229,0,Delete,259
+1230,0,Create,259
+1231,0,"Push file",251
+1232,0,"Pull file",251
+1233,0,"Coin tracker",257
+1235,0,rogue,29
+1236,0,sudoku,29
+1237,0,2048,29
+1238,0,pacman,29
+1239,0,"Convert gif to webp",43
+1240,0,"Convert png/jpg to webp",43
+1241,0,mines,29
+1242,0,battleship,29
+1243,0,checkers,29
+1244,0,fifteen,29
+1245,0,memory,29
+1246,0,pipes,29
+1247,0,reversi,29
+1248,0,sos,29
+1399,1204,"Run the last command as root",250
+1400,839,"Serve current directory tree at http://$HOSTNAME:8000/",250
+1401,564,"Runs previous command but replacing",250
+1402,541,"Rapidly invoke an editor to write a long, complex, or tricky command",250
+1403,345,"Place the argument of the most recent command on the shell",250
+1404,324,"currently mounted filesystems in nice layout",250
+1405,318,"Salvage a borked terminal",250
+1406,272,"Get your external IP address",250
+1407,263,"Execute a command at a given time",250
+1408,248,"Quick access to the ascii table.",250
+1409,227,"output your microphone to a remote computer's speaker",250
+1410,219,"type partial command, kill this command, check something you forgot, yank the command, resume typing.",250
+1411,209,"Query Wikipedia via console over DNS",250
+1412,206,"Mount folder/filesystem through SSH",250
+1413,198,"Mount a temporary ram partition",250
+1414,192,"Download an entire website",250
+1415,185,"Clear the terminal screen",250
+1416,173,"Compare a remote file with a local file",250
+1417,166,"SSH connection through host in the middle",250
+1418,165,"Update twitter via curl",250
+1419,162,"A very simple and useful stopwatch",250
+1420,144,"Put a console clock in top right corner",250
+1421,144,"Make 'less' behave like 'tail -f'.",250
+1422,143,"Close shell keeping all subprocess running",250
+1423,142,"Watch Star Wars via telnet",250
+1424,121,"32 bits or 64 bits?",250
+1425,120,"List of commands you use most often",250
+1426,119,"Simulate typing",250
+1427,118,"Set audible alarm when an IP address comes online",250
+1428,110,"Reboot machine when everything is hanging",250
+1429,107,"quickly rename a file",250
+1430,105,"Display the top ten running processes - sorted by memory usage",250
+1431,102,"Delete all files in a folder that don't match a certain file extension",250
+1432,102,"Push your present working directory to a stack that you can pop later",250
+1433,101,"Create a script of the last executed command",250
+1434,100,"Watch Network Service Activity in Real-time",250
+1435,99,"Easy and fast access to often executed commands that are very long and complex.",250
+1436,99,"escape any command aliases",250
+1437,97,"Show apps that use internet connection at the moment. (Multi-Language)",250
+1438,97,"diff two unsorted files without creating temporary files",250
+1439,95,"Reuse all parameter of the previous command line",250
+1440,93,"Backticks are evil",250
+1441,93,"Sharing file through http 80 port",250
+1442,92,"Show File System Hierarchy",250
+1443,92,"Display a block of text with AWK",250
+1444,88,"Set CDPATH to ease navigation",250
+1445,86,"save command output to image",250
+1446,86,"Add Password Protection to a file your editing in vim.",250
+1447,84,"Remove duplicate entries in a file without sorting.",250
+1448,81,"Copy your SSH public key on a remote machine for passwordless login - the easy way",250
+1449,79,"Find Duplicate Files (based on size first, then MD5 hash)",250
+1450,79,"Kills a process that is locking a file.",250
+1451,76,"Insert the last command without the last argument (bash)",250
+1452,76,"python smtp server",250
+1453,76,"Display which distro is installed",250
+1454,70,"Find the process you are looking for minus the grepped one",250
+1455,70,"Extract tarball from internet without local saving",250
+1456,68,"Copy your ssh public key to a server from a machine that doesn't have ssh-copy-id",250
+1457,67,"Matrix Style",250
+1458,67,"replace spaces in filenames with underscores",250
+1459,67,"Rip audio from a video file.",250
+1460,65,"Google Translate",250
+1461,65,"Inserts the results of an autocompletion in the command line",250
+1462,64,"Rapidly invoke an editor to write a long, complex, or tricky command",250
+1463,62,"A fun thing to do with ram is actually open it up and take a peek. This command will show you all the string (plain text) values in ram",250
+1464,60,"Graphical tree of sub-directories",250
+1465,58,"intercept stdout/stderr of another process",250
+1466,58,"Copy a file using pv and watch its progress",250
+1467,58,"Define a quick calculator function",250
+1468,58,"Create a CD/DVD ISO image from disk.",250
+1469,57,"mkdir & cd into it as single command",250
+1470,57,"Create a pdf version of a manpage",250
+1471,57,"Stream YouTube URL directly to mplayer.",250
+1472,57,"Make directory including intermediate directories",250
+1473,56,"Easily search running processes (alias).",250
+1474,55,"Multiple variable assignments from command output in BASH",250
+1475,54,"Remove all but one specific file",250
+1476,54,"git remove files which have been deleted",250
+1477,54,"Edit a file on a remote host using vim",250
+1478,53,"Job Control",250
+1479,53,"Generate a random password 30 characters long",250
+1480,52,"Show apps that use internet connection at the moment. (Multi-Language)",250
+1481,52,"Graph # of connections for each hosts.",250
+1482,50,"Record a screencast and convert it to an mpeg",250
+1483,50,"Monitor progress of a command",250
+1484,49,"Search for a <pattern> string inside all files in the current directory",250
+1485,49,"Monitor the queries being run by MySQL",250
+1486,49,"Get the 10 biggest files/folders for the current direcotry",250
+1487,48,"Show numerical values for each of the 256 colors in bash",250
+1488,48,"Recursively remove all empty directories",250
+1489,48,"Display a cool clock on your terminal",250
+1490,48,"Convert seconds to human-readable format",250
+1491,47,"Nice weather forecast on your shell",250
+1492,47,"Check your unread Gmail from the command line",250
+1493,47,"Search commandlinefu.com from the command line using the API",250
+1494,47,"Processor / memory bandwidthd? in GB/s",250
+1495,46,"pretend to be busy in office to enjoy a cup of coffee",250
+1496,46,"Makes the permissions of file2 the same as file1",250
+1497,46,"Remove security limitations from PDF documents using ghostscript",250
+1498,46,"Send pop-up notifications on Gnome",250
+1499,45,"(Debian/Ubuntu) Discover what package a file belongs to",250
+1500,45,"Mount a .iso file in UNIX/Linux",250
+1501,44,"Remove a line in a text file. Useful to fix",250
+1502,44,"To print a specific line from a file",250
+1503,44,"Open Finder from the current Terminal location",250
+1504,44,"Create a persistent connection to a machine",250
+1505,44,"Run a command only when load average is below a certain threshold",250
+1506,44,"Create a quick back-up copy of a file",250
+1507,43,"Start COMMAND, and kill it if still running after 5 seconds",250
+1508,43,"Attach screen over ssh",250
+1509,43,"Show a 4-way scrollable process tree with full details.",250
+1510,42,"List all bash shortcuts",250
+1511,41,"RTFM function",250
+1512,41,"Eavesdrop on your system",250
+1513,41,"Remove all files previously extracted from a tar(.gz) file.",250
+1514,40,"Broadcast your shell thru ports 5000, 5001, 5002 ...",250
+1515,40,"directly ssh to host B that is only accessible through host A",250
+1516,40,"which program is this port belongs to ?",250
+1517,39,"What is my public IP-address?",250
+1518,38,"Retry the previous command until it exits successfully",250
+1519,38,"Synchronize date and time with a server over ssh",250
+1520,38,"Edit a google doc with vim",250
+1521,38,"Run a file system check on your next boot.",250
+1522,38,"List only the directories",250
+1523,38,"Share a terminal screen with others",250
+1524,37,"Google text-to-speech in mp3 format",250
+1525,37,"Download all images from a site",250
+1526,36,"Download Youtube video with wget!",250
+1527,36,"Python version 3: Serve current directory tree at http://$HOSTNAME:8000/",250
+1528,36,"Get your outgoing IP address",250
+1529,36,"Binary Clock",250
+1530,36,"Sort the size usage of a directory tree by gigabytes, kilobytes, megabytes, then bytes.",250
+1531,35,"Duplicate installed packages from one machine to the other (RPM-based systems)",250
+1532,35,"Draw kernel module dependancy graph.",250
+1533,35,"Compare two directory trees.",250
+1534,35,"Bring the word under the cursor on the :ex line in Vim",250
+1535,35,"Remind yourself to leave in 15 minutes",250
+1536,35,"make directory tree",250
+1537,34,"Convert Youtube videos to MP3",250
+1538,34,"Find out how much data is waiting to be written to disk",250
+1539,34,"Use tee to process a pipe with two or more processes",250
+1540,34,"Show apps that use internet connection at the moment.",250
+1541,34,"Backup all MySQL Databases to individual files",250
+1542,34,"Port Knocking!",250
+1543,34,"Add timestamp to history",250
+1544,34,"Recursively change permissions on files, leave directories alone.",250
+1545,34,"Find files that have been modified on your system in the past 60 minutes",250
+1546,33,"Quick access to ASCII code of a key",250
+1547,33,"using `!#$' to referance backward-word",250
+1548,33,"Search recursively to find a word or phrase in certain file types, such as C code",250
+1549,33,"Intercept, monitor and manipulate a TCP connection.",250
+1550,33,"Block known dirty hosts from reaching your machine",250
+1551,33,"check site ssl certificate dates",250
+1552,32,"find files in a date range",250
+1553,32,"Control ssh connection",250
+1554,32,"run complex remote shell cmds over ssh, without escaping quotes",250
+1555,32,"Create a directory and change into it at the same time",250
+1556,32,"Colorized grep in less",250
+1557,31,"Exclude multiple columns using AWK",250
+1558,31,"ls not pattern",250
+1559,31,"output your microphone to a remote computer's speaker",250
+1560,31,"analyze traffic remotely over ssh w/ wireshark",250
+1561,30,"Given a file path, unplug the USB device on which the file is located (the file must be on an USB device !)",250
+1562,30,"Remove a line in a text file. Useful to fix ""ssh host key change"" warnings",250
+1563,30,"Save a file you edited in vim without the needed permissions (no echo)",250
+1564,30,"Remove blank lines from a file using grep and save output to new file",250
+1565,30,"delete a line from your shell history",250
+1566,29,"Get the IP of the host your coming from when logged in remotely",250
+1567,29,"Random Number Between 1 And X",250
+1568,29,"Lists all listening ports together with the PID of the associated process",250
+1569,29,"easily find megabyte eating files or directories",250
+1570,29,"Exclude .svn, .git and other VCS junk for a pristine tarball",250
+1571,29,"exit without saving history",250
+1572,29,"How to establish a remote Gnu screen session that you can re-connect to",250
+1573,29,"Copy a MySQL Database to a new Server via SSH with one command",250
+1574,29,"Convert PDF to JPG",250
+1575,28,"Find usb device",250
+1576,28,"find all file larger than 500M",250
+1577,28,"notify yourself when a long-running command which has ALREADY STARTED is finished",250
+1578,28,"Create colorized html file from Vim or Vimdiff",250
+1579,28,"live ssh network throughput test",250
+1580,28,"Create a nifty overview of the hardware in your computer",250
+1581,28,"Save your sessions in vim to resume later",250
+1582,27,"Tell local Debian machine to install packages used by remote Debian machine",250
+1583,27,"Bind a key with a command",250
+1584,27,"Take screenshot through SSH",250
+1585,27,"intersection between two files",250
+1586,27,"GREP a PDF file.",250
+1587,27,"Colorful man",250
+1588,27,"copy working directory and compress it on-the-fly while showing progress",250
+1589,27,"prints line numbers",250
+1590,27,"convert unixtime to human-readable",250
+1591,27,"A fun thing to do with ram is actually open it up and take a peek. This command will show you all the string (plain text) values in ram",250
+1592,27,"Diff on two variables",250
+1593,27,"Prettify an XML file",250
+1594,26,"Encrypted archive with openssl and tar",250
+1595,26,"Convert seconds into minutes and seconds",250
+1596,26,"Alias HEAD for automatic smart output",250
+1597,26,"Pipe stdout and stderr, etc., to separate commands",250
+1598,26,"Manually Pause/Unpause Firefox Process with POSIX-Signals",250
+1599,26,"Gets a random Futurama quote from /.",250
+1600,26,"Use lynx to run repeating website actions",250
+1601,26,"runs a bash script in debugging mode",250
+1602,26,"Instead of writing a multiline if/then/else/fi construct you can do that by one line",250
+1603,26,"Display a list of committers sorted by the frequency of commits",250
+1604,25,"check the status of 'dd' in progress (OS X)",250
+1605,25,"A child process which survives the parent's death (for sure)",250
+1606,25,"prevent accidents while using wildcards",250
+1607,25,"Opens vi/vim at pattern in file",250
+1608,25,"April Fools' Day Prank",250
+1609,25,"Press Any Key to Continue",250
+1610,25,"Get your external IP address",250
+1611,25,"List installed deb packages by size",250
+1612,25,"backup all your commandlinefu.com favourites to a plaintext file",250
+1613,25,"send echo to socket network",250
+1614,25,"Schedule a script or command in x num hours, silently run in the background even if logged out",250
+1615,25,"Go to parent directory of filename edited in last command",250
+1616,25,"Draw a Sierpinski triangle",250
+1617,25,"Run a long job and notify me when it's finished",250
+1618,25,"Make anything more awesome",250
+1619,25,"List all files opened by a particular command",250
+1620,25,"Nicely display permissions in octal format with filename",250
+1621,25,"recursive search and replace old with new string, inside files",250
+1622,25,"shut of the screen.",250
+1623,25,"Create a single-use TCP (or UDP) proxy",250
+1624,25,"read manpage of a unix command as pdf in preview (Os X)",250
+1625,25,"Switch 2 characters on a command line.",250
+1626,25,"List the number and type of active network connections",250
+1627,24,"Use file(1) to view device information",250
+1628,24,"exclude a column with cut",250
+1629,24,"Recover a deleted file",250
+1630,24,"Insert  the  last  argument  of  the previous command",250
+1631,24,"View the newest xkcd comic.",250
+1632,24,"Create an audio test CD of sine waves from 1 to 99 Hz",250
+1633,24,"Remove color codes (special characters) with sed",250
+1634,24,"throttle bandwidth with cstream",250
+1635,24,"When feeling down, this command helps",250
+1636,24,"Brute force discover",250
+1637,24,"find geographical location of an ip address",250
+1638,24,"Speed up launch of firefox",250
+1639,23,"Create strong, but easy to remember password",250
+1640,23,"format txt as table not joining empty columns",250
+1641,23,"Find Duplicate Files (based on size first, then MD5 hash)",250
+1642,23,"Shell recorder with replay",250
+1643,23,"Bind a key with a command",250
+1644,23,"List files with quotes around each filename",250
+1645,23,"Makes you look busy",250
+1646,23,"Duplicate several drives concurrently",250
+1647,23,"Listen to BBC Radio from the command line.",250
+1648,23,"Monitor bandwidth by pid",250
+1649,23,"Execute a command with a timeout",250
+1650,23,"use vim to get colorful diff output",250
+1651,23,"find files containing text",250
+1652,23,"Quickly graph a list of numbers",250
+1653,23,"Perform a branching conditional",250
+1654,23,"Resume scp of a big file",250
+1655,23,"Use tee + process substitution to split STDOUT to multiple commands",250
+1656,23,"Analyse an Apache access log for the most common IP addresses",250
+1657,22,"Annotate tail -f with timestamps",250
+1658,22,"Fast, built-in pipe-based data sink",250
+1659,22,"Generate an XKCD #936 style 4 word password",250
+1660,22,"Repoint an existing symlink to a new location",250
+1661,22,"GRUB2: set Super Mario as startup tune",250
+1662,22,"Diff remote webpages using wget",250
+1663,22,"Close a hanging ssh session",250
+1664,22,"processes per user counter",250
+1665,22,"convert filenames in current directory to lowercase",250
+1666,22,"Find files that were modified by a given command",250
+1667,22,"Terminal - Show directories in the PATH, one per line with sed and bash3.X `here string'",250
+1668,22,"Cut out a piece of film from a file. Choose an arbitrary length and starting time.",250
+1669,22,"List of commands you use most often",250
+1670,22,"Efficiently print a line deep in a huge log file",250
+1671,21,"prevent large files from being cached in memory (backups!)",250
+1672,21,"Check if system is 32bit or 64bit",250
+1673,21,"dmesg with colored human-readable dates",250
+1674,21,"convert single digit to double digits",250
+1675,21,"Limit the cpu usage of a process",250
+1676,21,"Rapidly invoke an editor to write a long, complex, or tricky command",250
+1677,21,"Single use vnc-over-ssh connection",250
+1678,21,"List alive hosts in specific subnet",250
+1679,21,"View all date formats, Quick Reference Help Alias",250
+1680,21,"your terminal sings",250
+1681,21,"Make sure a script is run in a terminal.",250
+1682,21,"Matrix Style",250
+1683,21,"Quickly (soft-)reboot skipping hardware checks",250
+1684,21,"pipe output of a command to your clipboard",250
+1685,21,"Recursively compare two directories and output their differences on a readable format",250
+1686,21,"Find broken symlinks and delete them",250
+1687,21,"ls -hog --> a more compact ls -l",250
+1688,21,"git remove files which have been deleted",250
+1689,20,"Silently ensures that a FS is mounted on the given mount point (checks if it's OK, otherwise unmount, create dir and mount)",250
+1690,20,"sniff network traffic on a given interface and displays the IP addresses of the machines communicating with the current host (one IP per line)",250
+1691,20,"Create a local compressed tarball from remote host directory",250
+1692,20,"df without line wrap on long FS name",250
+1693,20,"send a circular",250
+1694,20,"The BOFH Excuse Server",250
+1695,20,"dd with progress bar and statistics",250
+1696,20,"I finally found out how to use notify-send with at or cron",250
+1697,20,"See udev at work",250
+1698,20,"Backup all MySQL Databases to individual files",250
+1699,20,"Ultimate current directory usage command",250
+1700,20,"bash: hotkey to put current commandline to text-editor",250
+1701,20,"Show current working directory of a process",250
+1702,20,"Have an ssh session open forever",250
+1703,20,"Base conversions with bc",250
+1704,20,"Put readline into vi mode",250
+1705,20,"Transfer SSH public key to another machine in one step",250
+1706,20,"Start a command on only one CPU core",250
+1707,20,"convert uppercase files to lowercase files",250
+1708,19,"return external ip",250
+1709,19,"Simple multi-user encrypted chat server for 5 users",250
+1710,19,"Check if your ISP is intercepting DNS queries",250
+1711,19,"Display current time in requested time zones.",250
+1712,19,"Remove a range of lines from a file",250
+1713,19,"Stamp a text line on top of the pdf pages.",250
+1714,19,"Print diagram of user/groups",250
+1715,19,"Create a file server, listening in port 7000",250
+1716,19,"bypass any aliases and functions for the command",250
+1717,19,"Share your terminal session real-time",250
+1718,19,"stderr in color",250
+1719,19,"VI config to save files with +x when a shebang is found on line 1",250
+1720,19,"Create a single PDF from multiple images with ImageMagick",250
+1721,19,"Delete all empty lines from a file with vim",250
+1722,19,"perl one-liner to get the current week number",250
+1723,19,"DELETE all those duplicate files but one based on md5 hash comparision in the current directory tree",250
+1724,19,"List recorded formular fields of Firefox",250
+1725,19,"Using awk to sum/count a column of numbers.",250
+1726,19,"Get all the keyboard shortcuts in screen",250
+1727,19,"Get list of servers with a specific port open",250
+1728,19,"Start a new command in a new screen window",250
+1729,18,"Notepad in a browser (type this in the URL bar)",250
+1730,18,"Extract audio from Flash video (*.flv) as mp3 file",250
+1731,18,"cat a bunch of small files with file indication",250
+1732,18,"Stop Flash from tracking everything you do.",250
+1733,18,"send a circular",250
+1734,18,"List all open ports and their owning executables",250
+1735,18,"Purge configuration files of removed packages on  debian based systems",250
+1736,18,"Monitor open connections for httpd including listen, count and sort it per IP",250
+1737,18,"Convert text to picture",250
+1738,18,"Remote screenshot",250
+1739,18,"Define words and phrases with google.",250
+1740,18,"List all authors of a particular git project",250
+1741,18,"track flights from the command line",250
+1742,18,"Harder, Faster, Stronger SSH clients",250
+1743,18,"Clean up poorly named TV shows.",250
+1744,18,"Pretty Print a simple csv in the command line",250
+1745,18,"Cleanup firefox's database.",250
+1746,18,"Mount the first NTFS partition inside a VDI file (VirtualBox Disk Image)",250
+1747,18,"check open ports",250
+1748,18,"Find Duplicate Files (based on MD5 hash)",250
+1749,18,"Triple monitoring in screen",250
+1750,18,"Print a great grey scale demo !",250
+1751,18,"Create a list of binary numbers",250
+1752,18,"Create a system overview dashboard on F12 key",250
+1753,18,"Save an HTML page, and covert it to a .pdf file",250
+1754,18,"create an emergency swapfile when the existing swap space is getting tight",250
+1755,18,"Relocate a file or directory, but keep it accessible on the old location throug a simlink.",250
+1756,18,"disable history for current shell session",250
+1757,18,"a short counter",250
+1758,18,"How to run X without any graphics hardware",250
+1759,18,"Rsync remote data as root using sudo",250
+1760,18,"Convert all MySQL tables and fields to UTF8",250
+1761,18,"Quickly generate an MD5 hash for a text string using OpenSSL",250
+1762,18,"Pipe STDOUT to vim",250
+1763,18,"Copy stdin to your X11 buffer",250
+1764,18,"Get info about remote host ports and OS detection",250
+1765,18,"Copy a file structure without files",250
+1766,18,"Get http headers for an url",250
+1767,18,"Count files beneath current directory (including subfolders)",250
+1768,17,"random git-commit message",250
+1769,17,"Generate QR code for a WiFi hotspot",250
+1770,17,"vi a remote file",250
+1771,17,"Show what PID is listening on port 80 on Linux",250
+1772,17,"convert from hexidecimal or octal to decimal",250
+1773,17,"save man-page as pdf",250
+1774,17,"Convert seconds into minutes and seconds",250
+1775,17,"List by size all of the directories in a given tree.",250
+1776,17,"List files accessed by a command",250
+1777,17,"Find all the links to a file",250
+1778,17,"Recover tmp flash videos (deleted immediately by the browser plugin)",250
+1779,17,"rsync instead of scp",250
+1780,17,"Visit wikileaks.com",250
+1781,17,"Make sudo forget password instantly",250
+1782,17,"Mirror a directory structure from websites with an Apache-generated file indexes",250
+1783,17,"Quickly share code or text from vim to others.",250
+1784,17,"Print a row of characters across the terminal",250
+1785,17,"Limit bandwidth usage by apt-get",250
+1786,17,"download and unpack tarball without leaving it sitting on your hard drive",250
+1787,17,"Colored diff ( via vim ) on 2 remotes files on your local computer.",250
+1788,17,"Tune your guitar from the command line.",250
+1789,17,"Split a tarball into multiple parts",250
+1790,17,"Remove executable bit from all files in the current directory recursively, excluding other directories",250
+1791,17,"Unbelievable Shell Colors, Shading, Backgrounds, Effects for Non-X",250
+1792,17,"More precise BASH debugging",250
+1793,17,"get all pdf and zips from a website using wget",250
+1794,17,"Show me a histogram of the busiest minutes in a log file:",250
+1795,17,"Smiley Face Bash Prompt",250
+1796,17,"coloured tail",250
+1797,17,"Search for commands from the command line",250
+1798,17,"Install a Firefox add-on/theme to all users",250
+1799,17,"clear current line",250
+1800,17,"Terminate a frozen SSH-session",250
+1801,17,"Backup a remote database to your local filesystem",250
+1802,17,"Download an entire static website to your local machine",250
+1803,17,"Generat a Random MAC address",250
+1804,17,"Batch convert files to utf-8",250
+1805,16,"Run entire shell script as root",250
+1806,16,"Check if system is 32bit or 64bit",250
+1807,16,"Show permissions of current directory and all directories upwards to /",250
+1808,16,"move you up one directory quickly",250
+1809,16,"Hide the name of a process listed in the `ps` output",250
+1810,16,"Remove a line from a file using sed (useful for updating known SSH server keys when they change)",250
+1811,16,"Short and elegant way to backup a single file before you change it.",250
+1812,16,"Find the most recently changed files (recursively)",250
+1813,16,"All IP connected to  my host",250
+1814,16,"Figure out what shell you're running",250
+1815,16,"Download a file and uncompress it while it downloads",250
+1816,16,"List 10 largest directories in current directory",250
+1817,16,"Rename all .jpeg and .JPG files to have .jpg extension",250
+1818,16,"See where a shortened url takes you before click",250
+1819,16,"Stream YouTube URL directly to MPlayer",250
+1820,16,"Generate a Random MAC address",250
+1821,16,"Remove Thumbs.db files from folders",250
+1822,16,"List open files that have no links to them on the filesystem",250
+1823,16,"Display BIOS Information",250
+1824,16,"open path with your default program (on Linux/*BSD)",250
+1825,16,"Copy an element from the previous command",250
+1826,16,"View user activity per directory.",250
+1827,16,"use the previous commands params in the current command",250
+1828,16,"Choose from a nice graphical menu which DI.FM radio station to play",250
+1829,16,"check the status of 'dd' in progress (OS X)",250
+1830,16,"copy from host1 to host2, through your host",250
+1831,16,"Convert all Flac in a directory to Mp3 using maximum quality variable bitrate",250
+1832,16,"recursive search and replace old with new string, inside files",250
+1833,16,"Clean your broken terminal",250
+1834,16,"grep -v with multiple patterns.",250
+1835,16,"redirect stdout and stderr each to separate files and print both to the screen",250
+1836,16,"Identify long lines in a file",250
+1837,16,"Use all the cores or CPUs when compiling",250
+1838,16,"Prints total line count contribution per user for an SVN repository",250
+1839,16,"Analyze awk fields",250
+1840,16,"Colored SVN diff",250
+1841,16,"Run a command, store the output in a pastebin on the internet and place the URL on the xclipboard",250
+1842,16,"Show git branches by date - useful for showing active branches",250
+1843,16,"Find if the command has an alias",250
+1844,16,"Find last reboot time",250
+1845,16,"Get your public ip using dyndns",250
+1846,16,"Show a config file without comments",250
+1847,16,"Start screen in detached mode",250
+1848,16,"Given process ID print its environment variables",250
+1849,16,"Look up the definition of a word",250
+1850,16,"Diff files on two remote hosts.",250
+1851,16,"Ctrl+S Ctrl+Q terminal output lock and unlock",250
+1852,16,"iso-8859-1 to utf-8 safe recursive rename",250
+1853,16,"create dir tree",250
+1854,16,"Run any GUI program remotely",250
+1855,16,"Delete all empty lines from a file with vim",250
+1856,16,"List the files any process is using",250
+1857,16,"Backup your hard drive with dd",250
+1858,16,"Show biggest files/directories, biggest first with 'k,m,g' eyecandy",250
+1859,16,"change directory to actual path instead of symlink path",250
+1860,16,"Recursively remove .svn directories from the current location",250
+1861,15,"Read and write to TCP or UDP sockets with common bash tools",250
+1862,15,"Commandline document conversion with Libreoffice",250
+1863,15,"Use top to monitor only all processes with the same name fragment 'foo'",250
+1864,15,HourGlass,250
+1865,15,"delete command line last word",250
+1866,15,"Swap the two last arguments of the current command line",250
+1867,15,"Draw kernel module dependancy graph.",250
+1868,15,"Color man pages",250
+1869,15,"Print without executing the last command that starts with...",250
+1870,15,"What is the use of this switch ?",250
+1871,15,"Save the list of all available commands in your box to a file",250
+1872,15,"Protect directory from an overzealous rm -rf *",250
+1873,15,"Watch RX/TX rate of an interface in kb/s",250
+1874,15,"Rapidly invoke an editor to write a long, complex, or tricky command",250
+1875,15,"Reuse last parameter",250
+1876,15,"Blink LED Port of NIC Card",250
+1877,15,"pretend to be busy in office to enjoy a cup of coffee",250
+1878,15,"Running scripts after a reboot for non-root users .",250
+1879,15,"run command on a group of nodes in parallel",250
+1880,15,"make, or run a script, everytime a file in a directory is modified",250
+1881,15,"Convert a Nero Image File to ISO",250
+1882,15,"Change prompt to MS-DOS one (joke)",250
+1883,15,"View network activity of any application or user in realtime",250
+1884,15,"Copy with progress",250
+1885,15,"a shell function to print a ruler the width of the terminal window.",250
+1886,15,"Print a list of standard error codes and descriptions.",250
+1887,15,"generate random password",250
+1888,15,"A function to output a man page as a pdf file",250
+1889,15,"Search back through previous commands",250
+1890,15,"Show directories in the PATH, one per line",250
+1891,15,"Move all images in a directory into a directory hierarchy based on year, month and day based on exif information",250
+1892,15,"Follow tail by name (fix for rolling logs with tail -f)",250
+1893,15,"Convert ""man page"" to text file",250
+1894,15,"Display current bandwidth statistics",250
+1895,15,"restoring some data from a corrupted text file",250
+1896,15,"view the system console remotely",250
+1897,15,"Download all Delicious bookmarks",250
+1898,15,"Redirect STDIN",250
+1899,15,"I hate `echo X | Y`",250
+1900,15,"Send keypresses to an X application",250
+1901,15,"Add calendar to desktop wallpaper",250
+1902,15,"Browse system RAM in a human readable form",250
+1903,15,"Add forgotten changes to the last git commit",250
+1904,15,"Calculates the date 2 weeks ago from Saturday the specified format.",250
+1905,15,"Get Cisco network information",250
+1906,15,"Press ctrl+r in a bash shell and type a few letters of a previous command",250
+1907,15,"Extract audio from a video",250
+1908,15,"Quick glance at who's been using your system recently",250
+1909,15,"Get Dell Service Tag Number from a Dell Machine",250
+1910,15,"ping a range of IP addresses",250
+1911,15,"Use last argument of last command",250
+1912,15,"Show which programs are listening on TCP and UDP ports",250
+1913,14,"Print all git repos from a user",250
+1914,14,"Determine if a port is open with bash",250
+1915,14,"Search for a process by name",250
+1916,14,"Mount a VMware virtual disk (.vmdk) file on a Linux box",250
+1917,14,"Download all mp3's listed in an html page",250
+1918,14,"Google text-to-speech in mp3 format",250
+1919,14,"Run the built in PHP-server in current folder",250
+1920,14,"Press enter and take a WebCam picture.",250
+1921,14,"sort the output of the 'du' command by largest first, using human readable output.",250
+1922,14,"Verify/edit bash history command before executing it",250
+1923,14,"Gets the english pronunciation of a phrase",250
+1924,14,"Check syntax for all PHP files in the current directory and all subdirectories",250
+1925,14,"Ask for a password, the passwd-style",250
+1926,14,"monitor memory usage",250
+1927,14,"Content search.",250
+1928,14,"Timer with sound alarm",250
+1929,14,"Run a program transparently, but print a stack trace if it fails",250
+1930,14,"Send email with curl and gmail",250
+1931,14,"run command on a group of nodes in parallel",250
+1932,14,"Display BIOS Information",250
+1933,14,"List of commands you use most often",250
+1934,14,"kill process by name",250
+1935,14,"Ping scanning without nmap",250
+1936,14,"Make ISO image of a folder",250
+1937,14,"Typing the current date ( or any string ) via a shortcut as if the keys had been actually typed with the hardware keyboard in any application.",250
+1938,14,"Update twitter via curl (and also set the ""from"" bit)",250
+1939,14,"quickest (i blv) way to get the current program name minus the path (BASH)",250
+1940,14,"Play music from youtube without download",250
+1941,14,"Function that outputs dots every second until command completes",250
+1942,14,"Identify differences between directories (possibly on different servers)",250
+1943,14,"Replace spaces in filenames with underscores",250
+1944,14,"Show directories in the PATH, one per line",250
+1945,14,"move a lot of files over ssh",250
+1946,14,"find and delete empty dirs, start in current working dir",250
+1947,14,urldecoding,250
+1948,14,"Validate and pretty-print JSON expressions.",250
+1949,14,"List your largest installed packages.",250
+1950,14,"Monitor TCP opened connections",250
+1951,14,"Fix Ubuntu's Broken Sound Server",250
+1952,14,"beep when a server goes offline",250
+1953,14,"Number of open connections per ip.",250
+1954,14,"Fibonacci numbers with awk",250
+1955,14,"Create a favicon",250
+1956,14,"Check Ram Speed and Type in Linux",250
+1957,14,"Run the Firefox Profile Manager",250
+1958,14,"Sort dotted quads",250
+1959,14,"Resume aborted scp file transfers",250
+1960,14,"Another Curl your IP command",250
+1961,14,"Add your public SSH key to a server in one command",250
+1962,14,"cycle through a 256 colour palette",250
+1963,14,"scping files with streamlines compression (tar gzip)",250
+1964,13,"Select rectangular screen area",250
+1965,13,"Google verbatim search on your terminal",250
+1966,13,"grep processes list avoiding the grep itself",250
+1967,13,"Transfer a file to multiple hosts over ssh",250
+1968,13,"Daemonize nc - Transmit a file like a http server",250
+1969,13,"tail a log over ssh",250
+1970,13,"du with colored bar graph",250
+1971,13,"Resize an image to at least a specific resolution",250
+1972,13,"Query well known ports list",250
+1973,13,"Create .pdf from .doc",250
+1974,13,"Diff XML files",250
+1975,13,"Discovering all open files/dirs underneath a directory",250
+1976,13,"""Clone"" a list of installed packages from one Debian/Ubuntu Server to another",250
+1977,13,"clear screen, keep prompt at eye-level (faster than clear(1), tput cl, etc.)",250
+1978,13,"Down for everyone or just me?",250
+1979,13,"A formatting test for David Winterbottom: improving commandlinefu for submitters",250
+1980,13,"Compare copies of a file with md5",250
+1981,13,"backup delicious bookmarks",250
+1982,13,"analyze traffic remotely over ssh w/ wireshark",250
+1983,13,"pretend to be busy in office to enjoy a cup of coffee",250
+1984,13,"Get all links of a website",250
+1985,13,"Find all active ip's in a subnet",250
+1986,13,"Disassemble some shell code",250
+1987,13,"List bash functions defined in .bash_profile or .bashrc",250
+1988,13,"Resume a detached screen session, resizing to fit the current terminal",250
+1989,13,"ignore the .svn directory in filename completion",250
+1990,13,"Working random fact generator",250
+1991,13,"Remote backups with tar over ssh",250
+1992,13,"Pronounce an English word using Dictionary.com",250
+1993,13,"Change pidgin status",250
+1994,13,"Grep by paragraph instead of by line.",250
+1995,13,"Vim: Switch from Horizontal split to Vertical split",250
+1996,13,"Numbers guessing game",250
+1997,13,"a trash function for bash",250
+1998,13,"Sort all running processes by their memory & CPU usage",250
+1999,13,"generate a unique and secure password for every website that you login to",250
+2000,13,"Change user, assume environment, stay in current dir",250
+2001,13,"List Network Tools in Linux",250
+2002,13,"Save current layout of top",250
+2003,13,"Testing hard disk reading speed",250
+2004,13,"How fast is the connexion to a URL, some stats from curl",250
+2005,13,"An easter egg built into python to give you the Zen of Python",250
+2006,13,"Salvage a borked terminal",250
+2007,13,"Get all IPs via ifconfig",250
+2008,13,"Use Cygwin to talk to the Windows clipboard",250
+2009,13,"Backup files incremental with rsync to a NTFS-Partition",250
+2010,13,"List programs with open ports and connections",250
+2011,13,"Find corrupted jpeg image files",250
+2012,13,"'Fix' a typescript file created by the 'script' program to remove control characters",250
+2013,13,"Share a 'screen'-session",250
+2014,13,"Purge configuration files of removed packages on  debian based systems",250
+2015,13,"Show all detected mountable Drives/Partitions/BlockDevices",250
+2016,13,"Displays the attempted user name, ip address, and time of SSH failed logins on Debian machines",250
+2017,13,"Merge *.pdf files",250
+2018,13,"Append stdout and stderr to a file, and print stderr to the screen [bash]",250
+2019,13,"quickly change all .html extensions on files in folder to .htm",250
+2020,13,"Delete the specified line",250
+2021,13,"Read the output of a command into the buffer in vim",250
+2022,13,"Create an SSH SOCKS proxy server on localhost:8000 that will re-start itself if something breaks the connection temporarily",250
+2023,13,"Find broken symlinks",250
+2024,13,"ssh tunnel with auto reconnect ability",250
+2025,13,"find process associated with a port",250
+2026,13,"Echo the latest commands from commandlinefu on the console",250
+2027,13,"add all files not under version control to repository",250
+2028,12,"Using a single sudo to run multiple && arguments",250
+2029,12,"Disco lights in the terminal",250
+2030,12,"Show how old your linux OS installtion is",250
+2031,12,"Fetch the current human population of Earth",250
+2032,12,"Discover the process start time",250
+2033,12,"The fastest remote directory rsync over ssh archival I can muster (40MB/s over 1gb NICs)",250
+2034,12,"True Random Dice Roll",250
+2035,12,"Automatically find and re-attach to a detached screen session",250
+2036,12,"This is how you should push a string in a command's stdin.",250
+2037,12,"ping as traceroute",250
+2038,12,"what model of computer I'm using?",250
+2039,12,"Extract tar content without leading parent directory",250
+2040,12,"Target a specific column for pattern substitution",250
+2041,12,"Run a command when a file is changed",250
+2042,12,"Watch several log files of different machines in a single multitail window on your own machine",250
+2043,12,"Substrings a variable",250
+2044,12,"One command line web server on port 80 using nc (netcat)",250
+2045,12,"RDP through SSH tunnel",250
+2046,12,"Numeric zero padding file rename",250
+2047,12,"Find out the starting directory of a script",250
+2048,12,"Remote screenshot",250
+2049,12,"Google text-to-speech in mp3 format",250
+2050,12,"add the result of a command into vi",250
+2051,12,"Place the NUM-th argument of the most recent command on the shell",250
+2052,12,"Find the package a command belongs to on Debian",250
+2053,12,"Look up a unicode character by name",250
+2054,12,"Start dd and show progress every X seconds",250
+2055,12,"Ask user to confirm",250
+2056,12,"Capture video of a linux desktop",250
+2057,12,"Random unsigned integer",250
+2058,12,"kill all process that belongs to you",250
+2059,12,"Make a file not writable / immutable by root",250
+2060,12,"Continue a current job in the background",250
+2061,12,"translates acronyms for you",250
+2062,12,"Delete DOS Characters via VIM (^M)",250
+2063,12,"Create an animated gif from a Youtube video",250
+2064,12,"Print just line 4 from a textfile",250
+2065,12,"Print just line 4 from a textfile",250
+2066,12,"Quick HTML image gallery from folder contents",250
+2067,12,"Get your external IP address without curl",250
+2068,12,"Countdown Clock",250
+2069,12,"lines in file2 that are not in file1",250
+2070,12,"JSON processing with Python",250
+2071,12,"Start a HTTP server which serves Python docs",250
+2072,12,"Optimize PDF documents",250
+2073,12,"Do some learning...",250
+2074,12,"Insert  the  last  argument  of  the previous command",250
+2075,12,"Carriage return for reprinting on the same line",250
+2076,12,"Copy a folder tree through ssh using compression (no temporary files)",250
+2077,12,"command line calculator",250
+2078,12,"Backup a local drive into a file on the remote host via ssh",250
+2079,12,"Kill processes that have been running for more than a week",250
+2080,12,"Print text string vertically, one character per line.",250
+2081,12,"Find running binary executables that were not installed using dpkg",250
+2082,12,"Add prefix onto filenames",250
+2083,12,"Pick a random line from a file",250
+2084,12,"Get all these commands in a text file with description.",250
+2085,12,"Stripping ^M at end of each line for files",250
+2086,12,"Find removed files still in use via /proc",250
+2087,12,"Connect to google talk through ssh by setting your IM client to use the localhost 5432 port",250
+2088,12,"List and delete files older than one year",250
+2089,12,"for all flv files in a dir, grab the first frame and make a jpg.",250
+2090,12,"wrap long lines of a text",250
+2091,12,"Grep colorized",250
+2092,12,"from within vi, pipe a chunk of lines to a command line and replace the chunk with the result",250
+2093,12,"Grep for word in directory (recursive)",250
+2094,12,"Unix alias for date command that lets you create timestamps in ISO 8601 format",250
+2095,12,"Grep without having it show its own process in the results",250
+2096,12,"count IPv4 connections per IP",250
+2097,12,"Files extension change",250
+2098,12,"archive all files containing local changes (svn)",250
+2099,12,"Just run it ;)",250
+2100,12,"pattern match in awk - no grep",250
+2101,12,"Block an IP address from connecting to a server",250
+2102,12,"Optimal way of deleting huge numbers of files",250
+2103,11,"Optimal way of deleting huge numbers of files",250
+2104,11,"du with colored bar graph",250
+2105,11,"quick copy",250
+2106,11,"Sending a file over icmp with hping",250
+2107,11,"Kill a broken ssh connection",250
+2108,11,"Convert JSON to YAML",250
+2109,11,"Convert Shell Text to Upper/Lower Case",250
+2110,11,"Binary digits Matrix effect",250
+2111,11,"open two files side by side in vim (one window, two panes)",250
+2112,11,"repeat a command every one second",250
+2113,11,"Recursively find top 20 largest files (> 1MB) sort human readable format",250
+2114,11,"Update all packages installed via homebrew",250
+2115,11,"open a screenshot of a remote desktop via ssh",250
+2116,11,"Find ulimit values of currently running process",250
+2117,11,"diff current vi buffer edits against original file",250
+2118,11,"Redirect  tar extract to another directory",250
+2119,11,"print multiplication formulas",250
+2120,11,"Find Malware in the current and sub directories by MD5 hashes",250
+2121,11,"Execute a command, convert output to .png file, upload file to imgur.com, then returning the address of the .png.",250
+2122,11,"Generate a random password 30 characters long",250
+2123,11,"all out",250
+2124,11,"Run a ext4 file system check and badblocks scan with progress info",250
+2125,11,"Selecting a random file/folder of a folder",250
+2126,11,"List your MACs address",250
+2127,11,"ssh to machine behind shared NAT",250
+2128,11,"Countdown Clock",250
+2129,11,"list all file extensions in a directory",250
+2130,11,"Send an http HEAD request w/curl",250
+2131,11,"view hex mode in vim",250
+2132,11,"View ~/.ssh/known_hosts key information",250
+2133,11,"Kill all Zombie processes (Guaranteed!)",250
+2134,11,"prevent accidents and test your command with echo",250
+2135,11,"exclude a column with awk",250
+2136,11,"Get My Public IP Address",250
+2137,11,"pretend to be busy in office to enjoy a cup of coffee",250
+2138,11,"Empty a file",250
+2139,11,"Better way to use notify-send with at or cron",250
+2140,11,"use screen as a terminal emulator to connect to serial consoles",250
+2141,11,"Emptying a text file in one shot",250
+2142,11,"computes the most frequent used words of a text file",250
+2143,11,"Print info about your real user.",250
+2144,11,"Serve current directory tree at http://$HOSTNAME:8080/",250
+2145,11,"Open Remote Desktop (RDP) from command line and connect local resources",250
+2146,11,"Restrict the bandwidth for the SCP command",250
+2147,11,"live ssh network throughput test",250
+2148,11,"bash screensaver (scrolling ascii art with customizable message)",250
+2149,11,"Upgrade all perl modules via CPAN",250
+2150,11,"Optimal way of deleting huge numbers of files",250
+2151,11,"Remove lines that contain a specific pattern($1) from file($2).",250
+2152,11,"List your largest installed packages (on Debian/Ubuntu)",250
+2153,11,"rsync + find",250
+2154,11,"autossh + ssh + screen = super rad perma-sessions",250
+2155,11,"Record microphone input and output to date stamped mp3 file",250
+2156,11,"cycle through a 256 colour palette",250
+2157,11,"Parallel file downloading with wget",250
+2158,11,"move a lot of files over ssh",250
+2159,11,"Cleanup firefox's database.",250
+2160,11,"vim easter egg",250
+2161,11,"Find the process you are looking for minus the grepped one",250
+2162,11,"Stream YouTube URL directly to mplayer",250
+2163,11,"currently mounted filesystems in nice layout",250
+2164,11,"Send email with one or more binary attachments",250
+2165,11,"Salvage a borked terminal",250
+2166,11,"Update twitter via curl",250
+2167,11,"ssh autocomplete",250
+2168,11,"Get all IPs via ifconfig",250
+2169,11,"VIM: Replace a string with an incrementing number between marks 'a and 'b (eg, convert string ZZZZ to 1, 2, 3, ...)",250
+2170,11,"Get the canonical, absolute path given a relative and/or noncanonical path",250
+2171,11,"Create a Multi-Part Archive Without Proprietary Junkware",250
+2172,11,"Display last exit status of a command",250
+2173,11,"Enable ** to expand files recursively (>=bash-4.0)",250
+2174,11,"Delete all files found in directory A from directory B",250
+2175,11,"Command Line to Get the Stock Quote via Yahoo",250
+2176,11,"Plays Music from SomaFM",250
+2177,11,"Search for a single file and go to it",250
+2178,11,"Convert camelCase to underscores (camel_case)",250
+2179,11,"Set your profile so that you resume or start a screen session on login",250
+2180,11,"play high-res video files on a slow processor",250
+2181,11,"Create directory named after current date",250
+2182,11,"Monitor dynamic changes in the dmesg log.",250
+2183,11,"Generate a list of installed packages on Debian-based systems",250
+2184,11,"find the process that is using a certain port e.g. port 3000",250
+2185,11,"Edit the last or previous command line in an editor then execute",250
+2186,11,"Pause Current Thread",250
+2187,11,"Converts to PDF all the OpenOffice.org files in the directory",250
+2188,11,"Create a bunch of dummy files for testing",250
+2189,11,"Shows size of dirs and files, hidden or not, sorted.",250
+2190,11,"Convert .wma files to .ogg with ffmpeg",250
+2191,11,"Find distro name and/or version/release",250
+2192,11,"Generate Random Passwords",250
+2193,11,"bash shortcut: !$ !^ !* !:3 !:h and !:t",250
+2194,11,"Find recursively, from current directory down, files and directories whose names contain single or multiple whitespaces and replace each such occurrence with a single underscore.",250
+2195,11,"Tells which group you DON'T belong to (opposite of command ""groups"") --- uses sed",250
+2196,11,"Quickly get summary of sizes for files and folders",250
+2197,10,"Host cpu performance",250
+2198,10,"drop first column of output by piping to this",250
+2199,10,"Create a bunch of dummy text files",250
+2200,10,"Get the Nth argument of the last command (handling spaces correctly)",250
+2201,10,"Retry the previous command until it exits successfully",250
+2202,10,"Play awesome rythmic noise using aplay",250
+2203,10,"Turns red the stderr output",250
+2204,10,"Recursively unrar into dir containing archive",250
+2205,10,"Temporarily ignore mismatched SSH host key",250
+2206,10,"Remove all zero size files from current directory (not recursive)",250
+2207,10,"Watch the progress of 'dd'",250
+2208,10,"Get a stream feed from a Twitter user",250
+2209,10,"Create the authorization header required for a Twitter stream feed",250
+2210,10,"Create the signature base string required for a Twitter stream feed",250
+2211,10,"Create the oauth token required for a Twitter stream feed",250
+2212,10,"Check your spelling",250
+2213,10,"Find all files larger than 500M and less than 1GB",250
+2214,10,"Show bandwidth use oneliner",250
+2215,10,"Change/Modify timestamp interactively",250
+2216,10,"sort the contents of a text file in place.",250
+2217,10,"Instantly load bash history of one shell into another running shell",250
+2218,10,"Compare directories via diff",250
+2219,10,"copy with progress bar - rsync",250
+2220,10,"Multiple variable assignments from command output in BASH",250
+2221,10,"List your MACs address",250
+2222,10,"Rename all files which contain the sub-string 'foo', replacing it with 'bar'",250
+2223,10,"Create a 5 MB blank file via a seek hole",250
+2224,10,Screensaver,250
+2225,10,"ROT13 using the tr command",250
+2226,10,"Bash logger",250
+2227,10,"Recursively search for large files. Show size and location.",250
+2228,10,"Make vim open in tabs by default (save to .profile)",250
+2229,10,"Rename HTML files according to their title tag",250
+2230,10,"Secure copy from one server to another without rsync and preserve users, etc",250
+2231,10,"the same as [Esc] in vim",250
+2232,10,"Binary clock",250
+2233,10,"Function to split a string into an array",250
+2234,10,"Generate MD5 hash for a string",250
+2235,10,"Recompress all .gz files in current directory using bzip2 running 1 job per CPU core in parallel",250
+2236,10,"phpinfo from the command line",250
+2237,10,"Escape potential tarbombs",250
+2238,10,"pretend to be busy in office to enjoy a cup of coffee",250
+2239,10,"runs a X session within your X session",250
+2240,10,"Find all symlinks that link to directories",250
+2241,10,"Have a random ""cow"" say a random thing",250
+2242,10,"sends a postscript file to a postscript printer using netcat",250
+2243,10,"Display which distro is installed",250
+2244,10,"Fetch every font from dafont.com to current folder",250
+2245,10,"Realtime lines per second in a log file",250
+2246,10,"intercept stdout/stderr of another process",250
+2247,10,"send DD a signal to print its progress",250
+2248,10,"See your current RAM frequency",250
+2249,10,"scp with compression.",250
+2250,10,"Perl Command Line Interpreter",250
+2251,10,"Find unused IPs on a given subnet",250
+2252,10,"Change the From: address on the fly for email sent from the command-line",250
+2253,10,"find and delete empty dirs, start in current working dir",250
+2254,10,"Check which files are opened by Firefox then sort by largest size.",250
+2255,10,"Use colordiff in side-by-side mode, and with automatic column widths.",250
+2256,10,"extract email adresses from some file (or any other pattern)",250
+2257,10,"geoip information",250
+2258,10,"What is my ip?",250
+2259,10,"convert vdi to vmdk (virtualbox hard disk conversion to vmware hard disk format)",250
+2260,10,"FAST Search and Replace for Strings in all Files in Directory",250
+2261,10,"Get the total length of time in hours:minutes:seconds (HH:MM:SS) of all video (or audio) in the current dir (and below)",250
+2262,10,"Send data securly over the net.",250
+2263,10,"When was your OS installed?",250
+2264,10,"How to run a command on a list of remote servers read from a file",250
+2265,10,"Replace spaces in filenames with underscorees",250
+2266,10,"find the biggest files recursively, no matter how many",250
+2267,10,"grep certain file types recursively",250
+2268,10,"Change proccess affinity.",250
+2269,10,"back up your commandlinefu contributed commands",250
+2270,10,"benchmark web server with apache benchmarking tool",250
+2271,10,"Multiple SSH Tunnels",250
+2272,10,"Redirect incoming traffic to SSH, from a port of your choosing",250
+2273,10,"LDAP search to query an ActiveDirectory server",250
+2274,10,"Easily scp a file back to the host you're connecting from",250
+2275,10,"Super Speedy Hexadecimal or Octal Calculations and Conversions to Decimal.",250
+2276,10,"find and replace tabs for spaces within files recursively",250
+2277,10,"alt + 1 .",250
+2278,10,"sends your internal IP by email",250
+2279,10,synchronicity,250
+2280,10,"Terminal redirection",250
+2281,10,"Use mtr to create a text file report",250
+2282,10,"Rot13 using the tr command",250
+2283,10,"Measures download speed on eth0",250
+2284,10,"Clean swap area after using a memory hogging application",250
+2285,10,"loop over a set of items that contain spaces",250
+2286,10,"[re]verify a disc with very friendly output",250
+2287,10,"Traceroute w/TCP to get through firewalls.",250
+2288,10,"Rotate a set of photos matching their EXIF data.",250
+2289,10,"Launch a command from a manpage",250
+2290,10,"hard disk information - Model/serial no.",250
+2291,10,"Split File in parts",250
+2292,10,"Speak the top 6 lines of your twitter timeline every 5 minutes.....",250
+2293,10,"To get you started!",250
+2294,10,"Exclude grep from your grepped output of ps (alias included in description)",250
+2295,10,"renames multiple files that match the pattern",250
+2296,10,"infile search and replace on N files (including backup of the files)",250
+2297,9,"Command to logout all the users in one command",250
+2298,9,"Rename all subtitles files with the same name of mp4 files in same folder",250
+2299,9,"SSH connection through host in the middle",250
+2300,9,"!* Tells that you want all of the *arguments* from the previous command to be repeated in the current command",250
+2301,9,"Show running services (using systemctl)",250
+2302,9,"Convert all JPEG images to MP4",250
+2303,9,"Binary clock",250
+2304,9,"Bare Metal IRC Client",250
+2305,9,"pulsed terminal clock",250
+2306,9,"Submit command & rewrite orginal command",250
+2307,9,"Encrypted chat with netcat and openssl (one-liner)",250
+2308,9,"removes characters from cursor to the end of line",250
+2309,9,"Symlink all files from a base directory to a target directory",250
+2310,9,"All what exists in dir B and not in dir A will be copied from dir B to new or existing dir C",250
+2311,9,"find previously entered commands (requires configuring .inputrc)",250
+2312,9,"Add directory to $PATH if it's not already there",250
+2313,9,"Debug how files are being accessed by a process",250
+2314,9,"Convert JSON to YAML",250
+2315,9,"Search google.com on your terminal",250
+2316,9,"Reverse Backdoor Command Shell using Netcat",250
+2317,9,"Emulating netcat -e (netcat-traditional or netcat-openbsd) with the gnu-netcat",250
+2318,9,"Find biggest 10 files in current and subdirectories and sort by file size",250
+2319,9,"Get your external IP and Network Info",250
+2320,9,"Quickly CD Out Of Directories Without 5+ Aliases",250
+2321,9,"List all commands present on system",250
+2322,9,"A line across the entire width of the terminal",250
+2323,9,"Create the four oauth keys required for a Twitter stream feed",250
+2324,9,"Check if a machine is online",250
+2325,9,"diff the outputs of two programs",250
+2326,9,"put an unpacked .deb package back together",250
+2327,9,"extract element of xml",250
+2328,9,"Print all lines between two line numbers",250
+2329,9,"Show network throughput",250
+2330,9,"Generate a random password 30 characters long",250
+2331,9,"Remove the first and the latest caracter of a string",250
+2332,9,"Load file into RAM (cache) for faster accessing for repeated usage",250
+2333,9,"Show IP Address in prompt --> PS1 var",250
+2334,9,"log a command to console and to 2 files separately stdout and stderr",250
+2335,9,"Join lines split with backslash at the end",250
+2336,9,"Convert text to lowercase",250
+2337,9,"find builtin in bash v4+",250
+2338,9,"make image semi-transparent",250
+2339,9,"execute a shell with netcat without -e",250
+2340,9,"output length of longest line",250
+2341,9,"Save your terminal commands in bash history in real time",250
+2342,9,"Connect via SSH to VirtualBox guest VM without knowing IP address",250
+2343,9,"Make redirects to localhost via /etc/hosts more interesting",250
+2344,9,"Tricky implementation of two-dimensional array in Bash.",250
+2345,9,"Terrorist threat level text",250
+2346,9,"Use wget to download one page and all it's requisites for offline viewing",250
+2347,9,"Convert a string to ""Title Case""",250
+2348,9,"RTFM function",250
+2349,9,"back ssh from firewalled hosts",250
+2350,9,"rename files according to file with colums of corresponding names",250
+2351,9,"Create a new file",250
+2352,9,"Monitor a file with tail with timestamps added",250
+2353,9,"Use result of the last command",250
+2354,9,"Check disk for bad sectors",250
+2355,9,"run a command whenever a file is touched",250
+2356,9,"Create a file of a given size in linux",250
+2357,9,"Extended man command",250
+2358,9,"Get notified when a job you run in a terminal is done, using NotifyOSD",250
+2359,9,"Show which process is blocking umount (Device or resource is busy)",250
+2360,9,"Show the UUID of a filesystem or partition",250
+2361,9,"run command on a group of nodes",250
+2362,9,"Setting global redirection of STDERR to STDOUT in a script",250
+2363,9,"Outgoing IP of server",250
+2364,9,"Isolate file name from full path/find output",250
+2365,9,"Show numerical values for each of the 256 colors in bash",250
+2366,9,"Use Kernighan & Ritchie coding style in C program",250
+2367,9,"Delay execution until load average falls under 1.5",250
+2368,9,"backup with mysqldump a really big mysql database to a remote machine over ssh",250
+2369,9,"Tail -f at your own pace",250
+2370,9,"Watch the progress of 'dd'",250
+2371,9,"Smart `cd`.. cd to the file directory if you try to cd to a file",250
+2372,9,"Temporarily ignore known SSH hosts",250
+2373,9,"dd with progress bar",250
+2374,9,"Save the Top 2500 commands from commandlinefu to a single text file",250
+2375,9,"Simple addicting bash game.",250
+2376,9,"Query Wikipedia via console over DNS",250
+2377,9,"Print a row of 50 hyphens",250
+2378,9,"Display a wave pattern",250
+2379,9,"grep tab chars",250
+2380,9,"send a message to a windows machine in a popup",250
+2381,9,"Using mplayer to play the audio only but suppress the video",250
+2382,9,"Using mplayer to play the audio only but suppress the video",250
+2383,9,"create a temporary file in a command line call",250
+2384,9,"shell function to make gnu info act like man.",250
+2385,9,"Get your commandlinefu points (upvotes - downvotes)",250
+2386,9,"Replace spaces in filenames with underscores",250
+2387,9,"Insert  the  last  argument  of  the previous command",250
+2388,9,"Remote control for Rhythmbox on an Ubuntu Media PC",250
+2389,9,"Remove everything except that file",250
+2390,9,"Remove today's Debian installed packages",250
+2391,9,"Amazing real time picture of the sun in your wallpaper",250
+2392,9,"bash screensaver off",250
+2393,9,"Monitor a file's size",250
+2394,9,"Smart renaming",250
+2395,9,"is today the end of the month?",250
+2396,9,"Port scan a range of hosts with Netcat.",250
+2397,9,"Log your internet download speed",250
+2398,9,"Show Directories in the PATH Which does NOT Exist",250
+2399,0,"Find files by extension",179
+2400,100,"Default keybindings",260
+2401,90,"Emacs-style keybindings",260
+2402,80,"Integration with file managers",260
+2403,70,"Mouse bindings",260
+2405,0,gnuchess,29

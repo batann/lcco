@@ -1,0 +1,55 @@
+#!/bin/bash
+#Author: Batan 12982#tutanota.com
+# vim:fileencoding=utf-8:foldmethod=marker
+
+#{{{ >>>   houskeeping  
+COLS="";AA="─";BB=""; for x in $(seq 1 $(tput cols)); do COLS="${COLS}${AA}" ;done
+DIRLOG="/home/$USER/.lcco/log"
+DIRCACHE="/home/$USER/.lcco/cache"
+DIRBASE="/home/batan/.lcco"
+FILECONF="/home/$USER/.lcco/conf/config"
+FILELOG="$DIRLOG/lc-PID-display"
+STAMP="$(date +%j.%H.%M)"
+COUNT="1"
+DIRBASE="/home/batan/.lcco"
+if [[ ! -f "$FILELOG" ]]; then
+	touch "$FILELOG"
+fi
+#}}}
+#{{{ >>>   lc-echo
+lc-echo() {
+echo -e "\033[36mlc-echo\033[0m is part of the lc-script template and bash dev-environment, 
+which provides the user with a script description and other essential information,
+such as version number,date modified, and stage of developmen or to-dos, in
+printed output,\033[36mbefore \033[0mthe acctual execution.Thus it is a built in safty precotion.\033[0m"
+echo -e "\033[36m$COLS\033[0m"
+echo -e "Enter \033[36m[\033[37m ANY \033[0m\033[36m]\033[0m to continue...\033[0m"
+echo -e "Enter \033[36m[\033[37m q \033[0m\033[36m]\033[0m to continue...\033[0m"
+echo -e "\033[36m$COLS\033[0m"
+read -n1 LOL
+if [[ $LOL == "q" ]]; then
+	echo "Exiting"
+	exit
+fi
+}
+#}}}
+#{{{ >>>   tty-wrap-II
+tty-wrap-II() {
+tput civis
+stty -echo -icanon time 0 min 0 < /dev/tty
+cleanup() { stty sane < /dev/tty; tput cnorm; }
+trap cleanup RETURN
+}
+#}}}
+#{{{ >>> lc-PID-display
+lc-PID-display() {
+echo -e "\033[2A\033[2K\n\033[2K\033[2A\033[36m┌────────────────────────────────────────────────────────────────\033[0m"
+echo -e "\033[36m│\033[1;36m⟦\033[1;37;44mPID    \033[;1;36m⟧───⟦\033[1;37;44mCPU   \033[0;1;36m⟧───⟦\033[1;37;44m%Mem    \033[0;1;36m⟧───⟦\033[1;37;44mCommand                   \033[0;1;36m⟧"
+ps -Ao pid,%cpu,%mem,comm --sort=-%cpu|grep "PIDsleep"|awk '{print "\033[0;36m│\033[1;36m⟦\033[1;92;40m       \033[3G"$1"\033[10G\033[0;36m⟧───⟦\033[1;92;40m         \033[15G "$2"\033[21G\033[0;36m⟧───⟦\033[1;92;40m        \033[26G\033[1;32m% "$3"\033[34G\033[0;36m⟧───⟦\033[1;92;40m                          \033[39G"$4"\033[65G\033[0;36m⟧\033[0m"$5}'
+
+}
+#}}}
+sleep 360 &
+PIDsleep="$!"
+
+lc-PID-display

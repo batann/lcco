@@ -1,0 +1,9 @@
+[window]
+dimensions = { columns = 100, lines = 30 }
+padding = { x = 1, y = 1 }
+startup_mode = "Maximized" # Options: "Windowed", "Maximized", "Fullscreen"
+
+[terminal.shell]
+program = "/bin/bash"
+args = ["-c", "lc-toggle-decorations $(wmctrl -lG | grep Alacritty|cut -c1-11); exec bash"]
+

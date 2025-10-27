@@ -1,0 +1,91 @@
+#!/bin/bash
+#Author: Batan 12982#tutanota.com
+# vim:fileencoding=utf-8:foldmethod=marker
+
+#{{{ >>>   houskeeping  
+COLS="";AA="─";BB=""; for x in $(seq 1 $(tput cols)); do COLS="${COLS}${AA}" ;done
+DIRLOG="/home/$USER/.lcco/log"
+DIRCACHE="/home/$USER/.lcco/cache"
+DIRBASE="/home/batan/.lcco"
+FILECONF="/home/$USER/.lcco/conf/config"
+FILELOG="$DIRLOG/lc-clipboard_logic"
+STAMP="$(date +%j.%H.%M)"
+COUNT="1"
+DIRBASE="/home/batan/.lcco"
+if [[ ! -f "$FILELOG" ]]; then
+	tpuch "$FILELOG"
+fi
+#}}}
+#{{{ >>>   lc-echo
+lc-echo() {
+echo -e "\033[36mlc-echo\033[0m is part of the lc-script template and bash dev-environment, 
+which provides the user with a script description and other essential information,
+such as version number,date modified, and stage of developmen or to-dos, in
+printed output,\033[36mbefore \033[0mthe acctual execution.Thus it is a built in safty precotion.\033[0m"
+echo -e "\033[36m$COLS\033[0m"
+echo -e "Enter \033[36m[\033[37m ANY \033[0m\033[36m]\033[0m to continue...\033[0m"
+echo -e "Enter \033[36m[\033[37m q \033[0m\033[36m]\033[0m to continue...\033[0m"
+echo -e "\033[36m$COLS\033[0m"
+read -n1 LOL
+if [[ $LOL == "q" ]]; then
+	echo "Exiting"
+	exit
+fi
+}
+#}}}
+#{{{ >>>   tty-wrap-II
+tty-wrap-II() {
+tput civis
+stty -echo -icanon time 0 min 0 < /dev/tty
+cleanup() { stty sane < /dev/tty; tput cnorm; }
+trap cleanup RETURN
+}
+#}}}
+#{{{ >>>   clipboard_logic
+clipboard_logic() {
+DIR_BASE="/home/batan/.lcco/clip"
+inter_count="10" #used for countdown and full circle intervals, not applied ATM
+count="1"
+	
+move_register() {
+	   cat /home/batan/.lcco/clip/register9|grep "http" >> /home/batan/.lcco/clip/auto.register.md 2>/dev/null
+		rm -f $DIR_BASE/register9 2>/dev/null 
+		mv $DIR_BASE/register8 $DIR_BASE/register9 2>/dev/null 
+		mv $DIR_BASE/register7 $DIR_BASE/register8 2>/dev/null
+		mv $DIR_BASE/register6 $DIR_BASE/register7 2>/dev/null
+		mv $DIR_BASE/register5 $DIR_BASE/register6 2>/dev/null
+		mv $DIR_BASE/register4 $DIR_BASE/register5 2>/dev/null
+		mv $DIR_BASE/register3 $DIR_BASE/register4 2>/dev/null
+		mv $DIR_BASE/register2 $DIR_BASE/register3 2>/dev/null
+		mv $DIR_BASE/register1 $DIR_BASE/register2 2>/dev/null
+		touch $DIR_BASE/register1
+}
+
+# Set a trap for SIGINT (Ctrl+C)
+#trap 'echo "Caught Ctrl+C! Breaking the loop..."; break' SIGINT
+
+							# Start Listening
+					previous_clipboard=""
+							#Listen for clipboard changes
+while true; 
+do
+							# Get current clipboard content
+    				current_clipboard=$(xclip -o -selection clipboard)
+							# Check if clipboard content has changed
+    				if [[ "$current_clipboard" != "$previous_clipboard" ]]; then
+    					   # move registry one up and create blank registry 1
+					move_register
+
+						   # Append clipboard content to file1
+        			echo "$current_clipboard" >> /home/batan/.lcco/clip/register1
+					       	# Update previous clipboard content
+        			previous_clipboard="$current_clipboard"
+    				fi
+					   		# Sleep for a short duration to avoid high CPU usage
+    				sleep 0.1
+				done
+			}
+
+#}}}
+
+

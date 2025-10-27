@@ -1,0 +1,764 @@
+if [[ -f ~/.config/lc-clipboard/toggle_register ]] ; then⟦⟦⟧⟧if [[ -f ~/.config/lc-clipboard/toggle_register ]] ; then tput cup 13 7 echo "\033[32m⟦⟦⟦\033[36mMode II\033[32m ⟧⟧⟧\033[0m"if [[ -f ~/.config/lc-clipboard/toggle_register ]] ; then tput cup 13 7 echo "\033[32m⟦⟦⟦\033[36mMode II\033[32m ⟧⟧⟧\033[0m"❨❨❩❩❨❨❨❨❨ Clipboard Text to Speach ❩❩❩❨❨❨ Clipboard Text to Speach ❩❩❩\033[35m❨❨❨ \033[36mClipboard Text to Speach \033[35m❩❩❩\033[0m\033[35m❨❨❨ \033[36mClipboard Text to Speach \033[35m❩❩❩\033[0mtoggle_registertoggle_registerThis simple yet effective technique lets you track the files you care about and it doesn't require any tools other than git. The files will be kept at their intended location, without the need to create symlinks or copies.This simple yet effective technique lets you track the files you care about and it doesn't require any tools other than git. The files will be kept at their intended location, without the need to create symlinks or copies. rm /home/$USER/.config/lc-clipboard/register{1..9} 
+        touch /home/$USER/.config/lc-clipboard/register{1..9}  rm /home/$USER/.config/lc-clipboard/register{1..9} 
+        touch /home/$USER/.config/lc-clipboard/register{1..9} firefox $(cat "/home/$USER/.config/lc-clipboard/register$2firefox $(cat "/home/$USER/.config/lc-clipboard/register$2rm /home/$USER/.config/lc-clipboard/register{1..9} 
+        touch /home/$USER/.config/lc-clipboard/register{1..9}rm /home/$USER/.config/lc-clipboard/register{1..9} 
+        touch /home/$USER/.config/lc-clipboard/register{1..9}Files are added to the repository by calling dots add $HOME/.config/file and when issuing git status - only changes to files explicitly added will be shown.Files are added to the repository by calling dots add $HOME/.config/file and when issuing git status - only changes to files explicitly added will be shown.Falling back on generic information extractorecho -e "\033[7Gxxx"/Root/lc-search_and_navigate.sh
+command! RunScript w | execute 'silent !xterm -hold -e "./%"'command! RunScript w | execute 'silent !alacritty -e bash -c "./% && exec bash"'function! WriteCopyAndClose()
+  let l:filename = expand('%:t')        " e.g. script.sh
+  let l:filepath = expand('%:p:h')      " dir of file
+  let l:num = 1
+  while filereadable(l:filepath . '/' . l:num . '.' . l:filename)
+    let l:num += 1
+  endwhile
+  execute 'write'
+  let l:copyname = l:filepath . '/' . l:num . '.' . l:filename
+  execute '!cp ' . shellescape(expand('%:p')) . ' ' . shellescape(l:copyname)
+  execute 'bd'
+endfunction
+
+command! WC call WriteCopyAndClose()function! WriteCopyAndKeep()
+  let l:filename = expand('%:t')        " script.sh
+  let l:filepath = expand('%:p:h')      " /path/to
+  let l:fullpath = expand('%:p')        " /path/to/script.sh
+
+  " Find next available number
+  let l:num = 1
+  while filereadable(l:filepath . '/' . l:num . '.' . l:filename)
+    let l:num += 1
+  endwhile
+
+  " Compose new name
+  let l:copyname = l:num . '.' . l:filename
+  let l:copypath = l:filepath . '/' . l:copyname
+
+  " Write and copy
+  execute 'write'
+  call system(['cp', l:fullpath, l:copypath])
+
+  " Check if copy is already in buffer
+  for b in getbufinfo()
+    if fnamemodify(b.name, ':p') == l:copypath
+      execute 'bd'
+      execute 'buffer ' . b.bufnr
+      return
+    endif
+  endfor
+
+  " Not open: close current and open copy
+  execute 'bd'
+  execute 'edit ' . fnameescape(l:copypath)
+endfunction
+
+command! WC call WriteCopyAndKeep()
+function! WriteCopyAndKeep()
+  let l:filename = expand('%:t')
+  let l:filepath = expand('%:p:h')
+  let l:fullpath = expand('%:p')
+
+  " Find next available number
+  let l:num = 1
+  while filereadable(l:filepath . '/' . l:num . '.' . l:filename)
+    let l:num += 1
+  endwhile
+
+  let l:copyname = l:num . '.' . l:filename
+  let l:copypath = l:filepath . '/' . l:copyname
+
+  " Write and copy
+  execute 'write'
+  execute '!cp ' . shellescape(l:fullpath) . ' ' . shellescape(l:copypath)
+
+  " Check if copy is already in buffer
+  for b in getbufinfo()
+    if fnamemodify(b.name, ':p') == l:copypath
+      execute 'bd'
+      execute 'buffer ' . b.bufnr
+      return
+    endif
+  endfor
+
+  " Not open: close current and open copy
+  execute 'bd'
+  execute 'edit ' . fnameescape(l:copypath)
+endfunction
+
+command! WC call WriteCopyAndKeep()
+#!/bin/bash
+
+WATCH_DIR="$1"
+[[ -z "$WATCH_DIR" ]] && WATCH_DIR="$PWD"
+
+inotifywait -m -e modify --format '%w%f' -r "$WATCH_DIR" | while read -r file; do
+  [[ "$file" =~ \.sh$ ]] && [[ -x "$file" ]] && bash "$file" &
+done
+#!/bin/bash
+
+WATCH_FILE="${1:-./script.sh}"
+
+inotifywait -m -e modify --format '%w%f' "$(dirname "$WATCH_FILE")" | while read -r changed; do
+  [[ "$changed" == "$(realpath "$WATCH_FILE")" ]] && bash "$WATCH_FILE" &
+done
+=$'\033[7G'        case "$key" in
+
+            '\t') #Tab Key
+                if [[ $current_view == "dir" ]]; then
+                    toggle_files
+                    REFRESH_OPTIONS
+                elif [[ $current_view == "files" ]]; then
+
+    if [[ $current_view == "files" ]]; then
+        file="${options[$selected]}"  # or however you access the file
+        if [[ -n "${marked_files_map[$file]}" ]]; then
+            unset "marked_files_map[$file]"
+        else
+            marked_files_map["$file"]=1
+        fi
+        REFRESH_OPTIONS
+    fi\033[30;46mfor idx in "${!options[@]}"; do
+    file="${options[$idx]}"
+    is_selected=$([[ $idx -eq $selected ]] && echo 1 || echo 0)
+    is_marked=$([[ -n "${marked_files_map[$file]}" ]] && echo 1 || echo 0)
+
+    if [[ $is_selected -eq 1 && $is_marked -eq 1 ]]; then
+        style="\033[1;30;45m"  # bold black on magenta
+    elif [[ $is_selected -eq 1 ]]; then
+        style="\033[30;47m"    # black on white
+    elif [[ $is_marked -eq 1 ]]; then
+        style="\033[30;46m"    # black on cyan
+    else
+        style="\033[0m"        # default
+    fi
+
+    printf "${style}%-60s\033[0m\n" "$file"
+done
+    DISPLAY_OPTIONS() {
+        clear
+
+        tput cup 0 0  # Move to the 9th line, 0th column
+        echo -e "\033[34m╭────────────────────────────────────────────────────────────────────────────────❯▶\033[0m"
+        echo -e "\033[34m│\033[36m$(pwd|sed 's/\///'|cut -c 1-4|sed 's/.*/\U&/')   \033]37m\033[37m$(pwd|cut -c7-100) \033[0m"
+
+
+
+
+
+
+        echo -e "\033[34m╰─────\033[37m  ──────────────── \033[32m ───────────────────────────────────────────────────\033[0m"
+        for ((i=0; i<MAX_DISPLAY; i++)); do
+            idx=$((start_index + i))
+            if [[ $idx -ge $NUM_OPTIONS ]]; then
+                break
+            fi
+            if [[ $idx -eq $selected ]]; then
+                echo -e "${RR}\e[7m$(echo -e ${OPTIONS[idx]}|cut -c1-16)\e[27m"  # Highlight selection
+            else
+                echo -e "${RR}$(echo -e ${OPTIONS[idx]}|cut -c1-16)"
+            fi
+        done
+        # Ensure we always have 10 lines of output (add empty lines if less than 10 options)
+        for ((i=NUM_OPTIONS; i<MAX_DISPLAY; i++)); do
+            echo ""  # Adding empty lines to fill the screen
+        done
+      #  display_files
+      #  display_bottom
+
+    }
+for ((i=0; i<MAX_DISPLAY; i++)); do
+    idx=$((start_index + i))
+    if [[ $idx -ge $NUM_OPTIONS ]]; then
+        break
+    fi
+
+    file="${OPTIONS[idx]}"
+    is_sel=$([[ $idx -eq $selected ]] && echo 1 || echo 0)
+    is_marked=$([[ -n "${marked_files_map[$file]}" ]] && echo 1 || echo 0)
+
+    if [[ $is_sel -eq 1 && $is_marked -eq 1 ]]; then
+        style="\033[1;30;45m"  # Bold black on magenta (selected + marked)
+    elif [[ $is_sel -eq 1 ]]; then
+        style="\033[30;47m"    # Black on white (selected only)
+    elif [[ $is_marked -eq 1 ]]; then
+        style="\033[30;46m"    # Black on cyan (marked only)
+    else
+        style="\033[0m"        # Default
+    fi
+
+    # Cut to 16 characters and pad if needed
+    printf "${RR}${style}%-16s\033[0m\n" "$(echo -e "$file" | cut -c1-16)"
+done
+declare -A marked_files_map! -path '*/.*/*' ! -name '.*'find . -maxdepth 1 -type f ! -path '*/.*/*' ! -name '.*' -mmin -1200 -cmin -1200 |sed 's/\.\///g'|head -n10
+  if [[ $current_view == "files" ]]; then
+        for file in "${!marked_files_map[@]}"; do
+            lcedit "$file"
+        done
+    fi
+    ;;
+ "${OPTIONS[$selected]}"$'\n')
+    if [[ $current_view == "files" ]]; then
+        if [[ ${#marked_files_map[@]} -gt 0 ]]; then
+            for file in "${!marked_files_map[@]}"; do
+                lcedit "$file"
+            done
+        else
+            lcedit "${OPTIONS[$selected]}"
+        fi
+    fi
+    ;;   marked_files_map=() read -rsn1 key  # Read 1 char (silent)
+if [[ $key == $'\e' ]]; then
+    read -rsn2 -t 0.01 rest
+    key+="$rest"  # combine escape sequences (e.g., arrow keys)
+fi
+case "$key" in
+    $'\n')  EXECUTE_COMMAND ;;
+    $'\t')  TOGGLE_MARK ;;
+    ' ')    SOME_SPACE_HANDLER ;;
+    $'\e[A') MOVE_UP ;;
+    $'\e[B') MOVE_DOWN ;;
+    q)      exit ;;
+esac
+read -rsn1 key  # Read 1 char (silent)
+if [[ $key == $'\e' ]]; then
+    read -rsn2 -t 0.01 rest
+    key+="$rest"  # combine escape sequences (e.g., arrow keys)
+ficase "$key" in
+    $'\n')  EXECUTE_COMMAND ;;
+    $'\t')  TOGGLE_MARK ;;
+    ' ')    SOME_SPACE_HANDLER ;;
+    $'\e[A') MOVE_UP ;;
+    $'\e[B') MOVE_DOWN ;;
+    q)      exit ;;
+esac
+read -rsn1 key  # Read 1 char (silent)
+if [[ $key == $'\e' ]]; then
+    read -rsn2 -t 0.01 rest
+    key+="$rest"  # combine escape sequences (e.g., arrow keys)
+firead -rsn1 key
+if [[ $key == $'\e' ]]; then
+    read -rsn2 -t 0.01 rest
+    key+="$rest"
+ficase "$key" in
+    $'\n')     EXECUTE_COMMAND ;;
+    $'\t')     TOGGLE_MARK ;;
+    ' ')       SPACE_HANDLER ;;
+    $'\e[A')   MOVE_UP ;;
+    $'\e[B')   MOVE_DOWN ;;
+    $'\e[D')   MOVE_LEFT ;;
+    $'\e[C')   MOVE_RIGHT ;;
+    q)         exit ;;
+    *)         : ;;  # Ignore unknown keys
+esac   read -rsn1 key
+        if [[ $key == $'\x1b' ]]; then  # Detect Escape sequences (Arrow keys)
+            read -rsn2 key
+read -rsn1 key
+if [[ $key == $'\e' ]]; then
+    read -rsn2 -t 0.01 rest
+    key+="$rest"
+fi
+ marked_files_map=()   # ⬅️ Clear the selections
+        else  selected_item="${OPTIONS[$selected]}"
+    if [[ -d "$selected_item" ]]; then
+        cd "$selected_item"
+        load_directory
+        selected=0
+        start_index=0
+        REFRESH_OPTIONS
+    fi
+    ;;leader_buffer=""
+max_seq=3  # max chars after leader
+
+for ((i=0; i<max_seq; i++)); do
+    read -rsn1 -t 1 key2 || break
+    leader_buffer+="$key2"
+    [[ -n "${keymap[$leader_buffer]}" ]] && break
+done
+
+cmd="${keymap[$leader_buffer]}"
+[[ -n "$cmd" ]] && eval "$cmd"
+  read -rsn2 seq
+    cmd="${keymap[$seq]}"
+    type="${keyflags[$seq]}"
+
+    if [[ -n "$cmd" ]]; then
+        if [[ "$type" == *silent* ]]; then
+            eval "$cmd" &> /dev/null
+        else
+            eval "$cmd"
+        fi
+        # Future support: if remapping is disallowed, skip recursive check
+    fi
+    REFRESH_OPTIONS
+    ;;',' )
+    read -rsn2 seq
+    cmd="${keymap[$seq]}"
+    type="${keyflags[$seq]}"
+
+    if [[ -n "$cmd" ]]; then
+        if [[ "$type" == *silent* ]]; then
+            eval "$cmd" &> /dev/null
+        else
+            eval "$cmd"
+        fi
+        # Future support: if remapping is disallowed, skip recursive check
+    fi
+    REFRESH_OPTIONS
+    ;; ',' )
+        read -rsn2 nextkeys
+        cmd="${keymap[$nextkeys]}"
+        if [[ -n "$cmd" ]]; then
+            eval "$cmd"
+        fi
+        REFRESH_OPTIONS
+        ;;declare -A keymap
+while IFS= read -r line; do
+    [[ "$line" =~ ^map\ ([^[:space:]]{2})\ exec\ (.*)$ ]] && keymap["${BASH_REMATCH[1]}"]="${BASH_REMATCH[2]}"
+done < ~/.config/lc-fm/config
+pulsemixer --list-sinksvol=$(pulsemixer --get-volume)
+echo "Volume: $vol%"pulsemixer --get-volume|awk -F' ' pulsemixer --get-volume | awk '{printf "\033[32m%s\033[34m/\033[31m%s\033[34m%%\033[0m\n", $1, $2}' VOL=$(pulsemixer --get-volume | awk '{printf "\033[32m%s\033[34m\033[31m%s\033[34m%%\033[0m\n", $1 "\033[34m/\033[31m100\033[34m%","\033[32m    " $2"\033[34m/\033[31m100"}')
+╰─────  ────────────────  ───────────────────────────────────────────────────
+#{{{ >>> change_volume
+change_volume() {
+while :; do
+    VOL=$(pulsemixer --get-volume | awk '{printf "\033[32m%s\033[34m\033[31m%s\033[34m%%\033[0m\n", $1 "\033[34m/\033[31m100\033[34m%","\033[32m          " $2"\033[34m/\033[31m100"}') 
+tput cup 1 1
+echo -e "\033[34mVolum  $VOL"
+read -rsn1 key
+if [[ $key == "" ]] then 
+    break
+fi
+case $key in
+    '>') pulsemixer --change-volume +5 ;;
+    '<') pulsemixer --change-volume -5 ;;
+esac
+done
+}
+#}}}
+
+
+handle_keys() {
+    while true; do
+        read -rsn1 key
+        case "$key" in
+            '+') pulsemixer --change-volume +5 ;;
+            '-') pulsemixer --change-volume -5 ;;
+            q) break ;;
+        esac
+    done
+}handle_keys() {
+    while true; do
+        read -rsn1 key
+        case "$key" in
+            '+') pulsemixer --change-volume +5 ;;
+            '-') pulsemixer --change-volume -5 ;;
+            q) break ;;
+        esac
+    done
+}──❯▶#{{{ >>> change_volume
+change_volume() {
+while :; do
+    VOL=$(pulsemixer --get-volume | awk '{printf "\033[32m%s\033[34m\033[0m\n", "\033[37m[[  \033[32m"$1"\033[34m / \033[31m99\033[34m%\033[37m  ]]\033[0m"}') 
+tput cup 1 1
+echo -e "       \033[33mVolume:      ──▶\033[0m  $VOL"
+read -rsn1 key
+if [[ $key == "" ]] then 
+    break
+fi
+case $key in
+    '>') pulsemixer --change-volume +5 ;;
+    '<') pulsemixer --change-volume -5 ;;
+esac
+done
+}
+#}}}
+──▶Volume:      ──▶VOL=$(pulsemixer --get-volume | awk '{printf "\033[32m%s\033[34m\033[0m\n", "\033[37m[[  \033[32m"$1"\033[34m / \033[31m99\033[34m%\033[37m  ]]\033[0m"}')
+     '[C')
+         selected_item="${OPTIONS[$selected]}"
+         if [[ -d "$selected_item" ]]; then
+             cd "$selected_item"
+             load_directory
+             selected=0
+             start_index=0
+             REFRESH_OPTIONS
+         fi
+         ;;
+exo-open --launch WebBrowser'FINT-4350'$'\033''[0m.txt'for x in $(cat /home/$USER/lynis/lynis_system_audit_output |grep https|grep -E "[A-Z]-[0-9]"|sed 's/.*htt/htt/g');
+do
+https://cisofy.com/lynis/controls/FILE-7524/curl -s $x|pandoc -f html -t plain|head -n -77 | tail -n -27 |sed 's/-/\─/g'| GREP_COLORS="mt=01;31" grep --color=always -E "Description|How to solve|Control details|$" >> "$(echo $x|rev|sed 's/\///'|sed 's/[/].*$//g'|rev).txt" ;done
+curl -s $x|pandoc -f html -t plain|head -n -77 | tail -n -27 |sed 's/-/\─/g'curl -s $x|pandoc -f html -t plain|head -n -77 | tail -n -27 |sed 's/-/\─/g'| GREP_COLORS="mt=01;31" grep --color=always -E "Description|How to solve|Control details|$"echo $x|rev|sed 's/\///'|sed 's/[/].*$//g'|rev).txt"curl -s $x|pandoc -f html -t plain|head -n -77 | tail -n -27 |sed 's/-/\─/g'| GREP_COLORS="mt=01;31" grep --color=always -E "Description|How to solve|Control details|$" >>curl -s $x|pandoc -f html -t plain|head -n -77 | tail -n -27 |sed 's/-/\─/g'| GREP_COLORS="mt=01;31" grep --color=always -E "Description|How to solve|Control details|$" >>$(echo $(echo $x|rev|sed 's/\///'|sed 's/[/].*$//g'|rev).txt);done
+for x in $(cat /home/$USER/lynis/lynis_system_audit_output |grep https|grep -E "[A-Z]-[0-9]"|sed 's/.*htt/htt/g');
+do
+for x in $(cat /home/$USER/lynis/lynis_system_audit_output |grep https|grep -E "[A-Z]-[0-9]"|sed 's/.*htt/htt/g');                                                                                    do                                     
+curl -s $x|pandoc -f html -t plain|head -n -77 | tail -n -27 |sed 's/-/\─/g'| GREP_COLORS="mt=01;31" grep --color=always -E "Description|How to solve|Control details|$" >>$(echo $(echo $x|rev|sed 's/\///'|sed 's/[/].*$//g'|rev).txt);done
+for x in $(cat /home/$USER/lynis/lynis_system_audit_output |grep https|grep -E "[A-Z]-[0-9]"|sed 's/.*htt/htt/g');                                                                                    do                                      curl -s $x|pandoc -f html -t plain|head -n -77 | tail -n -27 |sed 's/-/─/g'| GREP_COLORS='mt=01;31' grep --color=always -E "Description|How to solve|Control details|$" >> echo -e $(echo -e $x|rev|sed 's/\///'|sed 's/\/.*$//g'|rev).txt ;done
+TOOL-FILE=$(echo -e $x|rev|sed 's/\///'|sed 's/\/.*$//g'|rev)$'\033''[0mfor x in $(grep https /home/$USER/lynis/lynis_system_audit_output | grep -E "[A-Z]-[0-9]" | sed 's/.*htt/htt/'); do
+    filename="$(echo "$x" | rev | sed 's/\///' | sed 's/\/.*$//' | rev).txt"
+    curl -s "$x" | pandoc -f html -t plain | head -n -77 | tail -n 27 | \
+        sed 's/-/─/g' | GREP_COLORS='mt=01;31' grep --color=always -E "Description|How to solve|Control details|$" \
+        >> "$filename"
+doneLOGG-2190'LOGG-2190'$'\033''[0m.txt' for x in $(grep https /home/$USER/lynis/lynis_system_audit_output | grep -E "[A-Z]-[0-9]" | sed 's/.*htt/htt/'); do
+    # extract e.g., LOGG-2190
+    filename="$(echo "$x" | grep -oE '[A-Z]+-[0-9]+').txt"
+
+    # fetch, convert, extract, highlight
+    curl -s "$x" | pandoc -f html -t plain | head -n -77 | tail -n 27 | \
+        sed 's/-/─/g' | GREP_COLORS='mt=01;31' grep --color=always -E "Description|How to solve|Control details|$" \
+        >> "$filename"
+donehttps://linux-audit.com/software/why-remove-compilers-from-your-system/curl -s "$x" | pandoc -f html -t plain | head -n -77 | tail -n 27 | \
+        sed 's/-/─/g' | GREP_COLORS='mt=01;31' grep --color=always -E "Description|How to solve|Control details|$" \
+    curl -s $x | pandoc -f html -t plain | head -n -77 | tail -n 27https://linux-audit.com/monitoring-linux-file-access-changes-and-modifications/Please enable data compression (Accept-Encoding header)
+for x in $(grep https /home/$USER/lynis/lynis_system_audit_output | grep -E "[A-Z]-[0-9]" | sed 's/.*htt/htt/'); do
+    filename="$(echo "$x" | grep -oE '[A-Z]+-[0-9]+').txt"
+    curl -s -H "Accept-Encoding: gzip, deflate, br" --compressed "$x" \
+        | pandoc -f html -t plain | head -n -77 | tail -n 27 \
+        | sed 's/-/─/g' \
+        | GREP_COLORS='mt=01;31' grep --color=always -E "Description|How to solve|Control details|$" \
+        >> "$filename"
+done
+127.0.0.1:20241/metrics2025-04-17T22:19:35Z INF ICMP proxy will use 192.168.1.39 as source for IPv4
+2025-04-17T22:19:35Z INF ICMP proxy will use fe80::da22:f205:1308:3b75 in zone eth0 as source for IPv6
+2025-04-17T22:19:35Z WRN The user running cloudflared process has a GID (group ID) that is not within ping_group_range. You might need to add that user to a group within that range, or instead update the range to encompass a group the user is already in by modifying /proc/sys/net/ipv4/ping_group_range. Otherwise cloudflared will not be able to ping this network error="Group ID 1000 is not between ping group 1 to 0"
+2025-04-17T22:19:35Z WRN ICMP proxy feature is disabled error="cannot create ICMPv4 proxy: Group ID 1000 is not between ping group 1 to 0 nor ICMPv6 proxy: socket: permission denied"
+2025-04-17T22:19:35Z INF ICMP proxy will use 192.168.1.39 as source for IPv4
+2025-04-17T22:19:35Z INF ICMP proxy will use fe80::da22:f205:1308:3b75 in zone eth0 as source for IPv6
+2025-04-17T22:19:35Z INF Starting metrics server on 127.0.0.1:20241/metrics
+2025-04-17T22:19:35Z INF Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences connIndex=0 event=0 ip=198.41.192.7
+2025/04/18 08:19:35 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2025-04-17T22:19:36Z INF Registered tunnel connection connIndex=0 connection=3ef9c345-9c60-4655-a467-6d9b49398c80 event=0 ip=198.41.192.7 location=syd04 protocol=quic
+2025-04-17T22:19:46Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp [::1]:8080: connect: connection refused" connIndex=0 event=1 ingressRule=0 originService=http://localhost:8080/
+2025-04-17T22:19:46Z ERR Request failed error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp [::1]:8080: connect: connection refused" connIndex=0 dest=https://showing-sky-drill-understanding.trycloudflare.com/ event=0 ip=198.41.192.7 type=http
+2025-04-17T22:19:46Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp [::1]:8080: connect: connection refused" connIndex=0 event=1 ingressRule=0 originService=http://localhost:8080/
+2025-04-17T22:19:46Z ERR Request failed error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp [::1]:8080: connect: connection refused" connIndex=0 dest=https://showing-sky-drill-understanding.trycloudflare.com/favicon.ico event=0 ip=198.41.192.7 type=http
+^C2025-04-17T22:20:57Z INF Initiating graceful shutdown due to signal interrupt ...
+2025-04-17T22:20:57Z ERR Failed to serve tunnel connection error="context canceled" connIndex=0 event=0 ip=198.41.192.7
+2025-04-17T22:20:57Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.41.192.7
+2025-04-17T22:20:57Z ERR no more connections active and exiting
+2025-04-17T22:20:57Z INF Tunnel server stopped
+2025-04-17T22:20:57Z INF Metrics server stopped
+ss -ltnp | grep 8080netstat -tulpn | grep 8080sudo apt install net-tools
+cloudflared tunnel --url http://127.0.0.1:8080python3 -m http.server 8080cloudflared tunnel --url http://127.0.0.1:8080PORT="51413"   curl -s "https://portchecker.io/" --data-urlencode "port=$PORT" --data "protocol=tcp" |
+        grep -q "is open"PID=$!thepiratebay10.info/ #!/bin/bash
+
+# Usage: ./torrent-mpv.sh path/to/file.torrent
+
+set -euo pipefail
+IFS=$'\n\t'
+
+torrent="$1"
+DL_DIR="$HOME/Downloads/torrents"
+PORT="51413"
+TMPDIR=$(mktemp -d)
+TORRENT_NAME=$(basename "$torrent" .torrent)
+MPV_LOG="$TMPDIR/mpv.log"
+MPV_STREAMED=0
+
+mkdir -p "$DL_DIR"
+
+# Check if port is open externally (assumes IPv4)
+is_port_open() {
+    curl -s "https://portchecker.io/" --data-urlencode "port=$PORT" --data "protocol=tcp" |
+        grep -q "is open"
+}
+
+# Launch torrent in background
+transmission-cli -w "$DL_DIR" -p "$PORT" -M 512 -er -f "notify-send '✅ Torrent finished: $TORRENT_NAME'" "$torrent" &
+PID=$!
+
+echo "[+] Launched transmission-cli (PID $PID)"
+echo "[+] Downloading to: $DL_DIR"
+
+# Wait for partial data to show up
+echo "[+] Waiting for file to partially download..."
+sleep 10
+
+# Try to find largest file in torrent folder
+echo "[+] Looking for media file to stream..."
+while [ $MPV_STREAMED -eq 0 ]; do
+    file=$(find "$DL_DIR" -type f -iname "*.mkv" -o -iname "*.mp4" | sort -nr | head -n1 || true)
+
+    if [[ -n "$file" && -s "$file" ]]; then
+        size=$(stat -c%s "$file")
+        if [[ "$size" -gt 50000000 ]]; then  # 50MB+
+            echo "[+] Starting mpv stream: $file"
+            mpv --cache=yes --cache-secs=30 --title="Streaming: $TORRENT_NAME" "$file" &> "$MPV_LOG" &
+            MPV_STREAMED=1
+        fi
+    fi
+    sleep 5
+done
+
+# Wait for transmission to finish
+wait $PID
+echo "[+] Torrent finished."
+
+# Cleanup
+rm -rf "$TMPDIR"#!/bin/bash
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+NC='\033[0m'
+###############################################
+TMP_SCRIPT=$(mktemp /tmp/countdown_script.XXXXXX)
+cat << 'EOL' > "$TMP_SCRIPT"
+###############################################
+#!/usr/bin/env bash
+#   ANSI CODE   ###############################
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+Yellow='\033[1;33m'
+White='\033[1;37m'
+NC='\033[0m'
+###############################################
+echo -e "${NC}"
+#   get terminal window id
+abc=$(wmctrl -l|tail -n1|awk '{print $1}')
+#   toggle off decorations
+#   sudo /home/$USER/100/bat/./toggle-decorations $abc
+#   set opacity
+#   transset -i $abc -t
+abc=$(ls -t ~/Downloads/|head -n1)
+echo -e "Is this the download file:"
+echo -e $abc
+echo -e "   >>> 1) Yes"
+echo -e "   >>> 2) No"
+tput civis
+read -p "   >>>   " xxx
+
+if [[ $xxx -eq 2 ]]; 
+then
+echo "Exiting... Press [Any] to continue...."
+read  -n1 ppp
+exit 0
+else
+clear
+
+# Echo the stored variable
+/usr/bin/aria2c /home/$USER/Downloads/$abc
+
+fi
+
+EOL
+/usr/bin/xfce4-terminal --hide-menubar --hide-scrollbar --hide-borders --geometry="120x8-0+0" -e "sudo -u batan bash $TMP_SCRIPT"
+
+
+
+
+
+
+Ba7an?12982
+-maxdepth 1 -type f ! -path '*/.*/*' ! -name '.*' -mmin -1200 -cmin -1200|rev|sed 's/\///'|sed 's/[/].*$//g'|rev)<pre><span style="color:#3465A4">╭────────────────────────────────────────────────────────────────────────────────❯▶</span>
+<span style="color:#3465A4">│</span><span style="color:#06989A">HOME   </span><span style="color:#D3D7CF">batan </span>
+<span style="color:#3465A4">╰─────</span><span style="color:#D3D7CF">  ──────────────── </span><span style="color:#4E9A06"> ───────────────────────────────────────────────────</span>
+        <span style="background-color:#FFFFFF"><span style="color:#0F0F0F">1/</span></span>                 <span style="color:#3465A4">.tmux.conf</span>
+        10/                <span style="color:#3465A4">.bash_history-29611.tmp</span>
+        100/               <span style="color:#3465A4">file</span>
+        3multi/            <span style="color:#3465A4">Idir.sh</span>
+        4multi/            <span style="color:#3465A4">cleanup_text.sh</span>
+        ANTIX/             <span style="color:#3465A4">LOGG-2154.txt</span>
+        Archives/          <span style="color:#3465A4">dscript4</span>
+        batan/             <span style="color:#3465A4">lc-V-complete.sh</span>
+        Coding/            <span style="color:#3465A4">PRNT-2307.txt</span>
+        config/            <span style="color:#3465A4">3test.sh</span>
+
+<span style="color:#3465A4">╭───── </span><span style="color:#D3D7CF"> ──────────────── </span><span style="color:#4E9A06"> ───────────────────────────────────────────────────</span>
+<span style="color:#3465A4">│</span>
+<span style="color:#3465A4">╰────────────────────────────────────────────────────────────────────────────────❯▶ </span>
+
+
+</pre>╭────────────────────────────────────────────────────────────────────────────────❯▶
+│HOME   batan 
+╰─────  ────────────────  ───────────────────────────────────────────────────
+        1/                 .tmux.conf
+        10/                .bash_history-29611.tmp
+        100/               file
+        3multi/            Idir.sh
+        4multi/            cleanup_text.sh
+        ANTIX/             LOGG-2154.txt
+        Archives/          dscript4
+        batan/             lc-V-complete.sh
+        Coding/            PRNT-2307.txt
+        config/            3test.sh
+
+╭─────  ────────────────  ───────────────────────────────────────────────────
+│
+╰────────────────────────────────────────────────────────────────────────────────❯▶ 
+
+
+
+        for ((i=0; i<MAX_DISPLAY; i++)); do
+            idx=$((start_index + i))
+            if [[ $idx -ge $NUM_OPTIONS ]]; then
+                break
+            fi
+
+            file="${OPTIONS[idx]}"
+            is_sel=$([[ $idx -eq $selected ]] && echo -e 1 || echo -e 0)
+            is_marked=$([[ -n "${marked_files_map[$file]}" ]] && echo -e 1 || echo -e 0)
+
+            if [[ $is_sel -eq 1 && $is_marked -eq 1 ]]; then
+                style="$RR\033[1;30;45m"  # Bold black on magenta (selected + marked)
+            elif [[ $is_sel -eq 1 ]]; then
+                style="$RR\033[30;47m"    # Black on white (selected only)
+            elif [[ $is_marked -eq 1 ]]; then
+                style="$RR\033[30;46m"    # Black on cyan (marked only)
+            else
+                style="$RR\033[0m"        # Default
+            fi
+if [[ $current_view == "dirs" ]]; then
+    DISPLAY_FILES
+fi
+    # Cut to 16 characters and pad if needed
+    printf "${RR}${style}%-16s\033[0m\n" "$(echo -e "$file" | cut -c1-50)"
+done
+
+DISPLAY_FILES() {
+    local dir="$1"
+    local row=3
+    local col=26
+
+    [[ -d "$dir" ]] || return
+
+    files=( $(find "$dir" -mindepth 1 -maxdepth 1 -printf "%f\n" | sort | head -n 10) )
+
+    for file in "${files[@]}"; do
+        tput cup "$row" "$col"
+        printf "\033[36m%-20s\033[0m\n" "$(echo -e "$file" | cut -c1-20)"
+        ((row++))
+    done
+}
+# render left pane
+for ((i=0; i<MAX_DISPLAY; i++)); do
+    idx=$((start_index + i))
+    if [[ $idx -ge $NUM_OPTIONS ]]; then
+        break
+    fi
+
+    file="${OPTIONS[idx]}"
+    is_sel=$([[ $idx -eq $selected ]] && echo 1 || echo 0)
+    is_marked=$([[ -n "${marked_files_map[$file]}" ]] && echo 1 || echo 0)
+
+    if [[ $is_sel -eq 1 && $is_marked -eq 1 ]]; then
+        style="$RR\033[1;30;45m"
+    elif [[ $is_sel -eq 1 ]]; then
+        style="$RR\033[30;47m"
+    elif [[ $is_marked -eq 1 ]]; then
+        style="$RR\033[30;46m"
+    else
+        style="$RR\033[0m"
+    fi
+
+    printf "${RR}${style}%-16s\033[0m\n" "$(echo -e "$file" | cut -c1-50)"
+done
+if [[ $current_view == "dirs" ]]; then
+    DISPLAY_FILES "${OPTIONS[$selected]}"
+fi
+#!/bin/bash
+
+set -euo pipefail
+
+# List removable USB drives (ignoring loop and CDROMs)
+list_usb_disks() {
+    lsblk -ndo NAME,TRAN,SIZE,MODEL | awk '$2=="usb" {print "/dev/"$1, "("$3, $4")"}'
+}
+
+select_usb_device() {
+    mapfile -t devices < <(lsblk -ndo NAME,TRAN | awk '$2=="usb" {print "/dev/"$1}')
+    if [[ ${#devices[@]} -eq 0 ]]; then
+        echo "No USB devices found." >&2
+        exit 1
+    elif [[ ${#devices[@]} -eq 1 ]]; then
+        echo "${devices[0]}"
+    else
+        echo "Multiple USB devices found:"
+        for i in "${!devices[@]}"; do
+            model=$(lsblk -ndo MODEL "${devices[$i]}")
+            size=$(lsblk -ndo SIZE "${devices[$i]}")
+            echo "[$i] ${devices[$i]} ($model, $size)"
+        done
+        while true; do
+            read -rp "Select device number to use: " choice
+            [[ "$choice" =~ ^[0-9]+$ && "$choice" -ge 0 && "$choice" -lt "${#devices[@]}" ]] && break
+            echo "Invalid choice." >&2
+        done
+        echo "${devices[$choice]}"
+    fi
+}
+
+unmount_device() {
+    local dev="$1"
+    echo "Unmounting any mounted partitions on $dev..."
+    lsblk -ln "$dev" | awk '{print $1}' | while read -r part; do
+        mountpoint=$(findmnt -nr -o TARGET "/dev/$part" || true)
+        if [[ -n "$mountpoint" ]]; then
+            umount "/dev/$part"
+            echo "Unmounted /dev/$part from $mountpoint"
+        fi
+    done
+}
+
+wipe_and_format() {
+    local dev="$1"
+    echo "Wiping partition table on $dev..."
+    wipefs -a "$dev"
+    sgdisk --zap-all "$dev" || true
+    dd if=/dev/zero of="$dev" bs=1M count=10 conv=fsync status=none
+
+    echo "Creating new msdos partition table..."
+    parted -s "$dev" mklabel msdos
+    parted -s "$dev" mkpart primary ext4 1MiB 100%
+
+    part="${dev}1"
+    echo "Formatting $part as ext4..."
+    mkfs.ext4 -F "$part"
+}
+
+main() {
+    dev=$(select_usb_device)
+    echo "Selected device: $dev"
+    read -rp "Are you sure you want to erase $dev? Type YES to continue: " confirm
+    [[ "$confirm" == "YES" ]] || { echo "Aborted."; exit 1; }
+
+    unmount_device "$dev"
+    wipe_and_format "$dev"
+
+    echo "Done. $dev now has a new ext4 partition."
+}
+
+main
+    lsblk -ndo NAME,TRAN,SIZE,MODEL | awk '$2=="usb" {print "/dev/"$1, "("$3, $4")"}'
+lsblk -ndo NAME,TRAN | awk '$2=="usb" {print "/dev/"$1}'lsblk -ndo NAME,TRAN select_usb_device() {
+    mapfile -t devices < <(lsblk -dpno NAME,TYPE | awk '$2=="disk" {print $1}' | while read -r dev; do
+        if udevadm info --query=property --name="$dev" | grep -q 'ID_BUS=usb'; then
+            echo "$dev"
+        fi
+    done)
+
+    if [[ ${#devices[@]} -eq 0 ]]; then
+        echo "No USB devices found." >&2
+        exit 1
+    elif [[ ${#devices[@]} -eq 1 ]]; then
+        echo "${devices[0]}"
+    else
+        echo "Multiple USB devices found:"
+        for i in "${!devices[@]}"; do
+            model=$(lsblk -ndo MODEL "${devices[$i]}")
+            size=$(lsblk -ndo SIZE "${devices[$i]}")
+            echo "[$i] ${devices[$i]} ($model, $size)"
+        done
+        while true; do
+            read -rp "Select device number to use: " choice
+            [[ "$choice" =~ ^[0-9]+$ && "$choice" -ge 0 && "$choice" -lt "${#devices[@]}" ]] && break
+            echo "Invalid choice." >&2
+        done
+        echo "${devices[$choice]}"
+    fi
+}
+/Root/github.270.list.wiki
+/media/batan/LCL/

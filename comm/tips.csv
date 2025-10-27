@@ -1,0 +1,14 @@
+
+2,"List of recent commands",20
+3,"Close a frozen window/application",30
+4,"Tab Completion",40
+5,"View file permissions",150
+6,"Modify file permissions",160
+7,"Set file permissions via binary references",170
+8,"Cursor navigation",80
+9,"Special characters in commands",90
+10,Redirection,85
+11,"Temporary aliases",60
+12,"Permanent aliases",70
+13,"Chain commands",71
+14,"Command syntax",72

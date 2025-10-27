@@ -1,0 +1,23 @@
+id	position	title
+21	10	System control
+29	80	Terminal games
+37	20	Files & Folders
+43	60	Video & Audio
+179	50	Search & Find
+209	22	Printing
+243	40	Network
+246	5	System information
+247	15	Users & Groups
+248	70	Hacking tools
+249	65	Package manager
+250	0	One-liners
+251	55	SSH
+252	52	GIT
+253	100	VIM Texteditor
+254	120	Emacs Texteditor
+255	130	Nano Texteditor
+256	140	Pico Texteditor
+257	90	Crypto currencies
+258	21	Input
+259	23	JSON
+260	150	Micro Texteditor

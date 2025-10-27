@@ -1,0 +1,44 @@
+#!/bin/bash
+# vim:fileencoding=utf-8:foldmethod=marker
+#{{{ >>>   Vars
+BASEDIR="/home/$USER/.lcco/calendar"
+REMFILE="$BASEDIR/reminder.rem"
+DAYRMD=$(cat reminder.rem |cut -c13-14|sort -u)
+OPTSDAYS=$(echo $(cat test) $(date +%d))
+OPTSTIME=$(cat reminder.rem |grep $(date +%Y-%m-%d)|cut -c17-25)
+TASKS=$(task +PENDING due:today|grep "^[0-9]"|head -n-1|cut -c1-2)
+PLTMPL="$BASEDIR/dayplanner.md"
+TASKNOTES="$BASEDIR/notes"
+OPTIONS=$OPTSDAYS
+NUM_OPTIONS=${#OPTIONS[@]}
+selected=0
+#}}}
+
+#{{{ >>>   app_to_remind
+app_to_remind() {
+   for xxx in $(task +PENDING due:today|grep "^[0-9]"|grep -v "tasks"|cut -c1-2); do 
+       echo "REM $(date +%Y-%m-%d)AT$(task $xxx|grep 'Due'|awk '{print $3}') MSG None" >> reminder.rem 
+   done 
+   }
+#}}}
+#{{{ >>>   CAL_DISPLAY
+
+dis_cal() {
+	tput cup 5 0;echo -e "\033[1A\033[1;35m────────────────────\033[0m"
+	cal| GREP_COLORS='mt=01;36' grep --color=always -E "Su Mo Tu We Th Fr Sa |$"| GREP_COLORS='mt=01;32' grep --color=always -E "$(date +%d)|$"|GREP_COLORS='mt=01;31' grep --color=always -E "$(cat reminder.rem |cut -c13-14|sort -u) $DAYRMD|$"
+	echo -e "\033[1A\033[1;35m────────────────────\033[0m"
+}
+
+
+
+filter_sed() {
+for XXX in $(task +PENDING due:today|grep -vE "ID|--"|cut -c1-3); do
+x=$(task $XXX|grep Due|awk '{print $3}'|cut -c1-2|head -n1) 
+LINETOAPPENDTO=$(( $(( $x - 6 )) * 3 ))
+DESCRIPTION=$(task $XXX|grep Description|awk '{print $2,$3,$4,$5}')
+sed "${LINETOAPPENDTO}{/^$/s/^$/${DESCRIPTION}/}"
+done
+}
+
+
+

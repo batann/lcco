@@ -1,0 +1,12 @@
+#!/bin/bash
+# vim:fileencoding=utf-8:foldmethod=marker#
+
+
+
+#for i in $(seq 1 11); do
+#	x=$(task ${i}|grep Due|awk '{print $3}'|cut -c1-2|head -n1)
+	x=$(task 4|grep Due|awk '{print $3}'|cut -c1-2|head -n1)
+LINETOAPPENDTO=$(( $(( $x - 6 )) * 3 ))
+DESCRIPTION=$(task 4|grep Description|awk '{print $2,$3,$4,$5}')
+sed "${LINETOAPPENDTO}{/^$/s/^$/${DESCRIPTION}/}" dayplanner.md
+#done

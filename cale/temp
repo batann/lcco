@@ -1,0 +1,8 @@
+#{{{ >>>   dayplanner
+dayplanner() {
+cat /home/$USER/.lcco/calendar/dayplanner.md    
+}
+#{{{ >>>   dayplanner
+dayplanner() {
+cat /home/$USER/.lcco/calendar/dayplanner.md    
+}

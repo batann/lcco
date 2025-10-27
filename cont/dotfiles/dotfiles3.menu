@@ -1,0 +1,79 @@
+#!/bin/bash
+clear_below_horiz() {
+ tput cup 5 0;tput el
+ tput cup 6 0;tput el
+ tput cup 7 0;tput el
+ tput cup 8 0;tput el
+tput cup  9 0;tput el
+tput cup  10 0;tput el
+tput cup  11 0;tput el
+tput cup  12 0;tput el
+tput cup  13 0;tput el
+tput cup  14 0;tput el
+tput cup  15 0;tput el
+}
+
+
+# Define options and corresponding commands horizontally
+OPTIONS=("fzf.bash" "inputrc" "lc-cd" "lc-sign" "megarc" "music.kdl" "oolite-starter.conf" "profile" "rss.opml" "taskrc" "tkremind" "tmux.conf" "vimrc" "xboardrc" "Xdefaults" "xinitrc" "Xresources")
+
+
+COMMANDS=("lc-backup-browser-history" "lc-bookmarks" "lc-buku-fzf" "lc-clean" "lc-cllean" "lc-color" "lc-dnstest")
+
+NUM_OPTIONS=${#OPTIONS[@]}
+tput civis
+# Function to display options horizontally
+DISPLAY_OPTIONS() {
+tput cup 6 0
+	echo -e "${White}\033[1G"  # Move cursor to beginning of the line
+    for ((i=0; i<NUM_OPTIONS; i++)); do
+        if [[ $i -eq $selected ]]; then
+            echo -e "\033[27G\033[37m\e[7m${OPTIONS[i]}\e[27m"  # Highlight selected option
+        else
+            echo -e "\033[27G${OPTIONS[i]}"
+        fi
+    done
+	tput sgr0
+}
+
+# Function to execute selected command
+EXECUTE_COMMAND() {
+
+    echo "Executing command: ${COMMANDS[selected]}"
+    # Execute the actual command associated with the selected option
+    ${COMMANDS[selected]}
+}
+
+# Initialize
+selected=0
+DISPLAY_OPTIONS
+
+# Main loop
+while true; do
+    read -s -n1 key  # Read user input
+    case $key in
+        A)  # Up arrow key
+            ((selected--))
+            ;;
+        B)  # Down arrow key
+            ((selected++))
+            ;;
+        "") # Enter key
+            EXECUTE_COMMAND
+            break
+            ;;
+    esac
+
+    if [[ $selected -lt 0 ]]; then
+        selected=$((NUM_OPTIONS - 1))
+    elif [[ $selected -ge $NUM_OPTIONS ]]; then
+        selected=0
+    fi
+    DISPLAY_OPTIONS
+done
+
+
+
+
+
+

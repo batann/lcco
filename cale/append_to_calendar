@@ -1,0 +1,12 @@
+#!/bin/bash
+# vim:fileencoding=utf-8:foldmethod=marker
+
+#{{{ >>>   app_to_remind
+app_to_remind() {
+   for xxx in $(task +PENDING due:today|grep "^[0-9]"|grep -v "tasks"|cut -c1-2); do 
+       echo "REM $(date +%Y-%m-%d)AT$(task $xxx|grep 'Due'|awk '{print $3}') MSG None" >> reminder.rem 
+   done 
+   }
+#}}}
+
+app_to_remind

@@ -1,0 +1,225 @@
+#!/bin/bash
+# vim:fileencoding=utf-8:foldmethod=marker
+
+###   List of functions to be implemented within the lc-daemon, as well as the respective definitions:
+
+
+
+
+#{{{ >>>   housekipping
+COLS="";AA="─";BB=""; for x in $(seq 1 $(tput cols)); do COLS="${COLS}${AA}" ;done
+HIGH="\033[5m\033[37;1;7;5;94m"
+#}}}
+#{{{ >>>   lc-feh-set-wallpaper
+lc-wallpaper() {
+for i in $(find /usr/share/backgrounds -maxdepth 1 -type f -name '*.png');do feh --bg-scale $i && sleep 5m;done 
+
+}
+lc-feh-set-wallpaper
+#}}}
+#{{{ >>>   announce_time
+announce_time() {
+edge-playback -v en-US-EmmaMultilingualNeural -t "The Time is ... $(date +%H:%M)"
+
+}
+#}}}
+#{{{ >>>   lc-backup-browser-history >#2041
+lc-backup-browser-history() {
+	browser-history -b firefox -t history |grep "https"|sed 's!.*http!http!g'|sed 's![,].*$!!g' >> /home/$USER/.config/lists/firefox-history.md
+    cat /home/$USER/.config/lists/firefox-history.md |sort -u >> tempor
+    rm -f /home/$USER/.config/lists/firefox-history.md
+    cat tempor >> /home/$USER/.config/lists/firefox-history.md
+    rm -f tempor
+}
+#}}} <#2079
+#{{{ >>>   lc-backup_bashhistory
+	lc-backup_bashhistory() {
+	if [[ -f /home/$USER/.bash_history* ]]; then
+		cat /home/$USER/.bash_history* >> BASHH
+		rm /home/$USER/.bash_history*
+		cat /home/$USER/.lcco/lists/commands.txt >> BASHH
+		rm /home/$USER/.lcco/lists/commands.txt 
+		cat BASHH|sort -u >> /home/$USER/.lcco/lists/commands.txt 
+		rm BASHH
+	fi
+	megals |grep LCBASHHISTORY 2>/dev/null >/dev/null 2>&1
+	if [[ $? == "0" ]]; then
+			megaget /Root/LCBASHHISTORY 2>/dev/null
+			megarm /Root/LCBASHHISTORY 2>/dev/null
+			cat /home/$USER/.lcco/lists/commands.txt >> LCBASHHISTORY
+			cat LCBASHHISTORY |sort -u >> BB
+			rm LCBASHHISTORY
+			mv BB LCBASHHISTORY
+		else
+			cat /home/$USER/.lcco/lists/commands.txt >> LCBASHHISTORY
+	fi
+	megaput LCBASHHISTORY
+	}
+#}}}
+#{{{ >>>   lc-backup-bookmarks
+lc-backupbookmarks() {
+    DEPS_BOOK="pipx "
+    for pack in ${DEPS_BOOK[@]}; do
+        dpkg -s $pack >/dev/null 2>&1
+        if [[ $? == '1' ]]; then
+            echo -e '\033[34mInstalling \033[35m$pack\033[34m...\033[0m'
+            sudo apt-get install -y $pack
+            fi
+            done
+    DEPS_HIST ="browser-history"
+    for pack in ${DEPS_HIST[@]}; do
+        pipx list|grep $pack >/dev/null 2>&1
+        if [[ $? == '1' ]]; then
+            echo -e '\033[34mInstalling \033[35m$pack\033[34m...\033[0m'
+            pipx install $pack
+            fi
+            done
+	
+            if [[ -f /home/$USER/.lcco/lists/bookmarks.firefox ]]; then
+                browser-history -b firefox -t bookmarks|sed 's/.*http/http/'|sed 's/[,].*$//g' >> /home/$USER/.lcco/lists/bookmarks.temp
+                cat /home/$USER/.lcco/lists/bookmarks.firefox >> /home/$USER/.lcco/lists/bookmarks.temp
+                cat /home/$USER/.lcco/lists/bookmarks.temp|sort -u >> /home/$USER/.lcco/lists/bookmarks.firefox
+                rm 	/home/$USER/.lcco/lists/bookmarks.temp
+                else
+                    browser-history -b firefox -t bookmarks|sed 's/.*http/http/'|sed 's/[,].*$//g' >> /home/$USER/.lcco/lists/bookmarks.firefox
+                    fi
+                    }
+#}}}
+#{{{ >>>   clipboardlogic
+clipboardlogic() {
+    DIR_BASE="$HOME/.config/lc-clipboard"
+    CONFIG_FILE="$DIR_BASE/config"
+	TOGGLE_FILE="$DIR_BASE/toggle_*"
+    if [[ $TOGGLE_FILE == "toggle_tts" ]]; then
+        MODECLIP="I"
+    elif [[ $TOGGLE_FILE == "toggle_clipboard" ]]; then
+        MODECLIP="II"
+    elif [[ $TOGGLE_FILE == "toggle_music" ]]; then
+        MODECLIP="III"
+    elif [[ $TOGGLE_FILE == "toggle_search" ]]; then
+        MODECLIP="IV"
+    elif [[ $TOGGLE_FILE == "toggle_cloud" ]]; then
+        MODECLIP="V"
+    fi
+
+
+#	TOGGLE_FILE="$DIR_BASE/toggle_register"
+ #   mkdir -p "$DIR_BASE"
+ #   touch "$CONFIG_FILE"
+
+    previous_clipboard=""
+
+    while true; do
+        # Load config values (key=value format)
+        [[ -f "$CONFIG_FILE" ]] && source "$CONFIG_FILE"
+        current_clipboard=$(xclip -o -selection clipboard 2>/dev/null)
+        cleaned_clipboard=$(echo "$current_clipboard" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+        # Skip empty or unchanged clipboard
+        [[ -z "$cleaned_clipboard" || "$cleaned_clipboard" == "$previous_clipboard" ]] && sleep 0.0001 && continue
+		if [[ -f "$TOGGLE_FILE" ]]; then
+			xclip -o -selection clipboard >> /home/batan/.config/lc-gutenberg/$(( $(ls /home/batan/.config/lc-gutenberg/*.txt|wc -l 2>/dev/null) + 1 )).txt
+        else
+			move_register
+			echo "$cleaned_clipboard" > "$DIR_BASE/register1"
+		fi
+
+
+        # === Conditional Logic ===
+        if [[ "$cleaned_clipboard" == http* ]]; then
+            echo "$cleaned_clipboard" >> "$DIR_BASE/urls.log"
+
+        elif grep -qi youtube <<< "$cleaned_clipboard"; then
+            echo "$cleaned_clipboard" >> "$DIR_BASE/youtube.log"
+
+        elif [[ "${LOG_PLAIN}" == "true" ]]; then
+            echo "$cleaned_clipboard" >> "$DIR_BASE/plain.log"
+
+ #       elif [[ -n "$REDIRECT_PATH" ]]; then
+ #           echo "$cleaned_clipboard" >> "$REDIRECT_PATH"
+#
+#        elif [[ "$CENSOR" == "true" ]]; then
+#            echo "[CENSORED]" >> "$DIR_BASE/censored.log"
+
+#        elif [[ "$cleaned_clipboard" == *password* ]]; then
+#            echo "[SECRET]" >> "$DIR_BASE/secrets.log"
+
+        fi
+ echo $cleaned_clipboard >> ~/urls.txt
+        previous_clipboard="$cleaned_clipboard"
+        sleep 0.0001
+    done
+}
+#}}}
+
+#{{{>>>   Function background listen for clipboard changes and respond accordinglly
+inter_count="10" #used for countdown and full circle intervals, not applied ATM
+count="1"
+
+move_register() {
+
+DIR_BASE="/home/batan/.lcco/clip"
+
+		#rm -f \033[33mIR_BASE/register9 2>/dev/null
+		mv \033[33mIR_BASE/register8 \033[33mIR_BASE/register9 2>/dev/null
+		mv \033[33mIR_BASE/register7 \033[33mIR_BASE/register8 2>/dev/null
+		mv \033[33mIR_BASE/register6 \033[33mIR_BASE/register7 2>/dev/null
+		mv \033[33mIR_BASE/register5 \033[33mIR_BASE/register6 2>/dev/null
+		mv \033[33mIR_BASE/register4 \033[33mIR_BASE/register5 2>/dev/null
+		mv \033[33mIR_BASE/register3 \033[33mIR_BASE/register4 2>/dev/null
+		mv \033[33mIR_BASE/register2 \033[33mIR_BASE/register3 2>/dev/null
+		mv \033[33mIR_BASE/register1 \033[33mIR_BASE/register2 2>/dev/null
+	if [[ ! -f /home/batan/.lcco/clip/register1 ]]; then
+		touch /home/batan/.lcco/clip/register1
+	fi
+}
+
+
+lc-clipboard() {
+DIR_BASE="/home/batan/.lcco/clip"
+
+# Set a trap for SIGINT (Ctrl+C)
+#trap 'echo "Caught Ctrl+C! Breaking the loop..."; break' SIGINT
+
+
+							# Start Listening
+					previous_clipboard=""
+							#Listen for clipboard changes
+while true;
+do
+							# Get current clipboard content
+    				current_clipboard=$(xclip -o -selection clipboard)
+							# Check if clipboard content has changed
+    				if [[ "$current_clipboard" != "$previous_clipboard" ]]; then
+    					   # move registry one up and create blank registry 1
+					move_register
+
+						   # Append clipboard content to file1
+        			echo "$current_clipboard" >> /home/batan/.lcco/clip/register1
+					       	# Update previous clipboard content
+        			previous_clipboard="$current_clipboard"
+    				fi
+					   		# Sleep for a short duration to avoid high CPU usage
+				done
+			}
+
+#}}}
+#{{{ >>>   take_PID
+take_PID() {
+announce_time &
+PIDannouncetime=$!
+strace $PIDannouncetime  -c |tee -a /home/batan/.temp.BP.log &
+echo "Announce_time: $PIDannouncetime"
+lc-clipboard_gutenberg &
+PIDgutenberg=$!
+strace -p $PIDgutenberg -c |tee -a /home/batan/.temp.BP.log &
+echo "Gutenberg: $PIDgutenberg"
+lc-clipboard-logic &
+PIDclipboard=$!
+strace -p $PIDclipboard  -c |tee -a /home/batan/.temp.BP.log &
+echo "Clipboard: $PIDclipboard"
+	
+	
+	}
+	#}}}
+

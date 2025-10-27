@@ -1,0 +1,79 @@
+#!/bin/bash
+# vim:fileencoding=utf-8:foldmethod=marker
+
+#{{{ >>>   lc-input
+lc-input() {
+
+  local UP_LINES=$1        # Lines to move up
+  local COLUMN=$2          # Column to start
+  local LABEL_TEXT=$3      # Text before input field
+  local __resultvar=$4     # Variable to store result
+
+  local WIDTH=30           # Width of input field
+  local INPUT=""
+  local CURSOR=0
+
+  trap '' SIGINT
+  stty -echo -icanon time 0 min 1
+  tput civis
+
+  # Move to position and clear line
+  echo -ne "\033[${UP_LINES}A\033[2K\033[${COLUMN}G"
+
+  # Print label and input field
+  echo -ne "\033[0;36m${LABEL_TEXT}\033[1;30;42m"
+  for ((i=0; i<$WIDTH; i++)); do echo -n " "; done
+  echo -ne "\033[0m"
+
+  # Move cursor to start of input field
+  local START_POS=$((COLUMN + ${#LABEL_TEXT}))
+  echo -ne "\033[${START_POS}G"
+
+  while IFS= read -rsn1 char; do
+    case "$char" in
+      $'') echo -e "\033[1B";break ;;
+            $'\x7f')  # Backspace
+        if [ ${#INPUT} -gt 0 ]; then
+          INPUT="${INPUT%?}"
+          CURSOR=$((CURSOR - 1))
+          echo -ne "\033[${COLUMN}G\033[0;36m${LABEL_TEXT}\033[1;30;42m"
+          printf "%-${WIDTH}s" "$INPUT"
+          echo -ne "\033[0m"
+          echo -ne "\033[$(( START_POS + ${#INPUT} ))G"
+        fi
+        ;;
+      *)
+        if [ ${#INPUT} -lt $WIDTH ]; then
+          INPUT+="$char"
+          CURSOR=$((CURSOR + 1))
+          echo -ne "\033[30;42m$char\033[0m"
+        fi
+        ;;
+    esac
+  done
+
+  tput cnorm
+  stty sane
+  trap - SIGINT
+
+  if [[ "$__resultvar" ]]; then
+    eval "$__resultvar=\"\$INPUT\""
+  else
+    echo "$INPUT"
+  fi
+}
+#}}}
+#{{{ Search Logic executed
+echo -e "\033[2A\033[2K\033[36m┌─────────────────────────────────────────────────────────────────────────────────────────────"
+echo -e "│"
+echo -e "└─────────────────────────────────────────────────────────────────────────────────────────────\033[1A"
+lc-input 0 1 "\033[G\033[0;36m│ Search:" SEARCH
+#}}}
+
+
+
+
+
+
+
+

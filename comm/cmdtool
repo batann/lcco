@@ -1,0 +1,63 @@
+#!/bin/bash
+# Simple command-line tool for database queries
+
+DB_PATH="/home/$USER//lcco/comm/database.db"
+SCRIPT_DIR="$(dirname "$0")"
+
+show_help() {
+    echo -e "\033[37mUsage: $0 [command] [args...]"
+    echo
+    echo -e "\033[32mCommands:"
+    echo -e "\033[36m  stats                \033[37m   Show database statistics"
+    echo -e "\033[36m  categories           \033[37m   List all categories"
+    echo -e "\033[36m  search <term>        \033[37m   Search basic commands"
+    echo -e "\033[36m  get <id>             \033[37m   Get basic command by ID"
+    echo -e "\033[36m  random               \033[37m   Get random command"
+    echo -e "\033[36m  browse               \033[37m   Interactive browser"
+    echo -e "\033[36m  help                 \033[37m   Show this help"
+}
+
+case "$1" in
+    "stats")
+        sqlite3 "$DB_PATH" "
+        SELECT 'Basic Commands: ' || COUNT(*) FROM BasicCommand
+        UNION ALL
+        SELECT 'Commands: ' || COUNT(*) FROM Command  
+        UNION ALL
+        SELECT 'Categories: ' || COUNT(*) FROM BasicCategory
+        UNION ALL
+        SELECT 'Tips: ' || COUNT(*) FROM Tip;"
+        ;;
+    "categories")
+        sqlite3 "$DB_PATH" "SELECT id || ': ' || title FROM BasicCategory ORDER BY position;"
+        ;;
+    "search")
+        if [[ -z "$2" ]]; then
+            echo "Usage: $0 search <search_term>"
+            exit 1
+        fi
+        sqlite3 "$DB_PATH" "SELECT id || ': ' || SUBSTR(command, 1, 60) || '...' FROM BasicCommand WHERE command LIKE '%$2%' LIMIT 10;"
+        ;;
+    "get")
+        if [[ -z "$2" ]]; then
+            echo "Usage: $0 get <command_id>"
+            exit 1
+        fi
+        sqlite3 "$DB_PATH" "SELECT command FROM BasicCommand WHERE id = $2;"
+        ;;
+    "random")
+        sqlite3 "$DB_PATH" "SELECT id || ': ' || SUBSTR(command, 1, 100) || '...' FROM BasicCommand ORDER BY RANDOM() LIMIT 1;"
+        ;;
+    "browse")
+        source "$SCRIPT_DIR/db_functions.sh"
+        browse_commands
+        ;;
+    "help"|"")
+        show_help
+        ;;
+    *)
+        echo "Unknown command: $1"
+        show_help
+        exit 1
+        ;;
+esac

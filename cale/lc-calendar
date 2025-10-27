@@ -1,0 +1,194 @@
+#!/bin/bash
+# vim:fileencoding=utf-8:foldmethod=marker
+#{{{ >>>   Vars
+BASEDIR="/home/$USER/.lcco/calendar"
+REMFILE="$BASEDIR/reminder.rem"
+DAYRMD=$(cat reminder.rem |cut -c13-14|sort -u)
+OPTSDAYS=$(echo $(cat test) $(date +%d))
+OPTSTIME=$(cat reminder.rem |grep $(date +%Y-%m-%d)|cut -c17-25)
+TASKS=$(task +PENDING due:today|grep "^[0-9]"|head -n-1|cut -c1-2)
+PLTMPL="$BASEDIR/dayplanner.md"
+TASKNOTES="$BASEDIR/notes"
+OPTIONS=$OPTSDAYS
+NUM_OPTIONS=${#OPTIONS[@]}
+selected=0
+#}}}
+
+###   Pending tasks in taskwarrior, due today and today only with specified deadline, append to reminder.rmd
+#{{{ >>>   app_to_remind
+app_to_remind() {
+   for xxx in $(task +PENDING due:today|grep "^[0-9]"|grep -v "tasks"|cut -c1-2); do 
+       echo "REM $(date +%Y-%m-%d)AT$(task $xxx|grep 'Due'|awk '{print $3}') MSG None" >> reminder.rem 
+   done 
+   }
+#}}}
+#{{{ >>>   CAL_DISPLAY
+
+dis_cal() {
+	tput cup 5 0;echo -e "\033[1A\033[1;35m────────────────────\033[0m"
+	cal| GREP_COLORS='mt=01;36' grep --color=always -E "Su Mo Tu We Th Fr Sa |$"| GREP_COLORS='mt=01;32' grep --color=always -E "$(date +%d)|$"|GREP_COLORS='mt=01;31' grep --color=always -E "$(cat ~/.reminder.rem |cut -c37-38|sort -u) $DAYRMD|$"
+	echo -e "\033[1A\033[1;35m────────────────────\033[0m"
+}
+#}}}
+#{{{ >>>   DISPLAY_OPTIONS
+DISPLAY_OPTIONS() {
+	
+	echo placeholder
+}
+#}}}
+#{{{ >>>   MAIN_LOOP
+MAIN_LOOP() {
+    
+    echo placeholder
+	
+}
+#}}}
+#{{{ >>>   SET_TIMER
+SET_TIMER() {
+# vim:fileencoding=utf-8:foldmethod=marker
+cleardisplay() {
+    clear
+}
+
+clear
+lc-flasher() {
+ while true; do
+     printf \\e[?5h; sleep 0.1; printf \\e[?5l;
+     read -s -n1 -t1 && break
+ done
+}
+run_reminder() {
+    nohup mpv --no-terminal /home/$USER/.config/sounds/reminder.mp3 2>/dev/null &
+    sleep 1
+    notify-send -t 12000 "Time is Up:" "<span color='Green' font='42px'>──────── \nReminder \n──────── \n$(date +%H:%M:%S)</span>"
+    lc-flasher
+}
+lcreminder() {
+OPTIONS=("00" "01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12" "13" "14" "15" "16" "17" "18" "19" "20" "21" "22" "23" "24")
+
+MINUTES=("00" "01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12" "13" "14" "15" "16" "17" "18" "19" "20" "21" "22" "23" "24" "25" "26" "27" "28" "29" "30" "31" "32" "33" "34" "35" "36" "37" "38" "39" "40" "41" "42" "43" "44" "45" "46" "47" "48" "49" "50" "51" "52" "53" "54" "55" "56" "57" "58" "59" "60")
+
+SECOND=("00" "01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12" "13" "14" "15" "16" "17" "18" "19" "20" "21" "22" "23" "24" "25" "26" "27" "28" "29" "30" "31" "32" "33" "34" "35" "36" "37" "38" "39" "40" "41" "42" "43" "44" "45" "46" "47" "48" "49" "50" "51" "52" "53" "54" "55" "56" "57" "58" "59" "60")
+
+HH="00"
+MM="00"
+SS="00"
+LOC="27"
+
+NUM_OPTIONS=${#OPTIONS[@]}
+selected="0"
+TAG="1"
+
+DISPLAY_TIME() {
+	tput cup 1 0;tput el;tput cup 1 0;echo -e "\033[37mTime Now\033[36m:\033[0m";tput cup 1 10; date +%H:%M|awk -F":" '{print "\033[35m"$1"\033[36m:\033[35m"$2"\033[0m"}'
+}
+
+EXECUTE_COMMAND() {
+if [[ $TAG == "1" ]] ; then 
+	HH=${OPTIONS[selected]}
+	TAG="2"
+	selected=$(date +%M)
+    OPTIONS=("${MINUTES[@]}")
+NUM_OPTIONS=${#OPTIONS[@]}
+	LOC="30"
+	REFRESH_DISPLAY
+	return
+elif [[ $TAG == "2" ]] ; then 
+	MM=${OPTIONS[selected]}
+	LOC="33"
+
+    SETTIME=$(date -d$HH:$MM:$(date +%S) +%s)
+REMIND=$(( $(date -d$HH:$MM:$(date +%S) +%s) - $(date +%s) ))
+	echo $HH:$MM
+    echo -e "Time Left: $REMIND seconds"
+
+    # Run the following in the background
+     sleep $REMIND && run_reminder
+        
+fi
+exit
+}
+
+HH=$(date +%H)
+MM=$(date +%M)
+
+DISPLAY_OPTIONS() {
+#tput setab 4
+    total=${#options[@]}
+    MAX_DISPLAY=10
+    start_index=0
+	cleardisplay
+DISPLAY_TIME
+tput cup 1 0
+
+
+#	echo -ne "${White}\033[26G"  # Move cursor to beginning of the line
+    for ((i=0; i<NUM_OPTIONS; i++)); do
+        if [[ $i -eq $selected ]]; then
+
+
+
+tput cup 1 15;tput el;tput cup 1 16;echo -e "\033[37mSet Time:";tput cup 1 26;echo -e "\033[34m$HH\033[36m:\033[34m$MM\033[0m";tput cup 1 0;echo -e "\033[${LOC}G\033[44m\033[1;37m${OPTIONS[i]}\033[0m"  # Highlight selected option
+        fi
+    done
+	tput sgr0
+}
+REFRESH_DISPLAY() {
+tput cup 1 1;tput el;tput cup 1 26;echo -e "\033[34m$HH\033[36m:\033[34m$MM\033[0m"
+}
+
+#{{{ >>    Initialize >#94
+
+if [[ $TAG == "1" ]]; then
+selected=$(date +%H)
+elif [[ $TAG == "2" ]]; then
+selected=$(date +%M)
+fi
+DISPLAY_OPTIONS
+#}}} <#102
+#{{{ >>    MainA loop >#103
+while true; do
+    read -s -n1 key  # Read user input
+    case $key in
+        A)  # Up arrow key
+            ((selected--))
+            ;;
+        B)  # Down arrow key
+            ((selected++))
+            ;;
+        "") # Enter key
+            EXECUTE_COMMAND
+            
+            ;;
+    esac
+
+    if [[ $selected -lt 0 ]]; then
+        selected=$((NUM_OPTIONS - 1))
+    elif [[ $selected -ge $NUM_OPTIONS ]]; then
+        selected=0
+    fi
+    
+    DISPLAY_OPTIONS
+done
+
+#}}} <#127
+
+}
+
+#}}} <#130
+tput cup 4 0
+
+	
+}
+#}}}
+
+
+#### X = due time %H   the line to append too follows from $(( $(( $x - 6 )) * 3 ))
+
+
+x=$(task 4|grep Due|awk '{print $3}'|cut -c1-2|head -n1) 
+LINETOAPPENDTO=$(( $(( $x - 6 )) * 3 ))
+DESCRIPTION=$(task 4|grep Description|awk '{print $2,$3,$4,$5}')
+sed "${LINETOAPPENDTO}{/^$/s/^$/${DESCRIPTION}/}" dayplanner.md
+
+

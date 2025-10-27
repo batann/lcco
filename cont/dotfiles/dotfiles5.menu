@@ -1,0 +1,167 @@
+#!/bin/bash
+# vim:fileencoding=utf-8:foldmethod=marker
+
+clear
+DIRBASE="/home/$USER/LCCLIMENU"
+DIRBASEHOME="/home/$USER"
+ DIRBASEMED="/media/batan"
+DIRBASEMED1="/media/batan/100"
+DIRBASEMED2="/media/batan/200"
+DIRBASECONF="/home/$USER/.config"
+
+#{{{ >>>   list_directories >#12
+list_directories() {
+DIRBASEMED1="/media/batan/100"
+DIRMEDS=$(find $DIRBASEMED -maxdepth 1 -type d)
+DIRMEDN=$(find $DIRBASEMED -maxdepth 1 -type d|wc -l)
+for dir in ${DIRMEDS[@]}; do echo -e "\033[32m$dir\033[0m"; done
+
+DIRBASEHOME="/home/$USER"
+DIRHOMES=$(find $DIRBASEHOME -maxdepth 1 -type d)
+DIRHOMEN=$(find $DIRBASEHOME -maxdepth 1 -type d|wc -l)
+for dir in ${DIRHOMES[@]}; do echo -e "\033[32m$dir\033[0m"; done
+
+DIRBASEMED2="/media/batan/200"
+DIRMED2S=$(find $DIRBASEMED2 -maxdepth 1 -type d)
+DIRMED2N=$(find $DIRBASEMED2 -maxdepth 1 -type d|wc -l)
+for dir in ${DIRMED2S[@]}; do echo -e "\033[32m$dir\033[0m"; done
+
+DIRBASECONF="/home/$USER/.config"
+DIRCONFS=$(find $DIRBASECONF -maxdepth 1 -type d)
+DIRCONFN=$(find $DIRBASECONF -maxdepth 1 -type d|wc -l)
+for dir in ${DIRCONFS[@]}; do echo -e "\033[32m$dir\033[0m"; done
+
+DIRBASEMED="/media/batan"
+DIRCONFS=$(find $DIRBASECONF -maxdepth 1 -type d)
+DIRCONFN=$(find $DIRBASECONF -maxdepth 1 -type d|wc -l)
+for dir in ${DIRBASEMED[@]}; do echo -e "\033[32m$dir\033[0m"; done
+
+}
+#}}} <#40
+#{{{ >>>   clear_display >#41
+clear_display() {
+tput cup 6 0;tput el
+tput cup 7 0;tput el
+tput cup 8 0;tput el
+tput cup 9 0;tput el
+tput cup 10 0;tput el
+tput cup 11 0;tput el
+tput cup 12 0;tput el
+tput cup 13 0;tput el
+tput cup 14 0;tput el
+tput cup 15 0;tput el
+tput cup 16 0;tput el
+tput cup 17 0;tput el
+tput cup 18 0;tput el
+}
+#}}} <#57
+#{{{ >>>   enter_custom_directories >#58
+enter_custom_directories() {
+    COUNT="1"
+    clear_display
+tput cup 4 0;tput el;tput cup 4 10;echo -e "\033[35m${COUNT}. Directory  \033[36m>>>   \033[0m"
+tput cup 4 30;read DIRBASEHOME;if [[ -z $DIRBASEHOME ]]; then break ;fi
+tput cup $(( 5 + $COUNT )) 0;echo -e "\033[5G\033[37m$DIRBASEHOME"
+((COUNT++))
+tput cup 4 0;tput el;tput cup 4 10;echo -e "\033[35m${COUNT}. Directory  \033[36m>>>   \033[0m"
+tput cup 4 30;read DIRBASEMED;if [[ -z $DIRBASEMED ]]; then break ;fi
+tput cup $(( 5 + $COUNT )) 0;echo -e "\033[5G\033[37m$DIRBASEMED"
+((COUNT++))
+tput cup 4 0;tput el;tput cup 4 10;echo -e "\033[35m${COUNT}. Directory  \033[36m>>>   \033[0m"
+tput cup 4 30;read DIRBASEMED2;if [[ -z $DIRBASEMED2 ]]; then break ;fi
+tput cup $(( 5 + $COUNT )) 0;echo -e "\033[5G\033[37m$DIRBASEMED2"
+((COUNT++))
+tput cup 4 0;tput el;tput cup 4 10;echo -e "\033[35m${COUNT}. Directory  \033[36m>>>   \033[0m"
+tput cup 4 30;read DIRBASECONF;if [[ -z $DIRBASECONF ]]; then break ;fi
+tput cup $(( 5 + $COUNT )) 0;echo -e "\033[5G\033[37m$DIRBASECONF"
+((COUNT++))
+tput cup 4 0;tput el;tput cup 4 10;echo -e "\033[35m${COUNT}. Directory  \033[36m>>>   \033[0m"
+tput cup 4 30;read DIRBASEMED1;if [[ -z $DIRBASEMED1 ]]; then break ;fi
+tput cup $(( 5 + $COUNT )) 0;echo -e "\033[5G\033[37m$DIRBASEMED1"
+((COUNT++))
+
+}
+
+#}}} <#85
+#{{{ >>>   all_of_the_above >#86
+all_of_the_above() {
+    if [[ -f /home/$USER/.lc-cd ]]; then
+        rm -f /home/$USER/.lc-cd
+    fi
+list_directories >> /home/$USER/.lc-cd
+}
+#}}} <#93
+#{{{ >>>   DISPLAY_OPTIONS >#94
+    tput cup 3 0;tput el;tput cup 3 0;echo -e "\033[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    tput cup 5 0;tput el;tput cup 5 0;echo -e "\033[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    tput cup 4 0;tput el;tput cup 4 0;echo -e "\033[20G\033[35mSelect from the folowing options:\033[0m";tput cup 6 0
+    echo -e "\033[5G\033[37m${DIRBASEHOME}\033[0m"
+    echo -e "\033[5G\033[37m${DIRBASEMED}\033[0m"
+    echo -e "\033[5G\033[37m${DIRBASEMED1}\033[0m"
+    echo -e "\033[5G\033[37m${DIRBASEMED2}\033[0m"
+    echo -e "\033[5G\033[37m${DIRBASECONF}\033[0m"
+    tput cup 11 0;tput el;echo -e "\033[31m────────────────────────────────────────────────────────────────────────────\033[0m"
+#    echo -e "\033[37G\033[35m[[ \033[36mAll of the Above\033[35m ]]\033[0m"
+    tput cup 13 0;tput el;echo -e "\033[31m────────────────────────────────────────────────────────────────────────────\033[0m"
+#    echo -e "\033[2A\033[5G\033[35m[[ \033[36mEnter Custom Directories\033[35m ]]\033[0m"
+  #  echo -e "\033[31m────────────────────────────────────────────────────────────────────────────\033[0m"
+
+
+#}}} <#110
+
+
+    OPTIONS=("Enter Custom Directories" "All Of The Above")
+    COMMANDS=("enter_custom_directories" "all_of_the_above")
+    NUM_OPTIONS=${#OPTIONS[@]}
+
+    tput civis  # Hide cursor
+
+# Function to display options horizontally
+DISPLAY_OPTIONS() {
+    tput cup 12 8
+    echo -ne "\033[0m\033[14G\033[35m[[\033[0m\033[39G\033[35m]] [[\033[0m\033[0m\033[58G\033[35m]]\033[0m"  
+    tput cup 12 16;tput setab 4; tput setaf 7
+    
+    for ((i=0; i<NUM_OPTIONS; i++)); do
+        if [[ $i -eq $selected ]]; then
+            echo -ne "\e[7m${OPTIONS[i]}\e[27m"  # Highlight selected option
+        else
+            echo -n "${OPTIONS[i]}"
+        fi
+    done
+    tput sgr0
+}
+# Function to execute selected command
+EXECUTE_COMMAND() {
+  eval "${COMMANDS[selected]}"
+  return 0
+ 
+}
+
+selected=0
+DISPLAY_OPTIONS
+
+# Main loop
+while true; do
+    IFS= read -rsn1 key
+    if [[ $key == $'\e' ]]; then
+        read -rsn2 key  # Read next two characters
+        case $key in
+            '[D')  ((selected--)) ;;  # Left
+            '[C')  ((selected++)) ;;  # Right
+        esac
+    elif [[ $key == "" ]]; then
+        EXECUTE_COMMAND
+        echo $YESNO
+         break
+    fi
+
+    ((selected = (selected + NUM_OPTIONS) % NUM_OPTIONS))
+    DISPLAY_OPTIONS
+done
+
+
+tput cnorm  # Restore cursor visibility
+}
+
+yesandno

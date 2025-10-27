@@ -1,0 +1,81 @@
+#!/bin/bash
+# vim:fileencoding=utf-8:foldmethod=marker
+
+
+
+USB="LCUSB"
+UUID="12982129-1298-1298-1298-12982"
+ tput cup 8 0
+ echo -e "\033[14G\033[36mUUID    : \033[32m12982129-1298-1298-1298-12982129"
+ echo -e "\033[14G\033[36mUSB     : \033[32m/dev/$(lsblk -l |grep "sd[a-z] "|grep -vE "sda|sdb"|cut -c1-3)"
+ echo -e "\033[14G\033[36mFORMAT  : \033[0m"
+ tput cup 10 0
+
+format_usb_ext4() {
+printf "d\no\nn\np\n\n\ny\nw\n" | sudo fdisk /dev/sdc
+sudo mkfs.ext4 -L "$USB" /dev/sdc1
+}
+set_uuid() {
+if [[ $UUID == "12982129-1298-1298-1298-12982" ]]; then
+    sudo tune2fs /dev/sdc1 -U 12982129-1298-1298-1298-12982 
+fi
+}
+
+format_usb_vfat() {
+printf "d\no\nn\np\n\n\ny\nt\nL\n0c\nw\n" | sudo fdisk /dev/sdc
+printf "y\n"|sudo mkfs.vfat -F32 -n "$USB" /dev/sdc1
+}
+yesandno() {
+    # Define options and corresponding commands
+    OPTIONS=("EXT4" "VFAT")
+    COMMANDS=("format_usb_ext4" "format_usb_vfat")
+    NUM_OPTIONS=${#OPTIONS[@]}
+
+    tput civis  # Hide cursor
+
+# Function to display options horizontally
+DISPLAY_OPTIONS() {
+    echo -ne "\033[24G"  # Move cursor to beginning of the line
+    for ((i=0; i<NUM_OPTIONS; i++)); do
+        if [[ $i -eq $selected ]]; then
+            echo -ne "\033[2;37;41m ${OPTIONS[i]} \033[0m"  # Highlight selected option
+        else
+            echo -en "\033[1;31m ${OPTIONS[i]} \033[0m"
+        fi
+    done
+    tput sgr0
+}
+# Function to execute selected command
+EXECUTE_COMMAND() {
+  eval "${COMMANDS[selected]}"
+  set_uuid
+  return 0
+
+}
+
+selected=0
+DISPLAY_OPTIONS
+
+# Main loop
+while true; do
+    IFS= read -rsn1 key
+    if [[ $key == $'\e' ]]; then
+        read -rsn2 key  # Read next two characters
+        case $key in
+            '[D')  ((selected--)) ;;  # Left
+            '[C')  ((selected++)) ;;  # Right
+        esac
+    elif [[ $key == "" ]]; then
+        EXECUTE_COMMAND
+        break
+    fi
+
+    ((selected = (selected + NUM_OPTIONS) % NUM_OPTIONS))
+    DISPLAY_OPTIONS
+done
+
+
+tput cnorm  # Restore cursor visibility
+}
+yesandno
+

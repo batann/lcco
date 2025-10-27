@@ -1,0 +1,16 @@
+the daemonthat is launched at login and made of 4 types of background processes
+permanent, periodic, conditional and one more, that we were brainstorming on, ifyou remamner; here is a part of it that seems to be functional and we do need to complete it tonight.
+A quick refresher on final thoughts we had on it.
+1 It will start on us login
+2 launch the processes and take a PID for each of them
+3 save the PIDs in a file
+list of all the processes so far:
+Permanent: 
+- Listen for changes in clipboard and append them to registarts in /home/$USER/.config/lc-clipboard/register{1-9}
+- Listen for changes in /home/$USER/.config/lc-gutenberg, on detection of new files, edge-tts them and convert them to mp3 and play 
+
+Periodic:
+- every 2h clear system, shred pngs in thunbnails directory clear package manager update repositories
+- Using feh change background in 5 min interval from /usr/share/backgrounds directory
+-Announce time every 30 min
+

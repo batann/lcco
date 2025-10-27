@@ -1,0 +1,59 @@
+#!/bin/bash
+# vim:fileencoding=utf-8:foldmethod=marker
+
+DIR_BASE="/home/$USER/.config/lc-clipboard"
+source /home/$USER/.bashrc.aliases
+inter_count="10" #used for countdown and full circle intervals, not applied ATM
+count="1"
+	
+move_register() {
+
+		if [[ ! -f $DIR_BASE/register9 ]]; then
+		rm -f $DIR_BASE/register9 2>/dev/null 
+		fi
+		mv $DIR_BASE/register8 $DIR_BASE/register9 2>/dev/null 
+		mv $DIR_BASE/register7 $DIR_BASE/register8 2>/dev/null
+		mv $DIR_BASE/register6 $DIR_BASE/register7 2>/dev/null
+		mv $DIR_BASE/register5 $DIR_BASE/register6 2>/dev/null
+		mv $DIR_BASE/register4 $DIR_BASE/register5 2>/dev/null
+		mv $DIR_BASE/register3 $DIR_BASE/register4 2>/dev/null
+		mv $DIR_BASE/register2 $DIR_BASE/register3 2>/dev/null
+		mv $DIR_BASE/register1 $DIR_BASE/register2 2>/dev/null
+		if [[ ! -f $DIR_BASE/register1 ]]; then
+		touch $DIR_BASE/register1 2>/dev/null 
+		fi
+}
+
+
+lc-clipboard() {
+
+# Set a trap for SIGINT (Ctrl+C)
+#trap 'echo "Caught Ctrl+C! Breaking the loop..."; break' SIGINT
+
+
+							# Start Listening
+					previous_clipboard=""
+							#Listen for clipboard changes
+while true; 
+do
+							# Get current clipboard content
+    				current_clipboard=$(xclip -o -selection clipboard)
+							# Check if clipboard content has changed
+    				if [[ "$current_clipboard" != "$previous_clipboard" ]]; then
+    					   # move registry one up and create blank registry 1
+					move_register
+
+						   # Append clipboard content to file1
+        			echo "$current_clipboard" >> /home/$USER/.config/lc-clipboard/register1
+					       	# Update previous clipboard content
+        			previous_clipboard="$current_clipboard"
+    				fi
+					   		# Sleep for a short duration to avoid high CPU usage
+				done
+			}
+
+
+
+
+
+lc-clipboard

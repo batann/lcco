@@ -1,0 +1,73 @@
+#!/bin/bash
+# vim:fileencoding=utf-8:foldmethod=marker
+
+LCSIGN="/home/batan/.lc-sign"
+
+dynclean() {
+   HIGHT="$(( $(cat $LCSIGN|grep "="|wc -l) + 0 ))"
+    echo -e "\033[${HIGHT}A";for i in $(seq 1 $(cat $LCSIGN|grep "="|wc -l));do echo -e \\033[2K\ ;done;echo -ne "\033[${HIGHT}A"
+}
+
+# Read and parse the file into an array of values
+mapfile -t lines < <(grep '=' LCSIGN| sed 's/"//g')
+
+keys=()
+values=()
+for line in "${lines[@]}"; do
+    key="${line%%=*}"
+    value="${line#*=}"
+    keys+=("$key")
+    values+=("$value")
+done
+
+selected=0
+tput civis
+trap "tput cnorm; exit" INT
+
+render() {
+    echo -e "\033[2A\033[2K\n\033[2K\033[2A\033[36m│⟦ ⟧─⟦ \033[1;35mConfiguration Editor\033[0;36m ⟧\033[0m"
+    echo -e "\033[36m├─────────────────────────────────────────────\033[0m"
+    for i in "${!keys[@]}"; do
+        if [[ $i -eq $selected ]]; then
+            printf "\033[36m│\033[36m⟦\033[37m%-11s \033[0;36m⟧──⟦ \033[1;47;30m%-25s\033[0m \033[0;36m⟧\n" "${keys[$i]}" "${values[$i]}"
+        else
+            printf "\033[36m│\033[36m⟦\033[37m%-11s \033[0;36m⟧──⟦ \033[1;37m%-25s \033[0;36m⟧\n" "${keys[$i]}" "${values[$i]}"
+        fi
+    done
+}
+
+while true; do
+    render
+    read -rsn1 key
+    if [[ $key == $'\x1b' ]]; then
+        read -rsn2 key
+        case $key in
+            '[A') ((selected--));;
+            '[B') ((selected++));;
+            '[C') break;;
+        esac
+        ((selected < 0)) && selected=0
+        ((selected >= ${#keys[@]})) && selected=$((${#keys[@]} - 1))
+    elif [[ $key == "" ]]; then
+        break
+    fi
+    dynclean
+done
+
+tput cnorm
+
+# Prompt for new value
+    echo -e "\033[36m├─────────────────────────────────────────────\033[0m"
+echo -ne "\033[36m│\033[0;1;31m⟦\033[0;37m${keys[$selected]}\033[0;1;31m\033[15G⟧──⟦\033[1;92;100m                           \033[0;1;31m⟧\033[0;1;92;100m\033[20G";read -e NEWVALUE;echo -e "\033[0m"
+echo -ne "\nEnter new value for \033[1;37m${keys[$selected]}\033[0m: "
+#read NEWVALUE
+
+# Update the file using sed
+if [[ ${keys[$selected]} == "ADDNVAR" ]]; then
+    echo -e "$NEWVALUE"|sed 's/=/=\"/g'|sed 's/$/\"/g' >> $LCSIGN  #/home/$USER/.lcco/LC/project
+    exit
+fi
+sed -i "/^${keys[$selected]}=/c\\${keys[$selected]}=\"$NEWVALUE\"" $LCSIGN
+
+echo -e "\n✅ Updated \033[1;37m${keys[$selected]}\033[0m to \033[1;32m\"$NEWVALUE\"\033[0m in '$LCSIGN'"
+

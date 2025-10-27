@@ -1,0 +1,476 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+
+
+#{{{ >>>   clear_clipboard
+clear_clipboard() {
+	xclip -selection clipboard /dev/null && xclip -selection primary /dev/null
+	}
+#}}}
+#{{{ >>>   on_Login
+#on Login() {
+
+
+#}
+#}}}
+#{{{ >>>   announce_time
+
+announce_time() {
+    $(command -v edge-playback) -v en-US-EmmaMultilingualNeural -t "The Time is ... $(date +%H:%M)"
+}
+#}}}
+#{{{ >>>   lc-feh-set-wallpaper
+lc-wallpaper() {
+for i in $(find /usr/share/backgrounds -maxdepth 1 -type f -name '*.png');do feh --bg-scale $i && sleep 5m;done 
+
+}
+#}}}
+#{{{ >>>   lc-shiori-server
+lc-shiori-server() {
+    nohup lc-shiori server 2>/dev/null & PIDshiori=$! && echo -e "\033[32m${COLS}\n\033[36mPIDshiori = ${HIGH}$PIDshiori\033[0m\n\033[32m${COLS}\033[0"
+    
+
+}
+#}}}
+#{{{ >>>   lc-backup-browser-history 
+lc-backup-browser-history() {
+check_dependencies() {
+DEPSBACKUPHISTORY="firefox, pipx"
+for pack in $DEPSBACKUPHISTORY; do
+	command -v $pack >/dev/null 2>&1 
+	if [[ $? == "1" ]]; then
+		echo -e "\033[34mInstalling \033[32m$pack\033[34m...\033[0m"
+		sudo apt install -y $pack >/dev/null 2>&1
+	fi
+done
+command -v browser-history >/dev/null 2>&1 
+if [[ $? == "1" ]]; then
+	echo -e "\033[34mInstalling \033[32mbrowser-history\033[34m...\033[0m"
+pipx install browser-history >/dev/null 2>&1
+fi
+}
+backup_firefox() {
+	browser-history -b firefox -t history |grep "https"|sed 's!.*http!http!g'|sed 's![,].*$!!g' >> /home/$USER/.lcco/lists/firefox-history.md
+    cat /home/$USER/.lcco/lists/firefox-history.md |sort -u >> tempor
+    rm -f /home/$USER/.lcco/lists/firefox-history.md
+    cat tempor |sort -u >> /home/$USER/.lcco/lists/firefox-history.md
+    rm -f tempor
+}
+check_dependencies
+backup_firefox
+}
+#}}} <#2079
+#{{{ >>>   lc-backup-bashhistory
+	lc-backup-bashhistory() {
+	if [[ -f "/home/$USER/.bash_history" ]]; then
+		cat /home/$USER/.bash_history* >> BASHH
+		rm /home/$USER/.bash_history*
+		cat /home/$USER/.lcco/lists/commands.txt >> BASHH
+		rm /home/$USER/.lcco/lists/commands.txt 
+		cat BASHH|sort -u >> /home/$USER/.lcco/lists/commands.txt 
+		rm BASHH
+	fi
+	megals |grep LCBASHHISTORY 2>/dev/null >/dev/null 2>&1
+	if [[ $? == "0" ]]; then
+			megaget /Root/LCBASHHISTORY 2>/dev/null
+			megarm /Root/LCBASHHISTORY 2>/dev/null
+			cat /home/$USER/.lcco/lists/commands.txt >> LCBASHHISTORY
+			cat LCBASHHISTORY |sort -u >> BB
+			rm LCBASHHISTORY
+			mv BB LCBASHHISTORY
+		else
+			cat /home/$USER/.lcco/lists/commands.txt|sort -u >> LCBASHHISTORY
+	fi
+	megaput LCBASHHISTORY
+	}
+#}}}
+#{{{ >>>   lc-backup-bookmarks
+lc-backupbookmarks() {
+    DEPS_BOOK="pipx "
+    for pack in ${DEPS_BOOK[@]}; do
+        dpkg -s $pack >/dev/null 2>&1
+        if [[ $? == '1' ]]; then
+            echo -e '\033[34mInstalling \033[35m$pack\033[34m...\033[0m'
+            sudo apt-get install -y $pack
+            fi
+            done
+    DEPS_HIST ="browser-history"
+    for pack in ${DEPS_HIST[@]}; do
+        pipx list|grep $pack >/dev/null 2>&1
+        if [[ $? == '1' ]]; then
+            echo -e '\033[34mInstalling \033[35m$pack\033[34m...\033[0m'
+            pipx install $pack
+            fi
+            done
+	
+            if [[ -f /home/$USER/.lcco/lists/bookmarks.firefox ]]; then
+                browser-history -b firefox -t bookmarks|sed 's/.*http/http/'|sed 's/[,].*$//g' >> /home/$USER/.lcco/lists/bookmarks.temp
+                cat /home/$USER/.lcco/lists/bookmarks.firefox >> /home/$USER/.lcco/lists/bookmarks.temp
+                rm -f /home/$USER/.lcco/lists/bookmarks.firefox 
+                cat /home/$USER/.lcco/lists/bookmarks.temp|sort -u >> /home/$USER/.lcco/lists/bookmarks.firefox
+                rm 	/home/$USER/.lcco/lists/bookmarks.temp
+                else
+                    browser-history -b firefox -t bookmarks|sed 's/.*http/http/'|sed 's/[,].*$//g' >> /home/$USER/.lcco/lists/bookmarks.firefox
+                    fi
+                    }
+#}}}
+#{{{ >>>   Text To Voice
+#watch directory for changes
+lc-clipboard_gutenberg() {
+WATCH_DIR="/home/$USER/.lcco/gute"
+VOICE="en-US-EmmaNeural"  # Change this if needed
+
+inotifywait -m -e create --format '%f' "$WATCH_DIR" | while read -r file; do
+    [[ $file == *.txt ]] || continue
+
+    base="${file%.txt}"
+    txt="$WATCH_DIR/$file"
+    mp3="$WATCH_DIR/$base.mp3"
+
+    /home/$USER/.local/bin/edge-tts --voice "$VOICE" -f "$txt" --write-media "$mp3" &>/dev/null
+    mpv --no-terminal "$mp3"
+read -n1 -p "asd" fff
+    rm -f "$txt" "$mp3"
+done
+}
+#}}}
+#{{{ >>>   Move Reg
+move_register() {
+
+        cat /home/$USER/.lcco/clip/register9|grep "http" >> /home/$USER/.lcco/clip/auto.register.md 2>/dev/null
+		rm -f /home/$USER/.lcco/clip/register9 2>/dev/null
+		mv /home/$USER/.lcco/clip/register8 /home/$USER/.lcco/clip/register9 2>/dev/null
+		mv /home/$USER/.lcco/clip/register7 /home/$USER/.lcco/clip/register8 2>/dev/null
+		mv /home/$USER/.lcco/clip/register6 /home/$USER/.lcco/clip/register7 2>/dev/null
+		mv /home/$USER/.lcco/clip/register5 /home/$USER/.lcco/clip/register6 2>/dev/null
+		mv /home/$USER/.lcco/clip/register4 /home/$USER/.lcco/clip/register5 2>/dev/null
+		mv /home/$USER/.lcco/clip/register3 /home/$USER/.lcco/clip/register4 2>/dev/null
+		mv /home/$USER/.lcco/clip/register2 /home/$USER/.lcco/clip/register3 2>/dev/null
+		mv /home/$USER/.lcco/clip/register1 /home/$USER/.lcco/clip/register2 2>/dev/null
+		touch /home/$USER/.lcco/clip/register1
+}
+#}}}
+#{{{ >>>   lc-clipboard background
+lc-clipboard-logic() {
+    DIR_BASE="$HOME/.lcco/clip"
+    CONFIG_FILE="$DIR_BASE/config"
+	TOGGLE_FILE="$DIR_BASE/toggle_*"
+    if [[ $TOGGLE_FILE == "toggle_tts" ]]; then
+        MODECLIP="I"
+    elif [[ $TOGGLE_FILE == "toggle_clipboard" ]]; then
+        MODECLIP="II"
+    elif [[ $TOGGLE_FILE == "toggle_music" ]]; then
+        MODECLIP="III"
+    elif [[ $TOGGLE_FILE == "toggle_search" ]]; then
+        MODECLIP="IV"
+    elif [[ $TOGGLE_FILE == "toggle_cloud" ]]; then
+        MODECLIP="V"
+    fi
+
+
+#	TOGGLE_FILE="$DIR_BASE/toggle_register"
+ #   mkdir -p "$DIR_BASE"
+ #   touch "$CONFIG_FILE"
+
+    previous_clipboard=""
+
+    while true; do
+        # Load config values (key=value format)
+        [[ -f "$CONFIG_FILE" ]] && source "$CONFIG_FILE"
+        current_clipboard=$(xclip -o -selection clipboard 2>/dev/null)
+        cleaned_clipboard=$(echo "$current_clipboard" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+        # Skip empty or unchanged clipboard
+        [[ -z "$cleaned_clipboard" || "$cleaned_clipboard" == "$previous_clipboard" ]] && sleep 0.0001 && continue
+		if [[ -f "$TOGGLE_FILE" ]]; then
+			xclip -o -selection clipboard >> /home/$USER/.lcco/gute/$(( $(ls /home/$USER/.lcco/gute/*.txt|wc -l 2>/dev/null) + 1 )).txt
+        else
+			move_register
+			echo "$cleaned_clipboard" > "$DIR_BASE/register1"
+		fi
+
+
+        # === Conditional Logic ===
+        if [[ "$cleaned_clipboard" == http* ]]; then
+            echo "$cleaned_clipboard" >> "$DIR_BASE/urls.log"
+
+        elif grep -qi youtube <<< "$cleaned_clipboard"; then
+            echo "$cleaned_clipboard" >> "$DIR_BASE/youtube.log"
+
+        elif [[ "${LOG_PLAIN}" == "true" ]]; then
+            echo "$cleaned_clipboard" >> "$DIR_BASE/plain.log"
+
+ #       elif [[ -n "$REDIRECT_PATH" ]]; then
+ #           echo "$cleaned_clipboard" >> "$REDIRECT_PATH"
+#
+#        elif [[ "$CENSOR" == "true" ]]; then
+#            echo "[CENSORED]" >> "$DIR_BASE/censored.log"
+
+#        elif [[ "$cleaned_clipboard" == *password* ]]; then
+#            echo "[SECRET]" >> "$DIR_BASE/secrets.log"
+
+        fi
+ echo $cleaned_clipboard >> ~/urls.txt
+        previous_clipboard="$cleaned_clipboard"
+        sleep 0.0001
+    done
+}
+#}}}
+#{{{ >>>   Text To Voice
+#watch directory for changes
+lc-clipboard_gutenberg() {
+WATCH_DIR="/home/$USER/.lcco/gute"
+VOICE="en-US-EmmaNeural"  # Change this if needed
+
+inotifywait -m -e create --format '%f' "$WATCH_DIR" | while read -r file; do
+    [[ $file == *.txt ]] || continue
+
+    base="${file%.txt}"
+    txt="$WATCH_DIR/$file"
+    mp3="$WATCH_DIR/$base.mp3"
+
+    /home/$USER/.local/bin/edge-tts --voice "$VOICE" -f "$txt" --write-media "$mp3" &>/dev/null
+    mpv --no-terminal "$mp3"
+read -n1 -p "asd" fff
+    rm -f "$txt" "$mp3"
+done
+}
+#}}}
+#{{{ >>>    Move Reg
+move_register() {
+
+        cat /home/$USER/.lcco/clip/register9|grep "http" >> /home/$USER/.lcco/clip/auto.register.md 2>/dev/null
+		rm -f /home/$USER/.lcco/clip/register9 2>/dev/null
+		mv /home/$USER/.lcco/clip/register8 /home/$USER/.lcco/clip/register9 2>/dev/null
+		mv /home/$USER/.lcco/clip/register7 /home/$USER/.lcco/clip/register8 2>/dev/null
+		mv /home/$USER/.lcco/clip/register6 /home/$USER/.lcco/clip/register7 2>/dev/null
+		mv /home/$USER/.lcco/clip/register5 /home/$USER/.lcco/clip/register6 2>/dev/null
+		mv /home/$USER/.lcco/clip/register4 /home/$USER/.lcco/clip/register5 2>/dev/null
+		mv /home/$USER/.lcco/clip/register3 /home/$USER/.lcco/clip/register4 2>/dev/null
+		mv /home/$USER/.lcco/clip/register2 /home/$USER/.lcco/clip/register3 2>/dev/null
+		mv /home/$USER/.lcco/clip/register1 /home/$USER/.lcco/clip/register2 2>/dev/null
+		touch /home/$USER/.lcco/clip/register1
+}
+#}}}
+#{{{ >>>   clipboard_logic
+clipboard_logic() {
+DIR_BASE="/home/batan/.lcco/clip"
+inter_count="10" #used for countdown and full circle intervals, not applied ATM
+count="1"
+	
+move_register() {
+	   cat /home/batan/.lcco/clip/register9|grep "http" >> /home/batan/.lcco/clip/auto.register.md 2>/dev/null
+		rm -f $DIR_BASE/register9 2>/dev/null 
+		mv $DIR_BASE/register8 $DIR_BASE/register9 2>/dev/null 
+		mv $DIR_BASE/register7 $DIR_BASE/register8 2>/dev/null
+		mv $DIR_BASE/register6 $DIR_BASE/register7 2>/dev/null
+		mv $DIR_BASE/register5 $DIR_BASE/register6 2>/dev/null
+		mv $DIR_BASE/register4 $DIR_BASE/register5 2>/dev/null
+		mv $DIR_BASE/register3 $DIR_BASE/register4 2>/dev/null
+		mv $DIR_BASE/register2 $DIR_BASE/register3 2>/dev/null
+		mv $DIR_BASE/register1 $DIR_BASE/register2 2>/dev/null
+		touch $DIR_BASE/register1
+}
+
+# Set a trap for SIGINT (Ctrl+C)
+#trap 'echo "Caught Ctrl+C! Breaking the loop..."; break' SIGINT
+
+							# Start Listening
+					previous_clipboard=""
+							#Listen for clipboard changes
+while true; 
+do
+							# Get current clipboard content
+    				current_clipboard=$(xclip -o -selection clipboard)
+							# Check if clipboard content has changed
+    				if [[ "$current_clipboard" != "$previous_clipboard" ]]; then
+    					   # move registry one up and create blank registry 1
+					move_register
+
+						   # Append clipboard content to file1
+        			echo "$current_clipboard" >> /home/batan/.lcco/clip/register1
+					       	# Update previous clipboard content
+        			previous_clipboard="$current_clipboard"
+    				fi
+					   		# Sleep for a short duration to avoid high CPU usage
+    				sleep 0.1
+				done
+			}
+#}}}
+
+
+#{{{ >>>   lc-clipboard background
+lc-clipboard-logic() {
+    DIR_BASE="$HOME/.lcco/clip"
+    CONFIG_FILE="$DIR_BASE/config"
+	TOGGLE_FILE="$DIR_BASE/toggle_*"
+    if [[ $TOGGLE_FILE == "toggle_tts" ]]; then
+        MODECLIP="I"
+    elif [[ $TOGGLE_FILE == "toggle_clipboard" ]]; then
+        MODECLIP="II"
+    elif [[ $TOGGLE_FILE == "toggle_music" ]]; then
+        MODECLIP="III"
+    elif [[ $TOGGLE_FILE == "toggle_search" ]]; then
+        MODECLIP="IV"
+    elif [[ $TOGGLE_FILE == "toggle_cloud" ]]; then
+        MODECLIP="V"
+    fi
+
+
+    previous_clipboard=""
+
+    while true; do
+        # Load config values (key=value format)
+        [[ -f "$CONFIG_FILE" ]] && source "$CONFIG_FILE"
+        current_clipboard=$(xclip -o -selection clipboard 2>/dev/null)
+        cleaned_clipboard=$(echo "$current_clipboard" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+        # Skip empty or unchanged clipboard
+        [[ -z "$cleaned_clipboard" || "$cleaned_clipboard" == "$previous_clipboard" ]] && sleep 0.0001 && continue
+		if [[ -f "$TOGGLE_FILE" ]]; then
+			xclip -o -selection clipboard >> /home/$USER/.lcco/gute/$(( $(ls /home/$USER/.lcco/gute/*.txt|wc -l 2>/dev/null) + 1 )).txt
+        else
+			move_register
+			echo "$cleaned_clipboard" > "$DIR_BASE/register1"
+		fi
+
+
+        # === Conditional Logic ===
+        if [[ "$cleaned_clipboard" == http* ]]; then
+            echo "$cleaned_clipboard" >> "$DIR_BASE/urls.log"
+
+        elif grep -qi youtube <<< "$cleaned_clipboard"; then
+            echo "$cleaned_clipboard" >> "$DIR_BASE/youtube.log"
+
+        elif [[ "${LOG_PLAIN}" == "true" ]]; then
+            echo "$cleaned_clipboard" >> "$DIR_BASE/plain.log"
+        fi
+ echo $cleaned_clipboard >> ~/urls.txt
+        previous_clipboard="$cleaned_clipboard"
+        sleep 0.0001
+    done
+}
+#}}}
+#{{{ >>>   lc-system-cleanup
+lc-system_cleanup() {
+CACHEDIR="/home/$USER/.lcco/cache/sm"
+mkdir -p "$CACHEDIR"
+LOGFILE="$CACHEDIR/sm.$(date +%j.%H).log"
+touch "$LOGFILE"
+
+clear
+    ping -c1 192.168.1.1 >/dev/null 2>&1
+    if [ $? == "0" ]; then
+        echo "Ba7an" | lc-netgear reboot >>"$LOGFILE" 2>&1
+    fi
+    find ~/.cache/thumbnails -maxdepth 2 -type f -name "*.png" -exec shred -z -n1 -u {} \; >/dev/null 2>&1 &
+yt-dlp --rm-cache-dir >>"$LOGFILE" 2>&1
+
+export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=/run/user/$UID/bus}"
+timeout 10s flatpak uninstall --unused --assumeyes >/dev/null 2>&1
+sudo rm -rf /home/$USER/.cache/mozilla/firefox/* >>"$LOGFILE" 2>&1
+[ -d /home/$USER/.cache/chromium ] && rm -rf /home/$USER/.cache/chromium/*
+sudo rm -rf /home/$USER/.cache/thumbnails >>"$LOGFILE" 2>&1
+sudo rm -rf /var/lib/apt/lists/* >>"$LOGFILE" 2>&1
+sudo rm -rf /tmp/* >>"$LOGFILE" 2>&1
+
+    sudo trash-empty >>"$LOGFILE" 2>&1
+    find /home/*/.local/share/Trash -mindepth 1 -exec rm -rf '{}' + >>"$LOGFILE" 2>&1
+    sudo find /var/cache/apt/archives/ -type f -exec rm -rf '{}' + >>"$LOGFILE" 2>&1
+    sudo find /var/log -type f -exec rm -rf '{}' + >>"$LOGFILE" 2>&1
+# Remove old kernel while leaving 2 most reacent
+remove_kernel() {
+    local KEEP=2
+    local PURGE=""
+    local KERNELS=($(ls -tr /boot/vmlinuz-* 2>>"$LOGFILE"))
+    local NUM_KERNELS=${#KERNELS[@]}
+
+    (( NUM_KERNELS <= KEEP )) && return 0
+
+    local CANDIDATES=$(printf "%s\n" "${KERNELS[@]}" \
+        | head -n -${KEEP} \
+        | grep -v "$(uname -r)" \
+        | sed 's|.*/vmlinuz-||' \
+        | awk '{print "linux-image-" $0 " linux-headers-" $0}')
+
+    for c in $CANDIDATES; do
+        dpkg-query -s "$c" >>"$LOGFILE" 2>&1 && PURGE="$PURGE $c"
+    done
+
+    [ -n "$PURGE" ] && sudo apt remove -y --purge $PURGE >>"$LOGFILE" 2>&1
+}
+remove_kernel
+
+# Drop caches
+echo 1 | sudo tee /proc/sys/vm/drop_caches >>"$LOGFILE" 2>&1
+echo 2 | sudo tee /proc/sys/vm/drop_caches >>"$LOGFILE" 2>&1
+
+# Restart swap
+sudo swapoff -a >>"$LOGFILE" 2>&1
+sudo swapon -a >>"$LOGFILE" 2>&1
+
+# System cleanup
+sudo apt-get autoclean -y >>"$LOGFILE" 2>&1
+sudo apt-get autoremove --purge -y >>"$LOGFILE" 2>&1
+sudo apt-get clean -y >>"$LOGFILE" 2>&1
+sudo apt-get update -y >>"$LOGFILE" 2>&1
+sudo apt-get upgrade -y >>"$LOGFILE" 2>&1
+    sudo systemctl restart NetworkManager >>"$LOGFILE" 2>&1
+    IFACE=$(ip route get 8.8.8.8 | awk '{print $5; exit}')
+    sudo dhclient -r "$IFACE" >>"$LOGFILE" 2>&1
+    sudo dhclient "$IFACE" >>"$LOGFILE" 2>&1
+    if systemctl is-active --quiet NetworkManager; then
+        sudo systemctl restart NetworkManager >>"$LOGFILE" 2>&1
+    else
+        echo 
+    fi
+    sudo service networking restart >>"$LOGFILE" 2>&1
+    #Install enable and configure firewall while allowing to and from 5
+    dpkg -s ufw >/dev/null 2>&1
+    if [ $? == "1" ]; then
+        sudo apt install -y ufw >/dev/null 2>&1
+    fi
+        for i in $(seq 35 40); do
+            sudo ufw allow from 192.168.1.$i >>"$LOGFILE" 2>&1
+            sudo ufw allow to 192.168.1.$i >>"$LOGFILE" 2>&1
+        done
+
+        sudo ufw enable >>"$LOGFILE" >/dev/null 2>&1
+        sudo ufw reload >>"$LOGFILE" >/dev/null 2>&1
+    # Fid Duplicates
+    command -v rmlint >/dev/null 2>&1
+    if [ $? == "1" ]; then
+        sudo apt install rmlint -y
+    fi
+    rmlint /home/$USER/Music/ /home/$USER/Videos/ /disk/disk1part5/Videos /disk/disk1part5/Music >>"$LOGFILE" 2>&1
+
+     if [ -f /home/$USER/rmlint.sh ]; then
+     # Remove Duplicates
+    sudo bash /home/$USER/rmlint.sh -d >>"$LOGFILE" 2>&1
+     fi
+ }
+#}}}
+#{{{ >>>   take_PID
+take_PID() {
+announce_time &
+PIDannouncetime=$!
+strace $PIDannouncetime  -c |tee -a /home/$USER/.temp.BP.log &
+echo "Announce_time: $PIDannouncetime"
+lc-clipboard_gutenberg &
+PIDgutenberg=$!
+strace -p $PIDgutenberg -c |tee -a /home/$USER/.temp.BP.log &
+echo "Gutenberg: $PIDgutenberg"
+lc-clipboard-logic &
+PIDclipboard=$!
+strace -p $PIDclipboard  -c |tee -a /home/$USER/.temp.BP.log &
+echo "Clipboard: $PIDclipboard"
+	
+	
+	}
+	#}}}
+
+
+
+
+
+

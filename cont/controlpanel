@@ -1,0 +1,380 @@
+#!/bin/bash
+# vim:fileencoding=utf-8:foldmethod=marker
+#{{{ >>>   menu_cd >#3
+menu_cd() {
+# ─── Settings ─────────────────────────────────────────────────────
+max_visible=1
+selected=0
+offset=0
+search_string=""
+
+# ─── Load Directories ─────────────────────────────────────────────
+list_directories() {
+  local base_dirs=(
+    "/media/batan/100"
+    "/home/$USER"
+    "/media/batan/200"
+    "/home/$USER/.config"
+  )
+  local all=()
+  for base in "${base_dirs[@]}"; do
+    find "$base" -mindepth 1 -maxdepth 1 -type d 2>/dev/null
+  done
+}
+
+mapfile -t all_items < <(list_directories)
+
+# ─── Filter Matches ───────────────────────────────────────────────
+filter_items() {
+  visible_items=()
+  for item in "${all_items[@]}"; do
+    if [[ "${item,,}" == *"${search_string,,}"* ]]; then
+      visible_items+=("$item")
+    fi
+  done
+}
+
+# ─── Draw Menu ────────────────────────────────────────────────────
+draw_menu() {
+  tput cup 4 0;tput el;tput cup 3 0
+  echo ""
+  local start=$offset
+  local end=$(( offset + max_visible ))
+  for i in "${!visible_items[@]}"; do
+    (( i < start || i >= end )) && continue
+    line="${visible_items[i]}"
+    display="${line: -15}"  # last 15 characters of path
+    prefix="   "; (( i == selected )) && prefix="──▶ "
+    echo -e "\033[0G\033[48;5;18m$prefix \033[34m$display                                 \033[0m"
+  done
+}
+# ─── Initial State ────────────────────────────────────────────────
+filter_items
+if (( selected >= ${#visible_items[@]} )); then
+  selected=$(( ${#visible_items[@]} - 1 ))
+fi
+(( selected < 0 )) && selected=0
+# ─── Main Loop ────────────────────────────────────────────────────
+while true; do
+  draw_menu
+  IFS= read -rsn1 key
+
+  if [[ $key == $'\x1b' ]]; then
+    read -rsn2 rest
+    key+="$rest"
+    case "$key" in
+      $'\x1b[A') (( selected > 0 )) && ((selected--)) ;;
+      $'\x1b[B') (( selected < ${#visible_items[@]} - 1 )) && ((selected++)) ;;
+    esac
+  elif [[ $key == $'\x7f' ]]; then
+      if [[ -n "$search_string" ]]; then
+    search_string="${search_string::-1}"
+    filter_items
+    selected=0
+    offset=0
+      fi
+  elif [[ "$key" =~ [a-zA-Z0-9] ]]; then
+    search_string+="$key"
+    filter_items
+    selected=0
+    offset=0
+  elif [[ $key == "" ]]; then  # Enter key
+    [[ ${#visible_items[@]} -gt 0 ]] && cd "${visible_items[selected]}"
+    break
+  elif [[ $key == "q" ]]; then
+    break
+  fi
+
+  (( selected < offset )) && offset=$selected
+  (( selected >= offset + max_visible )) && offset=$(( selected - max_visible + 1 ))
+done
+}
+
+search_menu() {
+    if [[ $SEARCH = "" ]]; then
+        menu_cd
+    fi
+
+}
+
+#}}} <#100
+#{{{ >>>   SEARCH FUNCTIONS >#101
+forfiles() {
+            "find . -maxdepth 1 -type f -name '*$SEARCH*' "
+}
+infiles() {
+             "find . -maxdepth 1-type f -exec grep -l '*$SEARCH*' {} +"   
+}
+forfilesinmedia() {
+    find /media/batan/{100,200,300/home/$USER,400/home/$USER/,500/home/$USER/,600/home/$USER/,700/home/$USER/,800/home/$USER/,900/home/$USER} -maxdepth 4 -type $2 -name "*$SEARCH*" 2>/dev/null
+}
+
+#}}} <#112
+
+      echo -e "\033[2A\033[2K\n\033[2K"
+SEARCH() {
+  find -maxdepth 1 -type f -name "*$SEAR*" 
+
+}
+
+SEARCHFILE() {
+  find . -maxdepth 1 -type f -name "*${SEARCH}*"|sed 's/\.\///g'
+}
+
+DIRBASE="/home/$USER/LCCLIMENU"
+source /home/$USER/LCCLIMENU/lcclimenu.functions
+#lsdisplayvideo
+#lsdisplayaudio
+tput civis 
+trap "tput cnorm" EXIT
+clear_display() {
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[2K"
+echo -e "\033[14A"
+}
+G="\033[32m"
+R="\033[31m"
+B="\033[34m"
+Y="\033[33m"
+N="\033[0m"
+AA="n"
+BB="e"
+CC="4"
+DD="5"
+OP="0"
+XX="40"
+ZZ="0"
+P1="\033[33m┓\033[0m"
+P2="\033[33m┃\033[0m"
+P3="\033[33m┫\033[0m"
+P4="\033[33m┗\033[0m"
+P5="\033[33m┕━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+source ~/.bashrc.getfold
+if [[ -f temp ]]; then rm temp; fi
+touch temp
+#{{{ >>>   OPTIONS1 >#157
+OPTIONS1() {
+OPTIONS=("\033[2G\033[1;92;100mSearch:           \033[0m" "Disks     " "Dotfiles  " "SysMaintan" "Postinstal" "Media     " "Daemon   ")
+COMMANDS=("search_menu" "YESNO=2" "YESNO=3" "YESNO=4" "YESNO=5" "YESNO=6")
+    NUM_OPTIONS=${#OPTIONS[@]}
+    AA="n"
+}
+#}}} <#164
+#{{{ >>>   Disk OPTIONS2 >#165
+OPTIONS2() {
+OPTIONS=("${B}Disks     " "${B}USB-LIVE  " "${B}FormatUSB " "${B}Repair    " "${B}Analasys  " "${B}Label/UUID" "${B}Partition ")
+COMMANDS=("sudo -u batan bash $DIRBASE/disk1.menu" "sudo -u batan bash $DIRBASE/disk2.menu" "sudo -u batan bash $DIRBASE/disk3.menu" "sudo -u batan bash $DIRBASE/disk4.menu" "sudo -u batan bash $DIRBASE/disk5.menu" "sudo -u batan bash $DIRBASE/disk6.menu")
+    NUM_OPTIONS=${#OPTIONS[@]}
+    OP="0"
+}
+#}}} <#172
+#{{{ >>>   DotfilesOPTIONS3 >#173a
+OPTIONS3() {
+OPTIONS=("${B}Bashrc    " "${B}Dotfiles  " "${B}Functions " "${B}Xxxxxxxxxx" "${B}Xxxxxxxxxx" "${B}Xxxxxxxxxx")
+COMMANDS=("sudo -u batan bash $DIRBASE/dotfiles1.menu" "sudo -u batan bash $DIRBASE/dotfiles2.menu" "sudo -u batan bash $DIRBASE/dotfiles3.menu" "sudo -u batan bash $DIRBASE/dotfiles4.menu" "sudo -u batan bash $DIRBASE/dotfiles5.menu" "sudo -u batan bash $DIRBASE/dotfiles6.menu")
+    NUM_OPTIONS=${#OPTIONS[@]}
+    OP="13"
+}
+#}}} <#180
+#{{{ >>>   System OPTIONS4 >#181
+OPTIONS4() {
+OPTIONS=("Ucare     " "Clean     " "Sweeper   " "Bleachbit " "Mxcleanup " "Xxxxxxxxxx" "LCCleaner" "Host File ")
+COMMANDS=("sudo -u batan bash $DIRBASE/system1menu" "sudo -u batan bash $DIRBASE/system2menu" "sudo -u batan bash $DIRBASE/system3menu" "sudo -u batan bash $DIRBASE/system4menu" "sudo -u batan bash $DIRBASE/system5menu" "sudo -u batan bash $DIRBASE/system6menu" "ZZ="1" && sudo -u batan bash $DIRBASE/system7menu"  "sudo -u batan bash $DIRBASE/system8menu" )
+    NUM_OPTIONS=${#OPTIONS[@]}
+    OP="26"
+}
+#}}} <#188
+#{{{ >>>   POST INSTALL OPTIONS5 >#189
+OPTIONS5() {
+OPTIONS=("Form      " "Get Info  " "MirrorTEST" "DNS-Test  " "Netgear   " "Form      " "Form      " "Form      ")
+COMMANDS=("sudo -u batan bash $DIRBASE/1menu" "sudo -u batan bash $DIRBASE/2menu" "sudo -u batan bash $DIRBASE/3menu" "sudo -u batan bash $DIRBASE/4menu" "sudo -u batan bash $DIRBASE/5menu" "sudo -u batan bash $DIRBASE/6menu")
+NUM_OPTIONS=${#OPTIONS[@]}
+    OP="39"
+}
+#}}} <#196
+#{{{ >>>   Media OPTIONS6 >#197
+OPTIONS6() {
+OPTIONS=("Music     " "Videos    " "Home      " "FourPlaceH" "DownlAudio" "DownlVideo")
+COMMANDS=("ZZ="1" && sudo -u batan bash $DIRBASE/media1menu" "sudo -u batan bash $DIRBASE/media2menu" "sudo -u batan bash $DIRBASE/media3menu" "sudo -u batan bash $DIRBASE/media4menu" "sudo -u batan bash $DIRBASE/media5menu" "sudo -u batan bash $DIRBASE/media6menu")
+    NUM_OPTIONS=${#OPTIONS[@]}
+    OP="52"
+}
+#}}} <#204
+#{{{ >>>   Deamon OPTIONS7 >#205
+OPTIONS7() {
+OPTIONS=("Periodic  " "Permanent " "Conditiona" "Xxxxxxxxxx" "Xxxxxxxxxx" "Xxxxxxxxxx")
+COMMANDS=("sudo -u batan bash $DIRBASE/daemon1menu" "sudo -u batan bash $DIRBASE/daemon2menu" "sudo -u batan bash $DIRBASE/daemon3menu" "sudo -u batan bash $DIRBASE/daemon4menu" "sudo -u batan bash $DIRBASE/daemon5menu" "sudo -u batan bash $DIRBASE/daemon6menu")
+NUM_OPTIONS=${#OPTIONS[@]}
+    OP="65"
+}
+#}}} <#212
+#{{{ >>>   DISPLAY_OPTIONS >#213
+DISPLAY_OPTIONS() {
+    if [[ $ZZ == "0" ]]; then
+      tput cuu1
+    elif [[ $ZZ == "1" ]]; then
+    tput cup 3 0;tput el;tput cup 3 0;echo -e "\033[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$P1\033[0m"
+    tput cup 4 76;echo -e "$P2"
+    tput cup 5 0;tput el;tput cup 5 0;echo -e "\033[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$P3\033[0m"
+    tput cup 6 76;echo -e "$P4"
+    tput cup 4 0
+    fi
+    echo -e "\033[0G"  # Move cursor to beginning of the line
+    for ((i=0; i<NUM_OPTIONS; i++)); do
+
+        if [[ $AA == "n" ]]; then
+                    if [[ $i -eq $selected ]]; then
+                        echo -${AA}${BB} "\e[7m${OPTIONS[i]}\e[27m   "  # Highlight selected option
+                        else
+                            echo -${AA}${BB} "${OPTIONS[i]}   "
+                            fi
+                        elif [[ $AA == "" ]]; then
+                            if [[ $i -eq $selected ]]; then
+                        echo -${AA}${BB} "\033[${OP}G\e[7m${OPTIONS[i]}\e[27m   "  # Highlight selected option
+                        else
+                            echo -${AA}${BB} "\033[${OP}G${OPTIONS[i]}   "
+                            fi
+        fi
+  #  echo -e "\033[1A"
+
+    done
+    tput sgr0
+}
+#}}} <#246
+#{{{ >>>   clear_below_horiz >#247
+clear_below_horiz() {
+ tput cup 5 0;tput el
+ tput cup 6 0;tput el
+ tput cup 7 0;tput el
+ tput cup 8 0;tput el
+tput cup  9 0;tput el
+tput cup  10 0;tput el
+}
+#}}} <#256
+#{{{ >>>   EXECUTE_COMMAND >#257
+EXECUTE_COMMAND() {
+    if [[ $AA == "n" ]]; then
+        AA=""
+        clear_display
+        # Get secondary options based on `selected`
+        case $selected in
+            0) AA="n";echo -ne "\033[G\033[36m│\033[1;30;42m                   \033[0;1;30;44m";echo -ne "\033[2G";read -er SEARCH 
+              echo -ne "\033[0m"
+              SEARCHFILE
+              exit
+              ;;
+            1) OPTIONS3 ;;
+            2) OPTIONS4 ;;
+            3) OPTIONS5 ;;
+            4) OPTIONS6 ;;
+			5) OPTIONS7 ;;
+			6) OPTIONS8 ;;
+			*) OPTIONS2 ;;  # fallback
+        esac
+
+        # Print secondary options vertically below OPTIONS1, at OP column
+        local i
+        for ((i=0; i<NUM_OPTIONS; i++)); do
+            tput cup $((6 + i)) "$OP"
+            if [[ $i -eq 0 ]]; then
+                echo -e "\e[7m${OPTIONS[i]}\e[27m"
+            else
+                echo -e "${OPTIONS[i]}"
+            fi
+        done
+
+        # Read vertical selection
+        local vsel=0
+        while true; do
+            read -rsn1 key
+            if [[ $key == $'\e' ]]; then
+                read -rsn2 key
+                case $key in
+                    '[A') ((vsel--)) ;;  # Up
+                    '[B') ((vsel++)) ;;  # Down
+                    '[D') return ;;      # Left — exit back
+                    '[C') return ;;      # Right — exit back
+                esac
+            elif [[ $key == "" ]]; then
+#                clear_below_horiz
+                eval "${COMMANDS[vsel]}"
+                break
+            fi
+            ((vsel = (vsel + NUM_OPTIONS) % NUM_OPTIONS))
+            # Re-render secondary menu
+            for ((i=0; i<NUM_OPTIONS; i++)); do
+                tput cup $((6 + i)) "$OP"; tput el
+                if [[ $i -eq $vsel ]]; then
+                    echo -e "\e[7m${OPTIONS[i]}\e[27m"
+                else
+                    echo -e "${OPTIONS[i]}"
+                fi
+            done
+        done
+  #      DISPLAY_OPTIONS # Re-render OPTIONS1 with current selection
+      elif [[ $AA == "" ]]; then
+        clear_below_horiz
+        eval "${COMMANDS[selected]}"
+        sleep 1  # optional pause for output visibility
+        AA="n"
+        OPTIONS1
+        DISPLAY_OPTIONS
+    fi
+}
+
+#}}} <#324
+#{{{ >>>   MAIN_LOOP >#325
+MAIN_LOOP() {
+selected="0"
+
+      echo -e "\033[2A\033[2K\n\033[2K"
+      echo -e "\033[2K\033[1G\033[36m┌─────────────────────────────────────────────────────────────────────────────────────────────\n│\033[0m\033[1A"
+      DISPLAY_OPTIONS
+
+# Main loop
+while true; do
+    IFS= read -rsn1 key
+    if [[ $key == $'\e' ]]; then
+        read -rsn2 key  # Read next two characters
+        case $key in
+            '[D')  ((selected--)) ;;  # Left
+            '[C')  ((selected++)) ;;  # Right
+            'q') break ;;
+        esac
+    elif [[ $key == "" ]]; then
+        EXECUTE_COMMAND
+         OPTIONS1
+    fi
+
+   ((selected = (selected + NUM_OPTIONS) % NUM_OPTIONS))
+    DISPLAY_OPTIONS
+done
+}
+#}}} <#349
+#{{{ >>>   compoundcmd >#350
+compoundcmd1() {
+
+OPTIONS1
+MAIN_LOOP
+}
+
+#}}} <#357
+#{{{ >>>   compoundcmd >#358
+compoundcmd2() {
+OPTIONS2
+MAIN_LOOP
+}
+
+#}}} <#364
+compoundcmd1
